@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="CGK-Utrecht West" 
+      title_url="http://www.cgk-utrechtwest.nl/" 
+      description="Overzicht van de diensten in de Christelijke Gereformeerde Kerk te Utrecht-West."
+      author="R.Brouwer" 
+      author_email="r-gg-cgk@corine-robert.nl">
+   <Require feature="dynamic-height"/>
+   <Require feature="setprefs"/>
+   <Require feature="skins"/>
+  </ModulePrefs>
+  <UserPref name="jsondatalink" datatype="hidden" 
+      required="true"
+      default_value="http://info.cgk-utrechtwest.nl/cgk-utrechtwest.json" />
+  <UserPref name="active_view" required="true" 
+     display_name="Welke diensten?"
+     datatype="enum"
+     default_value="archief">
+    <EnumValue value="volgende" display_value="Volgende" />
+    <EnumValue value="archief" display_value="Archief" />
+    <EnumValue value="toekomst" display_value="Komende weken" />
+  </UserPref>  
+  
+ <UserPref name="show_details" required="true" 
+     display_name="Welke informatie?"
+     datatype="enum"
+     default_value="default">
+    <EnumValue value="default" display_value="Normaal" />
+    <EnumValue value="all" display_value="Alles" />
+  </UserPref>  
+  
+ <Content type="html">
+  <![CDATA[
+    <div id="player_div" ></div><div id="content_div"></div>
+    <script type="text/javascript">
+    function makeJSONRequest() {    
+      var params = {};
+      params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+      // This URL returns a JSON-encoded string that represents a JavaScript object
+      var url = "http://info.cgk-utrechtwest.nl/cgk-utrechtwest.json";
+      gadgets.io.makeRequest(url, response, params);
+    };
+
+    function padzero(i) {
+      if (i<10) { i="0" + i; }
+      return i; 
+    }
+      
+    function play(url,info) {
+       url+='&autoPlay=true';
+       html = info+'<br>';
+       html+= '<object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
+       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="Src" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="AllowScriptAccess" value="always">';
+       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
+       html+= '</object>';
+
+      document.getElementById('player_div').innerHTML = html;
+  
+      html = '<a href="javascript:showdefault()">terug</a>';
+      document.getElementById('content_div').innerHTML = html;
+      gadgets.window.adjustHeight();
+    }
+    
+    function showdefault() {
+      document.getElementById('player_div').innerHTML = '';
+      makeJSONRequest();
+    }
+
+    function response(obj) { 
+      var months=new Array('Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec');
+      var weekday=new Array('Zo','Ma','Di','Wo','Do','Vr','Za');
+      var jsondata = obj.data;
+      var html = "<table>";
+      var ndag='';
+      var info1='';
+      var info2='';
+      var def_details='';
+      var preferences = new _IG_Prefs();
+      if (preferences.getString('show_details')=='all') {        
+        html+="<tr><th>datum</th><th COLSPAN=4>morgendienst</th><th COLSPAN=4>middagdienst</th>";
+        def_details='<td></td><td></td><td></td>';
+      } else {
+        html+="<tr><th>datum</th><th>morgendienst</th><th>middagdienst</th>";
+        def_details='';
+      }
+      var details1=def_details;
+      var details2=def_details;
+      // Process returned JS object as an associative array
+      var active_view=preferences.getString('active_view');
+      var currentday=new Date();
+      for ( var i = 0; i < jsondata.length; i++ ) {
+        d = new Date(jsondata[i].start_ts*1000);
+        if ((active_view=='volgende') && (d<currentday)) { continue; };
+        if ((active_view=='archief') && (currentday < d)) { continue; };
+        if ((active_view=='toekomst') && (d < currentday )) { continue; };
+        start_t=new Date(jsondata[i].start_ts*1000 + d.getTimezoneOffset()*1000*60);
+        einde_t=new Date(jsondata[i].einde_ts*1000 + d.getTimezoneOffset()*1000*60); 
+        cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
+        if (ndag=='' || ndag!=cdag) {
+          if (active_view=='volgende' && ndag!='') { break; };
+          html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr><tr><td></td><td>"+info2+"</td>"+details2+"</tr>";
+          info1='';
+          details1=def_details;
+          info2="";
+          details2=def_details;
+        }
+        info = "<b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
+        info+= "<i>"+jsondata[i].naam+"</i>";  
+        playinfo = "U luistert naar de dienst van "+cdag+" "+info+"<br/>";
+        playinfo+= "Thema: "+jsondata[i].onderwerp+" "+jsondata[i].thema+"<br/>";
+        playinfo+= "Tekst: "+jsondata[i].tekst+"<br/>";
+        details='<a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\')">';
+        details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border=0></a>';
+        if (ndag!=cdag) {
+           info1=info;
+           details1=details;
+        } else {
+           info2=info;
+           details2=details;
+        }
+        ndag=cdag;
+      }
+      html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr><tr><td></td><td>"+info2+"</td>"+details2+"</tr>";
+      document.getElementById('content_div').innerHTML = html;
+     };
+     gadgets.util.registerOnLoadHandler(makeJSONRequest);
+     </script>
+  ]]>
+  </Content>
+</Module>
