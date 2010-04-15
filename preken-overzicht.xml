@@ -23,7 +23,7 @@
   
  <Content type="html">
   <![CDATA[
-    <div id="player_div" ></div><div id="content_div"></div>
+    <div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
     <script type="text/javascript">
     function makeJSONRequest() {    
       var params = {};
@@ -38,10 +38,10 @@
       return i; 
     }
       
-    function play(url,info) {
+    function play(url,info,infodivid) {
        url+='&autoPlay=true';
-       html = info+'<br>';
-       html+= '<object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
+       document.getElementById(infodivid).style.display='';
+       html = info+'<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
        html+= '<param name="Movie" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
        html+= '<param name="Src" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
        html+= '<param name="AllowScriptAccess" value="always">';
@@ -72,6 +72,7 @@
       var preferences = new _IG_Prefs();
       html+="<tr><th>datum</th><th>voorganger</th><th>thema</th><th>tekst</th><th></th></tr>";
       def_details='';
+      infodiv='';
       
       var details1=def_details;
       var details2=def_details;
@@ -100,9 +101,12 @@
 	details='';
         if (typeof(jsondata[i].link)!='undefined') {
           playinfo = "U luistert naar de dienst van "+cdag+" "+info+"<br/>";
-          playinfo+= "Thema: "+jsondata[i].omschrijving+" "+jsondata[i].thema+"<br/>";
-          playinfo+= "Tekst: "+jsondata[i].tekst+"<br/>";
-          details+='<td><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\')">';
+	  infodiv+= '<div id="infodiv_'+jsondata[i].start_ts+'" style="display:none">';
+          infodiv+= "Thema: "+jsondata[i].omschrijving+" "+jsondata[i].thema+"<br/>";
+          infodiv+= "Tekst: "+jsondata[i].tekst+"<br/>";
+          infodiv+= "Liturgie:<br/><pre>"+jsondata[i].liturgie+"</pre>";
+	  infodiv+= '</div>';
+          details+='<td><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')">';
           details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border=0></a></td>';
         } else {
           details='<td></td>'; 
@@ -128,6 +132,7 @@
       }
       html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr><tr><td></td><td>"+info2+"</td>"+details2+"</tr>";
       document.getElementById('content_div').innerHTML = html;
+      document.getElementById('info_divs').innerHTML = infodiv;
       gadgets.window.adjustHeight();
      };
      gadgets.util.registerOnLoadHandler(makeJSONRequest);
