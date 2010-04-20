@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" author_email="r.Brouwer" height="330" width="440">
+</ModulePrefs>
+<UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&kind=photo&hl=nl" datatype="string" required="true"/>
+<UserPref name="random" display_name="Shuffle Pictures" default_value="true" datatype="bool"/>
+<UserPref name="interval" display_name="Slide Show Interval" datatype="enum" default_value="10">
+	<EnumValue value="5" display_value="5 seconds"/>
+	<EnumValue value="10" display_value="10 seconds"/>
+	<EnumValue value="15" display_value="15 seconds"/>
+	<EnumValue value="20" display_value="20 seconds"/>
+	<EnumValue value="25" display_value="25 seconds"/>
+
+	<EnumValue value="30" display_value="30 seconds"/>
+	<EnumValue value="60" display_value="1 minute"/>
+	<EnumValue value="120" display_value="2 minutes"/>
+</UserPref>
+<UserPref name="bgColor" display_name="Background Color" default_value="ffffff" datatype="string"/>
+<Content type="html"><![CDATA[
+
+<script type="text/javascript">
+<!--
+//javascript variables and settings
+var allImgUrlsTemp;
+var allImgUrls = new Array();
+var isRandom;
+var maxWidth;
+var maxHeight;
+var nextInterval;
+var prefs;
+var feedUrl;
+var bgColor;
+var legacyApi = true;
+
+var playImg = "http://insane4free.ru/templates/insane4free/images/playIcon.gif";
+var pauseImg = "http://insane4free.ru/templates/insane4free/images/pauseIcon.gif";
+var fastforwardImg = "http://insane4free.ru/templates/insane4free/images/fastforwardIcon.gif";
+var rewindImg = "http://insane4free.ru/templates/insane4free/images/rewindIcon.gif";
+
+function goLegacyApi(){
+	setCommonPrefs()
+	_IG_FetchXmlContent(feedUrl, response);
+}
+function goOpenSocialApi(){
+	legacyApi = false;
+	setCommonPrefs()
+        var params = {};
+        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;
+        gadgets.io.makeRequest(feedUrl, response, params);
+}
+function setCommonPrefs(){
+	prefs = new _IG_Prefs();
+	isRandom = prefs.getBool('random');
+	nextInterval = parseInt(prefs.getString("interval"));
+	feedUrl = prefs.getString("feed");
+	feedUrl = feedUrl.replace(/\/base\//g, '/api/');
+	feedUrl = feedUrl.replace(/&amp;/g, '&');
+	bgColor = prefs.getString("bgColor");
+	try{
+		var hexColorTest = new RegExp("[A-Fa-f0-9]");
+		if(bgColor.length == 0){
+			bgColor = "#ffffff";
+		}
+		if(bgColor.length == 6 && hexColorTest.test(bgColor)){
+			bgColor = "#" + bgColor;
+		}
+	}catch(err){}
+	maxWidth = _gel("topContainer").offsetWidth;
+	if(maxWidth == 0){
+		maxWidth = _gel("topContainer").document.body.clientWidth;
+	}
+	maxHeight = _gel("topContainer").offsetHeight;
+	if(maxHeight == 0){
+		maxHeight = _gel("topContainer").document.body.clientHeight;
+	}
+	_gel("topContainer").style.backgroundColor = bgColor;
+}
+function response(obj){
+	if(typeof obj == "undefined" || (!legacyApi && typeof obj.data == "undefined")){
+		failout();
+	}
+	allImgUrlsTemp = new Array();
+	var mediaItems = legacyApi ? obj.getElementsByTagName("item") : obj.data.getElementsByTagName("item");
+	if(mediaItems.length == 0){
+		failout();
+	}
+	for(var j = 0; j < mediaItems.length; j++){
+		var mediaItem = mediaItems[j];
+//		var allImgUrlsXml = mediaItems[j].getElementsByTagName("media:thumbnail");
+//		allImgUrlsTemp.push(allImgUrlsXml[allImgUrlsXml.length - 1].getAttribute("url"));
+		var allImgUrlsXml = mediaItems[j].getElementsByTagName("media:content");
+		allImgUrlsTemp.push(allImgUrlsXml[0].getAttribute("url"));
+	}
+	loadSlideShow();
+}
+
+function failout(){
+	document.getElementById("topContainer").innerHTML = "An error occurred. Make sure that your feed and other settings are correct, or that your feed isn't too big.";
+}
+
+//gadgets.util.registerOnLoadHandler(goOpenSocialApi);
+_IG_RegisterOnloadHandler(goLegacyApi);//legacy loader
+
+var currentImg;
+var sequentialIndex = 0;
+var setTimeoutThread;//clearTimeout(id_of_settimeout)
+
+function loadSlideShow(){
+	for(var i = 0; i < allImgUrlsTemp.length; i++ ){
+		allImgUrls.push({imgUrl:allImgUrlsTemp[i], shown: false});
+	}
+	if(isRandom){
+		fisherYates(allImgUrls);
+	}
+
+	//navDivContainer
+	var navDivContainer = document.getElementById("topContainer");
+	if(window.addEventListener){
+		navDivContainer.addEventListener("mouseover", function() { document.getElementById("navDiv").className = "navBarShow"; }, true);
+		navDivContainer.addEventListener("mouseout", function() { document.getElementById("navDiv").className = "navBarHide"; }, true);
+	}
+	else if(window.attachEvent){
+		navDivContainer.attachEvent("onmouseover", function() { document.getElementById("navDiv").className = "navBarShow"; });
+		navDivContainer.attachEvent("onmouseout", function() { document.getElementById("navDiv").className = "navBarHide"; });
+	}
+	showNextImage();
+}
+
+function playback(){
+	//clearSelection();
+	var playbackButton = document.getElementById("playbackButton");
+	if(playbackButton.src.indexOf("pauseIcon.gif") != -1){
+		clearTimeout(setTimeoutThread);
+		playbackButton.src = playImg;
+	}
+	else{
+		playbackButton.src = pauseImg;
+		showNextImage();
+	}
+}
+
+function fastforward(){
+	clearTimeout(setTimeoutThread);
+	clearSelection();
+	showNextImage();
+}
+
+function rewind(){
+	clearTimeout(setTimeoutThread);
+	sequentialIndex -= 2;
+	if(sequentialIndex < 0){
+		sequentialIndex = allImgUrls.length - 1;
+	}
+	clearSelection();
+	showNextImage();
+}
+
+function showNextImage(){
+	if(sequentialIndex + 1 > allImgUrls.length){
+		sequentialIndex = 0;
+	}
+	switchImage(allImgUrls[sequentialIndex++].imgUrl);
+	var playbackButton = document.getElementById("playbackButton");
+	if(playbackButton.src.indexOf("pauseIcon.gif") != -1){
+		setTimeoutThread = setTimeout("showNextImage()", nextInterval * 1000);
+	}
+}
+
+function switchImage(imgUrl){
+	var loader = new ImageLoader(imgUrl);
+	loader.loadEvent = function(url, image){
+		//actions to perform when the image is loaded
+		var oldToRemove = document.getElementById("currentImg");
+		if(typeof oldToRemove != "undefined" && oldToRemove != null){
+			oldToRemove.parentNode.removeChild(oldToRemove);
+		}
+		currentImg = image;
+		currentImg.id = "currentImg";
+		currentImg.className = "currentImg";
+		//currentImg.style.position = "absolute";
+		document.getElementById("imgContainer").appendChild(currentImg);
+		imgLoaded();
+		//hide loading indicator if applicable
+	}
+	loader.load();
+}
+
+function imgLoaded(){
+	var w = 0;
+	var h = 0;
+	if(currentImg.width <= maxWidth && currentImg.height <= maxHeight){
+		if(currentImg.width > currentImg.height){
+			h = (maxWidth / currentImg.width) * currentImg.height;
+			currentImg.height = h;
+			currentImg.width = maxWidth;
+			var appliedPadding = parseInt((maxHeight - h) / 2);
+			if(appliedPadding > 0){
+				currentImg.style.paddingTop = appliedPadding + "px";
+			}
+		}
+		else{
+			w = (maxHeight / currentImg.height) * currentImg.width;
+			currentImg.width = w;
+			currentImg.height = maxHeight;
+			var appliedPadding = parseInt((maxWidth - w) / 2);
+			if(appliedPadding > 0){
+				currentImg.style.paddingLeft = appliedPadding + "px";
+			}
+		}
+	}
+	else if(currentImg.width > currentImg.height){
+		h = (maxWidth / currentImg.width) * currentImg.height;
+		currentImg.style.width = maxWidth;
+		currentImg.style.height = h;
+		var appliedPadding = parseInt((maxHeight - h) / 2);
+		if(appliedPadding > 0){
+			currentImg.style.paddingTop = appliedPadding + "px";
+		}
+	}
+	else{
+		w = (maxHeight / currentImg.height) * currentImg.width;
+		currentImg.style.width = w;
+		currentImg.style.height = maxHeight;
+		var appliedPadding =  parseInt((maxWidth - w) / 2);
+		if(appliedPadding > 0){
+			currentImg.style.paddingLeft = appliedPadding + "px";
+		}
+	}
+        if(window.addEventListener) { // Standard
+		document.getElementById("imgContainer").style.width =  currentImg.style.width + "px";
+	} else if(window.attachEvent) { // IE
+		document.getElementById("imgContainer").style.width =  currentImg.width + "px";	
+        }
+	//document.getElementById("imgContainer").style.width =  currentImg.width + "px";
+	document.getElementById("imgContainer").style.height = currentImg.height + "px";
+	document.getElementById("topContainer").style.width = maxWidth + "px";
+	document.getElementById("topContainer").style.height = maxHeight + "px";
+}
+
+function addListener(element, type, expression, bubbling)
+{
+	bubbling = bubbling || false;
+	if(window.addEventListener) { // Standard
+		element.addEventListener(type, expression, bubbling);
+		return true;
+	} else if(window.attachEvent) { // IE
+		element.attachEvent('on' + type, expression);
+		return true;
+	} else{
+		return false;
+	}
+}
+
+var ImageLoader = function(url){
+	this.url = url;
+	this.image = null;
+	this.loadEvent = null;
+};
+
+ImageLoader.prototype = {
+	load:function(){
+	this.image = document.createElement('img');
+	var url = this.url;
+	var image = this.image;
+	var loadEvent = this.loadEvent;
+	addListener(this.image, 'load', function(e){
+		if(loadEvent != null){
+			loadEvent(url, image);
+		}
+	}, false);
+	this.image.src = this.url;
+	},
+	getImage:function(){
+		return this.image;
+	}
+};
+
+function fisherYates(myArray){
+	var i = myArray.length;
+	if(i == 0){
+		return false;
+	}
+	while(--i){
+		var j = Math.floor( Math.random() * ( i + 1 ) );
+		var tempi = myArray[i];
+		var tempj = myArray[j];
+		myArray[i] = tempj;
+		myArray[j] = tempi;
+	}
+}
+
+function clearSelection(){
+	try{
+		var sel;
+		if(document.selection && document.selection.empty){
+			document.selection.empty() ;
+		}
+		else if(window.getSelection){
+			sel=window.getSelection();
+			if(sel && sel.removeAllRanges){
+				sel.removeAllRanges();
+			}
+		}
+	}catch(err){}
+}
+// -->
+</script>
+
+<style type="text/css">
+.currentImg{
+z-index: 10;
+/*position: absolute;*/
+}
+.linkish{
+cursor:pointer;
+}
+.navCell{
+padding-right:10px;
+}
+.navBarShow{
+margin-left:auto;
+margin-right:auto;
+}
+.navBarHide{
+display:none;
+}
+.navDivContainer{
+height:100%;
+width:100%;
+position:absolute;
+z-index: 100;
+}
+.imgContainer{
+text-align:center;
+margin-top:0px;
+margin-bottom:0px;
+padding:0px;
+z-index: 9;
+position:absolute;
+}
+div{
+	overflow:hidden;
+}
+
+</style>
+
+<div id="topContainer" style="width:100%; height:100%;">
+<div id="imgContainer" class="imgContainer">
+
+</div>
+<div id="navDivContainer" class="navDivContainer">
+<div style="height:90%;">
+</div>
+<div style="height:10%;">
+<table id="navDiv" class="navBarHide">
+<tr>
+<td class="navCell"><a href="rewind();">&lt;</a></td>
+<td class="navCell"><a href="playback();">||</a></td>
+<td class="navCell"><a href="fastforward();">&gt;&gt;</a></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+]]></Content>
+</Module>
+
