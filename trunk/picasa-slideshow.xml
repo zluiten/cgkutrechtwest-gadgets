@@ -2,7 +2,7 @@
 <Module>
 <ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" author_email="r.Brouwer" height="330" width="440">
 </ModulePrefs>
-<UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&kind=photo&hl=nl" datatype="string" required="true"/>
+<UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&amp;kind=photo&amp;hl=nl" datatype="string" required="true"/>
 <UserPref name="random" display_name="Shuffle Pictures" default_value="true" datatype="bool"/>
 <UserPref name="interval" display_name="Slide Show Interval" datatype="enum" default_value="10">
 	<EnumValue value="5" display_value="5 seconds"/>
