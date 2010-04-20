@@ -231,7 +231,6 @@ function imgLoaded(){
 	} else if(window.attachEvent) { // IE
 		document.getElementById("imgContainer").style.width =  currentImg.width + "px";	
         }
-	//document.getElementById("imgContainer").style.width =  currentImg.width + "px";
 	document.getElementById("imgContainer").style.height = currentImg.height + "px";
 	document.getElementById("topContainer").style.width = maxWidth + "px";
 	document.getElementById("topContainer").style.height = maxHeight + "px";
@@ -346,7 +345,6 @@ div{
 
 <div id="topContainer" style="width:100%; height:100%;">
 <div id="imgContainer" class="imgContainer">
-
 </div>
 <div id="navDivContainer" class="navDivContainer">
 <div style="height:90%;">
@@ -354,9 +352,9 @@ div{
 <div style="height:10%;">
 <table id="navDiv" class="navBarHide">
 <tr>
-<td class="navCell"><a href="rewind();">&lt;</a></td>
-<td class="navCell"><a href="playback();">||</a></td>
-<td class="navCell"><a href="fastforward();">&gt;&gt;</a></td>
+<td class="navCell"><a href="javascript:rewind();" style="text-decoration:none">&lt;</a></td>
+<td class="navCell"><a href="javascript:playback();" style="text-decoration:none">||</a></td>
+<td class="navCell"><a href="javascript:fastforward();" style="text-decoration:none">&gt;&gt;</a></td>
 </tr>
 </table>
 </div>
