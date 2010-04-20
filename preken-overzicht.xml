@@ -107,9 +107,9 @@
           infodiv+= "Liturgie:<br/><pre>"+jsondata[i].liturgie+"</pre>";
 	  infodiv+= '</div>';
           details+='<td><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')">';
-          details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border=0></a></td>';
+          details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border="0" alt="afspelen"></a></td>';
         } else {
-          details='<td></td>'; 
+          details+='<td></td>'; 
         }
         if (typeof(jsondata[i].omschrijving)!='undefined') {
 	  details+= '<td>'+jsondata[i].omschrijving+'</td>';
