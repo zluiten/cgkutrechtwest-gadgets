@@ -187,6 +187,9 @@ function switchImage(imgUrl){
 }
 
 function imgLoaded(){
+      gadgets.window.adjustHeight();
+      return;
+# just set the size to the image-size instead of the other way around
 	var w = 0;
 	var h = 0;
 	if(currentImg.width <= maxWidth && currentImg.height <= maxHeight){
