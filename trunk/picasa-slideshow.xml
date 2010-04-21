@@ -111,16 +111,6 @@ function loadSlideShow(){
 		fisherYates(allImgUrls);
 	}
 
-	//navDivContainer
-	var navDivContainer = document.getElementById("topContainer");
-	if(window.addEventListener){
-		navDivContainer.addEventListener("mouseover", function() { document.getElementById("navDiv").className = "navBarShow"; }, true);
-		navDivContainer.addEventListener("mouseout", function() { document.getElementById("navDiv").className = "navBarHide"; }, true);
-	}
-	else if(window.attachEvent){
-		navDivContainer.attachEvent("onmouseover", function() { document.getElementById("navDiv").className = "navBarShow"; });
-		navDivContainer.attachEvent("onmouseout", function() { document.getElementById("navDiv").className = "navBarHide"; });
-	}
 	showNextImage();
 }
 
@@ -320,19 +310,6 @@ cursor:pointer;
 .navCell{
 padding-right:10px;
 }
-.navBarShow{
-margin-left:auto;
-margin-right:auto;
-}
-.navBarHide{
-display:none;
-}
-.navDivContainer{
-height:100%;
-width:100%;
-position:absolute;
-z-index: 100;
-}
 .imgContainer{
 text-align:center;
 margin-top:0px;
@@ -341,29 +318,10 @@ padding:0px;
 z-index: 9;
 position:absolute;
 }
-div{
-	overflow:hidden;
-}
-
 </style>
-
-<div id="topContainer" style="width:100%; height:100%;">
-<div id="imgContainer" class="imgContainer">
-</div>
-<!--<div id="navDivContainer" class="navDivContainer">
-<div style="height:90%;">
-</div>
-<div style="height:10%;">
-<table id="navDiv" class="navBarHide">
-<tr>
-<td class="navCell"><div id="rewind_btn"><a href="javascript:rewind();" style="text-decoration:none">&lt;</a></div></td>
-<td class="navCell"><div id="pause_btn"><a href="javascript:playback();" style="text-decoration:none">||</a></div></td>
-<td class="navCell"><div id="forward_btn"><a href="javascript:fastforward();" style="text-decoration:none">&gt;&gt;</a></div></td>
-</tr>
-</table>
-</div>
-</div>
--->
+<div id="topContainer" >
+  <div id="imgContainer" class="imgContainer">
+  </div>
 </div>
 ]]></Content>
 </Module>
