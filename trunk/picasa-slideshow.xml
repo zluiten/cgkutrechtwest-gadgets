@@ -32,11 +32,6 @@ var feedUrl;
 var bgColor;
 var legacyApi = true;
 
-var playImg = "http://insane4free.ru/templates/insane4free/images/playIcon.gif";
-var pauseImg = "http://insane4free.ru/templates/insane4free/images/pauseIcon.gif";
-var fastforwardImg = "http://insane4free.ru/templates/insane4free/images/fastforwardIcon.gif";
-var rewindImg = "http://insane4free.ru/templates/insane4free/images/rewindIcon.gif";
-
 function goLegacyApi(){
 	setCommonPrefs()
 	_IG_FetchXmlContent(feedUrl, response);
@@ -128,14 +123,17 @@ function loadSlideShow(){
 
 function playback(){
 	//clearSelection();
-	var playbackButton = document.getElementById("playbackButton");
-	if(playbackButton.src.indexOf("pauseIcon.gif") != -1){
-		clearTimeout(setTimeoutThread);
-		playbackButton.src = playImg;
-	}
-	else{
-		playbackButton.src = pauseImg;
+	var pause_btn = document.getElementById("pause_btn");
+	if (!pause_btn) {
 		showNextImage();
+	} else {
+		if(pause_btn.style.display != 'none'){
+			clearTimeout(setTimeoutThread);
+			pause_btn.style.display = 'block';
+		} else {
+			pause_btn.style.display = 'block';
+			showNextImage();
+		}
 	}
 }
 
@@ -160,8 +158,8 @@ function showNextImage(){
 		sequentialIndex = 0;
 	}
 	switchImage(allImgUrls[sequentialIndex++].imgUrl);
-	var playbackButton = document.getElementById("playbackButton");
-	if(playbackButton.src.indexOf("pauseIcon.gif") != -1){
+	var pause_btn = document.getElementById("pause_btn");
+	if(!pause_btn || pause_btn.style.display != "none"){
 		setTimeoutThread = setTimeout("showNextImage()", nextInterval * 1000);
 	}
 }
@@ -352,9 +350,9 @@ div{
 <div style="height:10%;">
 <table id="navDiv" class="navBarHide">
 <tr>
-<td class="navCell"><a href="javascript:rewind();" style="text-decoration:none">&lt;</a></td>
-<td class="navCell"><a href="javascript:playback();" style="text-decoration:none">||</a></td>
-<td class="navCell"><a href="javascript:fastforward();" style="text-decoration:none">&gt;&gt;</a></td>
+<td class="navCell"><div id="rewind_btn"><a href="javascript:rewind();" style="text-decoration:none">&lt;</a></div></td>
+<td class="navCell"><div id="pause_btn"><a href="javascript:playback();" style="text-decoration:none">||</a></div></td>
+<td class="navCell"><div id="forward_btn"><a href="javascript:fastforward();" style="text-decoration:none">&gt;&gt;</a></div></td>
 </tr>
 </table>
 </div>
