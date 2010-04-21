@@ -68,9 +68,9 @@
       var ndag='';
       var info1='';
       var info2='';
+      var preferences = new _IG_Prefs();
       var active_view=preferences.getString('active_view');
       var def_details='';
-      var preferences = new _IG_Prefs();
       if (active_view=='archief') {
 	      html+="<tr><th>datum</th><th>voorganger</th><th></th><th>tekst</th></tr>";
       } else {
