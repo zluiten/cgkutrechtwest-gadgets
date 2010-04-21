@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" author_email="r.Brouwer" height="330" width="440">
+<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" author_email="r.Brouwer" >
    <Require feature="dynamic-height"/>
    <Require feature="setprefs"/>
    <Require feature="skins"/>
