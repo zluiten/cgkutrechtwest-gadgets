@@ -68,16 +68,20 @@
       var ndag='';
       var info1='';
       var info2='';
+      var active_view=preferences.getString('active_view');
       var def_details='';
       var preferences = new _IG_Prefs();
-      html+="<tr><th>datum</th><th>voorganger</th><th>thema</th><th>tekst</th><th></th></tr>";
+      if (active_view=='archief') {
+	      html+="<tr><th>datum</th><th>voorganger</th><th></th><th>tekst</th></tr>";
+      } else {
+	      html+="<tr><th>datum</th><th>voorganger</th><th></th></tr>";
+      }
       def_details='';
       infodiv='';
       
       var details1=def_details;
       var details2=def_details;
       // Process returned JS object as an associative array
-      var active_view=preferences.getString('active_view');
       var currentday=new Date();
       for ( var i = 0; i < jsondata.length; i++ ) {
         d = new Date(jsondata[i].start_ts*1000);
@@ -116,11 +120,13 @@
 	} else {
 	  details+= '<td></td>';
 	}
-        if (typeof(jsondata[i].tekst)!='undefined') {
-	  details+= '<td>'+jsondata[i].tekst+'</td>';
-	} else {
-	  details+= '<td></td>';
-	}
+        if (active_view=='archief') {
+	        if (typeof(jsondata[i].tekst)!='undefined') {
+		  details+= '<td>'+jsondata[i].tekst+'</td>';
+		} else {
+		  details+= '<td></td>';
+		}
+        }
         if (ndag!=cdag) {
            info1=info;
            details1=details;
