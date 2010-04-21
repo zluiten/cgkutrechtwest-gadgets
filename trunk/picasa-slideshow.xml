@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" author_email="r.Brouwer" >
+<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" 
+      author_email="r-gg-cgk@corine-robert.nl">
    <Require feature="dynamic-height"/>
    <Require feature="setprefs"/>
    <Require feature="skins"/>
@@ -170,55 +171,6 @@ function switchImage(imgUrl){
 function imgLoaded(){
       gadgets.window.adjustHeight();
       return;
-// just set the size to the image-size instead of the other way around
-	var w = 0;
-	var h = 0;
-	if(currentImg.width <= maxWidth && currentImg.height <= maxHeight){
-		if(currentImg.width > currentImg.height){
-			h = (maxWidth / currentImg.width) * currentImg.height;
-			currentImg.height = h;
-			currentImg.width = maxWidth;
-			var appliedPadding = parseInt((maxHeight - h) / 2);
-			if(appliedPadding > 0){
-				currentImg.style.paddingTop = appliedPadding + "px";
-			}
-		}
-		else{
-			w = (maxHeight / currentImg.height) * currentImg.width;
-			currentImg.width = w;
-			currentImg.height = maxHeight;
-			var appliedPadding = parseInt((maxWidth - w) / 2);
-			if(appliedPadding > 0){
-				currentImg.style.paddingLeft = appliedPadding + "px";
-			}
-		}
-	}
-	else if(currentImg.width > currentImg.height){
-		h = (maxWidth / currentImg.width) * currentImg.height;
-		currentImg.style.width = maxWidth;
-		currentImg.style.height = h;
-		var appliedPadding = parseInt((maxHeight - h) / 2);
-		if(appliedPadding > 0){
-			currentImg.style.paddingTop = appliedPadding + "px";
-		}
-	}
-	else{
-		w = (maxHeight / currentImg.height) * currentImg.width;
-		currentImg.style.width = w;
-		currentImg.style.height = maxHeight;
-		var appliedPadding =  parseInt((maxWidth - w) / 2);
-		if(appliedPadding > 0){
-			currentImg.style.paddingLeft = appliedPadding + "px";
-		}
-	}
-        if(window.addEventListener) { // Standard
-		document.getElementById("imgContainer").style.width =  currentImg.style.width + "px";
-	} else if(window.attachEvent) { // IE
-		document.getElementById("imgContainer").style.width =  currentImg.width + "px";	
-        }
-	document.getElementById("imgContainer").style.height = currentImg.height + "px";
-	document.getElementById("topContainer").style.width = maxWidth + "px";
-	document.getElementById("topContainer").style.height = maxHeight + "px";
 }
 
 function addListener(element, type, expression, bubbling)
