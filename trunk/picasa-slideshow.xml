@@ -63,15 +63,6 @@ function setCommonPrefs(){
 			bgColor = "#" + bgColor;
 		}
 	}catch(err){}
-	maxWidth = _gel("topContainer").offsetWidth;
-	if(maxWidth == 0){
-		maxWidth = _gel("topContainer").document.body.clientWidth;
-	}
-	maxHeight = _gel("topContainer").offsetHeight;
-	if(maxHeight == 0){
-		maxHeight = _gel("topContainer").document.body.clientHeight;
-	}
-	_gel("topContainer").style.backgroundColor = bgColor;
 }
 function response(obj){
 	if(typeof obj == "undefined" || (!legacyApi && typeof obj.data == "undefined")){
@@ -319,7 +310,7 @@ z-index: 9;
 position:absolute;
 }
 </style>
-<div id="topContainer" >
+<div id="topContainer">
   <div id="imgContainer" class="imgContainer">
   </div>
 </div>
