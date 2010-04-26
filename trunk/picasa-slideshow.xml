@@ -138,7 +138,7 @@ function showNextImage(){
 
 function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
-	prefs = new _IG_Prefs();
+	var prefs = new _IG_Prefs(__MODULE_ID__);
 	loader.loadEvent = function(url, image){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
