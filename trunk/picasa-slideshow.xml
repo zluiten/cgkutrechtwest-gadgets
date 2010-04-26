@@ -32,7 +32,6 @@ var nextInterval;
 var prefs;
 var feedUrl;
 var bgColor;
-var legacyApi = true;
 
 function makePicasaRequest(){
 	setCommonPrefs()
@@ -61,11 +60,11 @@ function setCommonPrefs(){
 	}catch(err){}
 }
 function response(obj){
-	if(typeof obj == "undefined" || (!legacyApi && typeof obj.data == "undefined")){
+	if(typeof obj == "undefined" ){
 		failout();
 	}
 	allImgUrlsTemp = new Array();
-	var mediaItems = legacyApi ? obj.getElementsByTagName("item") : obj.data.getElementsByTagName("item");
+	var mediaItems = obj.data.getElementsByTagName("item");
 	if(mediaItems.length == 0){
 		failout();
 	}
