@@ -21,7 +21,6 @@
 </UserPref>
 <UserPref name="bgColor" display_name="Background Color" default_value="ffffff" datatype="string"/>
 <Content type="html"><![CDATA[
-
 <script type="text/javascript">
 <!--
 //javascript variables and settings
@@ -35,7 +34,7 @@ var feedUrl;
 var bgColor;
 var legacyApi = true;
 
-function goOpenSocialApi(){
+function makePicasaRequest(){
 	setCommonPrefs()
         var params = {};
     	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM; 
@@ -231,6 +230,8 @@ function clearSelection(){
 		}
 	}catch(err){}
 }
+
+     gadgets.util.registerOnLoadHandler(makePicasaRequest);
 // -->
 </script>
 
