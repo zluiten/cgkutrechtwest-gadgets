@@ -140,7 +140,6 @@ function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
 	var prefs = new _IG_Prefs();
 	var width = 300;
-	var height = 300;
 	loader.loadEvent = function(url, image){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
@@ -150,17 +149,14 @@ function switchImage(imgUrl){
 		currentImg = image;
 		currentImg.id = "currentImg";
 		currentImg.className = "currentImg";
-		x = document.getElementByID('topContainer');
+		x = document.getElementById("topContainer");
 		if (x.currentStyle) {
-			var width = x.currentStyle['offsetWidth'];
-			var height = x.currentStyle['offsetHeigth'];
+			width = x.currentStyle['clientWidth'];
 		} else if (window.getComputedStyle) {
-			var width = document.defaultView.getComputedStyle(x,null).getPropertyValue('offsetWidth');
-			var height = document.defaultView.getComputedStyle(x,null).getPropertyValue('offsetHeigth');
+			//width = document.defaultView.getComputedStyle(x,null).getPropertyValue('clientWidth');
+			width = x.clientWidth;
 		}
 		currentImg.style.width=width;
-		currentImg.style.height=height.getModuleHeight(); 
-		//currentImg.style.position = "absolute";
 		document.getElementById("imgContainer").appendChild(currentImg);
 		imgLoaded();
 		//hide loading indicator if applicable
@@ -244,25 +240,8 @@ function clearSelection(){
 // -->
 </script>
 
-<style type="text/css">
-.currentImg{
-z-index: 10;
-}
-.linkish{
-cursor:pointer;
-}
-.navCell{
-padding-right:10px;
-}
-.imgContainer{
-text-align:center;
-margin:0px;
-padding:0px;
-z-index: 9;
-}
-</style>
 <div id="topContainer">
-  <div id="imgContainer" class="imgContainer">
+  <div id="imgContainer">
   </div>
 </div>
 ]]></Content>
