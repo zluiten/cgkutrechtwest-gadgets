@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Picasa Web Album Slideshow" directory_title="Picasa Web Album Slideshow" description="Picasa web Album slideshow" author="R.Brouwer" 
-      author_email="r-gg-cgk@corine-robert.nl">
-   <Require feature="dynamic-height"/>
+<ModulePrefs title="Uninteruptable Web Album Slideshow" 
+	directory_title="Picasa Web Album Slideshow" 
+	description="Uninteruptable Picasa webAlbum slideshow" 
+	author="R.Brouwer" 
+      	author_email="r-gg-cgk@corine-robert.nl">
    <Require feature="setprefs"/>
-   <Require feature="skins"/>
 </ModulePrefs>
 <UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&amp;kind=photo&amp;hl=nl" datatype="string" required="true"/>
-<UserPref name="random" display_name="Shuffle Pictures" default_value="true" datatype="bool"/>
 <UserPref name="interval" display_name="Slide Show Interval" datatype="enum" default_value="10">
 	<EnumValue value="5" display_value="5 seconds"/>
 	<EnumValue value="10" display_value="10 seconds"/>
@@ -27,7 +27,6 @@
 //javascript variables and settings
 var allImgUrlsTemp;
 var allImgUrls = new Array();
-var isRandom;
 var maxWidth;
 var maxHeight;
 var nextInterval;
@@ -36,20 +35,17 @@ var feedUrl;
 var bgColor;
 var legacyApi = true;
 
-function goLegacyApi(){
-	setCommonPrefs()
-	_IG_FetchXmlContent(feedUrl, response);
-}
 function goOpenSocialApi(){
-	legacyApi = false;
 	setCommonPrefs()
         var params = {};
-        params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;
+    	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM; 
+//	params[gadgets.io.RequestParameters.NUM_ENTRIES] = new Number(entries);  
+	params[gadgets.io.RequestParameters.GET_SUMMARIES] = false; 
         gadgets.io.makeRequest(feedUrl, response, params);
 }
+
 function setCommonPrefs(){
 	prefs = new _IG_Prefs();
-	isRandom = prefs.getBool('random');
 	nextInterval = parseInt(prefs.getString("interval"));
 	feedUrl = prefs.getString("feed");
 	feedUrl = feedUrl.replace(/\/base\//g, '/api/');
@@ -76,8 +72,6 @@ function response(obj){
 	}
 	for(var j = 0; j < mediaItems.length; j++){
 		var mediaItem = mediaItems[j];
-//		var allImgUrlsXml = mediaItems[j].getElementsByTagName("media:thumbnail");
-//		allImgUrlsTemp.push(allImgUrlsXml[allImgUrlsXml.length - 1].getAttribute("url"));
 		var allImgUrlsXml = mediaItems[j].getElementsByTagName("media:content");
 		allImgUrlsTemp.push(allImgUrlsXml[0].getAttribute("url"));
 	}
@@ -88,9 +82,6 @@ function failout(){
 	document.getElementById("topContainer").innerHTML = "An error occurred. Make sure that your feed and other settings are correct, or that your feed isn't too big.";
 }
 
-//gadgets.util.registerOnLoadHandler(goOpenSocialApi);
-_IG_RegisterOnloadHandler(goLegacyApi);//legacy loader
-
 var currentImg;
 var sequentialIndex = 0;
 var setTimeoutThread;//clearTimeout(id_of_settimeout)
@@ -99,9 +90,7 @@ function loadSlideShow(){
 	for(var i = 0; i < allImgUrlsTemp.length; i++ ){
 		allImgUrls.push({imgUrl:allImgUrlsTemp[i], shown: false});
 	}
-	if(isRandom){
-		fisherYates(allImgUrls);
-	}
+	fisherYates(allImgUrls);
 
 	showNextImage();
 }
@@ -151,6 +140,7 @@ function showNextImage(){
 
 function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
+	prefs = new _IG_Prefs();
 	loader.loadEvent = function(url, image){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
@@ -160,6 +150,8 @@ function switchImage(imgUrl){
 		currentImg = image;
 		currentImg.id = "currentImg";
 		currentImg.className = "currentImg";
+		currentImg.style.width=prefs.getModuleWidth();
+		currentImg.style.height=prefs.getModuleHeight(); 
 		//currentImg.style.position = "absolute";
 		document.getElementById("imgContainer").appendChild(currentImg);
 		imgLoaded();
@@ -245,7 +237,6 @@ function clearSelection(){
 <style type="text/css">
 .currentImg{
 z-index: 10;
-/*position: absolute;*/
 }
 .linkish{
 cursor:pointer;
@@ -255,11 +246,9 @@ padding-right:10px;
 }
 .imgContainer{
 text-align:center;
-margin-top:0px;
-margin-bottom:0px;
+margin:0px;
 padding:0px;
 z-index: 9;
-position:absolute;
 }
 </style>
 <div id="topContainer">
