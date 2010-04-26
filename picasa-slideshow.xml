@@ -138,7 +138,7 @@ function showNextImage(){
 
 function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
-	var prefs = new _IG_Prefs(__MODULE_ID__);
+	var prefs = new _IG_Prefs();
 	loader.loadEvent = function(url, image){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
@@ -148,6 +148,14 @@ function switchImage(imgUrl){
 		currentImg = image;
 		currentImg.id = "currentImg";
 		currentImg.className = "currentImg";
+		x = document.getElementByID('topContainer').
+		if (x.currentStyle) {
+			var width = x.currentStyle['offsetWidth'];
+			var height = x.currentStyle['offsetHeigth'];
+		} else if (window.getComputedStyle) {
+			var width = document.defaultView.getComputedStyle(x,null).getPropertyValue('offsetWidth');
+			var height = document.defaultView.getComputedStyle(x,null).getPropertyValue('offsetHeigth');
+		}
 		currentImg.style.width=prefs.getModuleWidth();
 		currentImg.style.height=prefs.getModuleHeight(); 
 		//currentImg.style.position = "absolute";
