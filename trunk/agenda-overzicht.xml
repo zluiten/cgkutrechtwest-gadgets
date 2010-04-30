@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="Agenda overzicht" 
+	directory_title="Agenda overzicht" 
+	description="Google Calendar overzicht als activiteiten lijst" 
+	author="R.Brouwer" 
+      	author_email="r-gg-cgk@corine-robert.nl">
+   <Require feature="setprefs"/>
+</ModulePrefs>
+<UserPref name="feed" display_name="Calendar XML Feed" default_value="http://www.google.com/calendar/feeds/cgk-utrechtwest.nl_cl113v8kbb328q7b3c61n4gth4%40group.calendar.google.com/public/basic" datatype="string" required="true"/>
+<UserPref name="days-ahead" display_name="Days ahead" default_value="30" datatype="integer" required="true"/>
+<Content type="html">
+  <![CDATA[
+    <div id="content_div"></div>
+    <script type="text/javascript">
+	// get prefs
+	var prefs = new gadgets.Prefs();
+
+	//convert an Atom-formatted date string to a javascript-compatible date string
+	function convertAtomDateString(str)
+	{
+	      //YYYY-MM-DDThh:mm:ss[.f*](Z|-hh:mm|+hh:mm)
+	      var atomFormat = /^\d{4}-\d{2}-\d{2}\d{2}:\d{2}:\d{2}(\.\d*)?(Z|[+-]\d{2}:\d{2})$/i;
+	      if(!atomFormat.test(str)) return ""; //invalid format
+	       
+	      var months = new Array("","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+	       
+	      var year, month, date, hour, minute, second, offset;
+	      year = str.slice(0,4);
+	      month = months[1*str.slice(5,7)]; //Jan-Dec
+	      date = str.slice(8,10); //01-31
+	      hour = str.slice(11,13); //00-23
+	      minute = str.slice(14,16); //00-59
+	      second = str.slice(17,19); //00-59
+	      offset = "GMT";
+	      if(str.indexOf("Z") == -1) //time zone offset specified
+	      {
+		var x = str.lastIndexOf(":");
+		offset += str.slice(x-3,x) + str.slice(x+1);
+	      }
+	       
+	      //DD MMM YYYY hh:mm:ss GMT[(+|-)hhmm]
+	      return date+" "+month+" "+year+" "+hour+":"+minute+":"+second+" "+offset;
+	}
+
+	// Get the date
+	function makeRFCDate(delta) {
+		d = new Date();
+		d = new Date(d.getTime()+delta*24*60*60*1000);
+		mon = d.getMonth()+1;
+		if (mon.toString().length == 1) mon = "0" + mon;
+		day = d.getDate();
+		if (day.toString().length == 1) day = "0" + day;
+		return d.getFullYear()+"-"+mon+"-"+day;
+	}
+
+	function makeDOMRequest() {    
+		var params = {};  
+		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;  
+		var feed_url = prefs.getString("feed");
+		var start_min = makeRFCDate(0);
+		var start_max = makeRFCDate(prefs.getString("days-ahead"));
+
+		//var url =  feed_url.replace('/basic','/full')+"?start-min=" + start_min + "&start-max=" + start_max;
+		var url =  feed_url.replace('/basic','/full');
+		gadgets.io.makeRequest(url, response, params);
+	};
+
+      function response(obj) { 
+        // Start building HTML string that will be displayed in <div>.           
+        // Set the style for the <div>.        
+        var html = "<table>";
+        // obj.data contains a Document DOM element corresponding to the
+        // page that was requested
+        var domdata = obj.data;
+
+	// Get all entries in the agenda...
+        var itemList = domdata.getElementsByTagName("entry");
+        for (var i = 0; i < itemList.length ; i++) { 
+        	var nodeList = itemList.item(i).childNodes;
+        	// Loop through child nodes. Extract data from the text nodes that are
+	        // the children of the associated name, price, and calories element nodes.
+		var cdate;
+		var cstart;
+		var cend;
+		var cwhere;
+		var title;
+	        for (var j = 0; j < nodeList.length ; j++) {
+          		var node = nodeList.item(j);
+			if (node.nodeName == "title") {
+				title = node.firstChild.nodeValue;
+			}
+			if (node.nodeName == "gd:when") {
+				cstart = new Date(convertAtomDateString(node.getAttribute('startTime')));
+				cend = new Date(convertAtomDateString(node.getAttribute('endTime')));
+			}
+			if (node.nodeName == "gd:where") {
+				cwhere = node.getAttribute('valueString');
+			}
+		}
+		cdate=weekday[cstart.getDay()]+" "+cstart.getDate()+" "+months[ cstart.getMonth() ]+" "+cstart.getFullYear();
+		cstend=cstart.getTime()+" tot "+cstend.getTime();
+		html+= "<tr><td><b>"+cdate+"</b><</td><td>"+title+"</td></tr>";
+		html+= "<tr><td>"+cwhere+"</td><td>"+cstend+"</td></tr>";
+	}
+
+	html += "</table>";
+	document.getElementById('content_div').innerHTML = html;
+    };
+    gadgets.util.registerOnLoadHandler(makeDOMRequest);
+    </script>
+  ]]>
+  </Content>
+</Module>
