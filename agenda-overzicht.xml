@@ -54,7 +54,7 @@
 		return d.getFullYear()+"-"+mon+"-"+day;
 	}
 
-	function makeDOMRequest() {    
+	function makeDOMRequest() {
 		var params = {};  
 		params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;  
 		var feed_url = prefs.getString("feed");
@@ -66,7 +66,7 @@
 		gadgets.io.makeRequest(url, response, params);
 	};
 
-      function response(obj) { 
+      function response(obj) {
         // Start building HTML string that will be displayed in <div>.           
         // Set the style for the <div>.        
         var html = "<table>";
@@ -106,7 +106,7 @@
 
 	html += "</table>";
 	document.getElementById('content_div').innerHTML = html;
-    };
+    }
     gadgets.util.registerOnLoadHandler(makeDOMRequest);
     </script>
   ]]>
