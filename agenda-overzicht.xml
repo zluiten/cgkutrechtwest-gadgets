@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Module>
-<ModulePrefs title="Agenda overzicht" 
-	directory_title="Agenda overzicht" 
+<ModulePrefs title="CGK Agenda overzicht" 
+	directory_title="CGK Agenda overzicht" 
 	description="Google Calendar overzicht als activiteiten lijst" 
 	author="R.Brouwer" 
       	author_email="r-gg-cgk@corine-robert.nl">
