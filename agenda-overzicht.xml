@@ -101,7 +101,7 @@
 			}
 		}
 		cdate=weekday[cstart.getDay()]+" "+cstart.getDate()+" "+months[ cstart.getMonth() ]+" "+cstart.getFullYear();
-		cstend=cstart.getTime()+" tot "+cstend.getTime();
+		cstend=cstart.getTime()+" tot "+cend.getTime();
 		html+= "<tr><td><b>"+cdate+"</b><</td><td>"+title+"</td></tr>";
 		html+= "<tr><td>"+cwhere+"</td><td>"+cstend+"</td></tr>";
 	}
