@@ -20,7 +20,7 @@
 	function convertAtomDateString(str)
 	{
 	      //YYYY-MM-DDThh:mm:ss[.f*](Z|-hh:mm|+hh:mm)
-	      var atomFormat = /^\d{4}-\d{2}-\d{2}\d{2}:\d{2}:\d{2}(\.\d*)?(Z|[+-]\d{2}:\d{2})$/i;
+	      var atomFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d*)?(Z|[+-]\d{2}:\d{2})$/i;
 	      if(!atomFormat.test(str)) return ""; //invalid format
 	       
 	      var months = new Array("","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
@@ -41,6 +41,17 @@
 	       
 	      //DD MMM YYYY hh:mm:ss GMT[(+|-)hhmm]
 	      return date+" "+month+" "+year+" "+hour+":"+minute+":"+second+" "+offset;
+	}
+	
+	function pad(number, length) {
+	   
+	    var str = '' + number;
+	    while (str.length < length) {
+		str = '0' + str;
+	    }
+	   
+	    return str;
+
 	}
 
 	// Get the date
@@ -105,8 +116,8 @@
 			}
 		}
 		cdate=weekday[cstart.getDay()]+" "+cstart.getDate()+" "+months[ cstart.getMonth() ]+" "+cstart.getFullYear();
-		var cstend=cstart.getTime()+" tot "+cend.getTime();
-		html+= "<tr><td><b>"+cdate+"</b><</td><td>"+title+"</td></tr>";
+		var cstend=pad(cstart.getHours(),1)+":"+pad(cstart.getMinutes(),2)+" tot "+pad(cend.getHours(),1)+":"+pad(cend.getMinutes(),2);
+		html+= "<tr><td><b>"+cdate+"</b></td><td>"+title+"</td></tr>";
 		html+= "<tr><td>"+cwhere+"</td><td>"+cstend+"</td></tr>";
 	}
 
