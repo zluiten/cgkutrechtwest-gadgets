@@ -9,6 +9,7 @@
    <Require feature="dynamic-height"/>
 </ModulePrefs>
 <UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&amp;kind=photo&amp;hl=nl" datatype="string" required="true"/>
+<UserPref name="width" display_name="Width of gadget" default_value="300" datatype="string" required="true"/>
 <UserPref name="interval" display_name="Slide Show Interval" datatype="enum" default_value="10">
 	<EnumValue value="5" display_value="5 seconds"/>
 	<EnumValue value="10" display_value="10 seconds"/>
@@ -27,7 +28,7 @@
 //javascript variables and settings
 var allImgUrlsTemp;
 var allImgUrls = new Array();
-var maxWidth;
+var ggWidth;
 var maxHeight;
 var nextInterval;
 var prefs;
@@ -45,6 +46,7 @@ function makePicasaRequest(){
 
 function setCommonPrefs(){
 	prefs = new _IG_Prefs();
+	ggWidth = parseInt(prefs.getString("width"));
 	nextInterval = parseInt(prefs.getString("interval"));
 	feedUrl = prefs.getString("feed");
 	feedUrl = feedUrl.replace(/\/base\//g, '/api/');
@@ -140,27 +142,22 @@ function showNextImage(){
 function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
 	var prefs = new _IG_Prefs();
-	var width = 300;
-	loader.loadEvent = imageLoaded(loader);
+	loader.loadEvent = this.imageLoaded;
 	loader.load();
 }
-function imageLoaded(loader){
+function imageLoaded(url,image){
+		prefs = new _IG_Prefs();
+		ggWidth = parseInt(prefs.getString("width"));
+
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
 		if(typeof oldToRemove != "undefined" && oldToRemove != null){
 			oldToRemove.parentNode.removeChild(oldToRemove);
 		}
-		currentImg = loader.image;
+		currentImg = image;
 		currentImg.id = "currentImg";
 		currentImg.className = "currentImg";
-		x = document.getElementById("topContainer");
-		if (x.currentStyle) {
-			width = x.currentStyle['clientWidth'];
-		} else if (window.getComputedStyle) {
-			//width = document.defaultView.getComputedStyle(x,null).getPropertyValue('clientWidth');
-			width = x.clientWidth;
-		}
-		currentImg.style.width=width;
+		currentImg.style.width=ggWidth;
 		document.getElementById("imgContainer").appendChild(currentImg);
       		gadgets.window.adjustHeight();
 		//hide loading indicator if applicable
