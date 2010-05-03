@@ -141,7 +141,10 @@ function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
 	var prefs = new _IG_Prefs();
 	var width = 300;
-	loader.loadEvent = function(url, image){
+	loader.loadEvent = imageLoaded();
+	loader.load();
+}
+function imageLoaded(){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
 		if(typeof oldToRemove != "undefined" && oldToRemove != null){
@@ -159,15 +162,8 @@ function switchImage(imgUrl){
 		}
 		currentImg.style.width=width;
 		document.getElementById("imgContainer").appendChild(currentImg);
-		imgLoaded();
+      		gadgets.window.adjustHeight();
 		//hide loading indicator if applicable
-	}
-	loader.load();
-}
-
-function imgLoaded(){
-      gadgets.window.adjustHeight();
-      return;
 }
 
 function addListener(element, type, expression, bubbling)
