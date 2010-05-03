@@ -75,6 +75,10 @@
         // obj.data contains a Document DOM element corresponding to the
         // page that was requested
         var domdata = obj.data;
+	if (!domdata) {
+		document.getElementById('content_div').innerHTML = 'No data found in '+obj;
+		return;
+	}
 
 	// Get all entries in the agenda...
         var itemList = domdata.getElementsByTagName("entry");
