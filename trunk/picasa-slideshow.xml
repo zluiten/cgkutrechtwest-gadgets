@@ -141,16 +141,16 @@ function switchImage(imgUrl){
 	var loader = new ImageLoader(imgUrl);
 	var prefs = new _IG_Prefs();
 	var width = 300;
-	loader.loadEvent = imageLoaded();
+	loader.loadEvent = imageLoaded(loader);
 	loader.load();
 }
-function imageLoaded(){
+function imageLoaded(loader){
 		//actions to perform when the image is loaded
 		var oldToRemove = document.getElementById("currentImg");
 		if(typeof oldToRemove != "undefined" && oldToRemove != null){
 			oldToRemove.parentNode.removeChild(oldToRemove);
 		}
-		currentImg = image;
+		currentImg = loader.image;
 		currentImg.id = "currentImg";
 		currentImg.className = "currentImg";
 		x = document.getElementById("topContainer");
