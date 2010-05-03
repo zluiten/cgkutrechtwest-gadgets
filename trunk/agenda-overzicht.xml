@@ -8,7 +8,7 @@
    <Require feature="setprefs"/>
 </ModulePrefs>
 <UserPref name="feed" display_name="Calendar XML Feed" default_value="http://www.google.com/calendar/feeds/cgk-utrechtwest.nl_cl113v8kbb328q7b3c61n4gth4%40group.calendar.google.com/public/basic" datatype="string" required="true"/>
-<UserPref name="days-ahead" display_name="Days ahead" default_value="30" datatype="integer" required="true"/>
+<UserPref name="days-ahead" display_name="Days ahead" default_value="30" datatype="string" required="true"/>
 <Content type="html">
   <![CDATA[
     <div id="content_div"></div>
