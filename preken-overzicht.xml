@@ -42,10 +42,10 @@
        url+='&autoPlay=true';
        document.getElementById(infodivid).style.display='';
        html = info+'<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
-       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
-       html+= '<param name="Src" value="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="Src" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
        html+= '<param name="AllowScriptAccess" value="always">';
-       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3247397568-audio-player.swf?audioUrl='+url+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
+       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
        html+= '</object>';
 
       document.getElementById('player_div').innerHTML = html;
