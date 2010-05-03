@@ -6,6 +6,7 @@
 	author="R.Brouwer" 
       	author_email="r-gg-cgk@corine-robert.nl">
    <Require feature="setprefs"/>
+   <Require feature="dynamic-height"/>
 </ModulePrefs>
 <UserPref name="feed" display_name="Picasa Album Web RSS Feed" default_value="http://picasaweb.google.com/data/feed/base/user/WebsiteCGK/albumid/5394398332883762641?alt=rss&amp;kind=photo&amp;hl=nl" datatype="string" required="true"/>
 <UserPref name="interval" display_name="Slide Show Interval" datatype="enum" default_value="10">
