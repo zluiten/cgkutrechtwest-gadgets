@@ -41,14 +41,19 @@
     function play(url,info,infodivid) {
        url+='&autoPlay=true';
        document.getElementById(infodivid).style.display='';
-	html = info+'<br/>';
-	html+='<div><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="30" height="30"><PARAM NAME=movie VALUE="http://www.strangecube.com/audioplay/online/audioplay.swf?file='+url+'&auto=yes&sendstop=yes&repeat=1&buttondir=http://www.strangecube.com/audioplay/online/alpha_buttons/negative&bgcolor=0xffffff&mode=playpause"><PARAM NAME=quality VALUE=high><PARAM NAME=wmode VALUE=transparent><embed src="http://www.strangecube.com/audioplay/online/audioplay.swf?file='+escape(url)+'&auto=yes&sendstop=yes&repeat=1&buttondir=http://www.strangecube.com/audioplay/online/alpha_buttons/negative&bgcolor=0xffffff&mode=playpause" quality=high wmode=transparent width="30" height="30" align="" TYPE="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></object></div>';
-//       html = info+'<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
-//       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
-//       html+= '<param name="Src" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
-//       html+= '<param name="AllowScriptAccess" value="always">';
-//       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
-//       html+= '</object>';
+	# 3 different players
+//	html = info+'<br/>';
+	# direct play mp3 (using mp3 functionality in browser)
+//	html+='<object width="400" height="50"><param name="src" value="'+url+'"><param name="autoplay" value="true"><param name="controller" value="true"><param name="bgcolor" value="#FFFFFF"><embed width="400" height="50" autostart="true" loop="false" src="'+url+'"/></embed></object>';
+	# use 1bit based flash player
+//	html+='<div><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="30" height="30"><PARAM NAME=movie VALUE="http://www.strangecube.com/audioplay/online/audioplay.swf?file='+url+'&auto=yes&sendstop=yes&repeat=1&buttondir=http://www.strangecube.com/audioplay/online/alpha_buttons/negative&bgcolor=0xffffff&mode=playpause"><PARAM NAME=quality VALUE=high><PARAM NAME=wmode VALUE=transparent><embed src="http://www.strangecube.com/audioplay/online/audioplay.swf?file='+escape(url)+'&auto=yes&sendstop=yes&repeat=1&buttondir=http://www.strangecube.com/audioplay/online/alpha_buttons/negative&bgcolor=0xffffff&mode=playpause" quality=high wmode=transparent width="30" height="30" align="" TYPE="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed></object></div>';
+	# use Google Reader based flash
+       html = info+'<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
+       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="Src" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'">';
+       html+= '<param name="AllowScriptAccess" value="false">';
+       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+url+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
+       html+= '</object>';
 
       document.getElementById('player_div').innerHTML = html;
   
