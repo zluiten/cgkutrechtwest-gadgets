@@ -56,7 +56,7 @@
 
 	// Get the date
 	function makeRFCDate(delta) {
-//		d = new Date();
+		d = new Date();
 		d = new Date(d.getTime()+delta*24*60*60*1000);
 		mon = d.getMonth()+1;
 		if (mon.toString().length == 1) mon = "0" + mon;
