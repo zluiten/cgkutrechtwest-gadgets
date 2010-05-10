@@ -98,14 +98,14 @@
         start_t=new Date(jsondata[i].start_ts*1000 + d.getTimezoneOffset()*1000*60);
         einde_t=new Date(jsondata[i].einde_ts*1000 + d.getTimezoneOffset()*1000*60); 
         cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
-        if (ndag=='' || ndag!=cdag) {
+        if (ndag!='' && ndag!=cdag) {
+          if (active_view=='volgende' ) { break; };
           html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr>";
           html += "<tr><td>&nbsp;</td><td>"+info2+"</td>"+details2+"</tr>";
           info1='';
           details1=def_details;
-          info2="";
+          info2='';
           details2=def_details;
-          if (active_view=='volgende' ) { break; };
         }
         info = "<b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
         info+= "<i>"+jsondata[i].naam+"</i>";
@@ -143,7 +143,8 @@
         }
         ndag=cdag;
       }
-      html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr><tr><td></td><td>"+info2+"</td>"+details2+"</tr>";
+      html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr>";
+      html += "<tr><td>&nbsp;</td><td>"+info2+"</td>"+details2+"</tr>";
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
       gadgets.window.adjustHeight();
