@@ -85,6 +85,7 @@
       }
       def_details='';
       infodiv='';
+	alert('waiting a moment');
       
       var details1=def_details;
       var details2=def_details;
