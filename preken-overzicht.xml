@@ -101,7 +101,9 @@
         if (ndag!='' && ndag!=cdag) {
           if (active_view=='volgende' ) { break; };
           html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
-          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+	  if (info2!='') {
+	          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+	  }
           info1='';
           details1=def_details;
           info2='';
@@ -144,7 +146,9 @@
         ndag=cdag;
       }
       html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
-      html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+      if (info2!='') {
+	          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+      }
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
       gadgets.window.adjustHeight();
