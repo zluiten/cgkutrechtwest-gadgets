@@ -68,7 +68,7 @@
     }
 
     function response(obj) { 
-      var months=new Array('Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec');
+      var months=new Array('januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december');
       var weekday=new Array('Zo','Ma','Di','Wo','Do','Vr','Za');
       var jsondata = obj.data;
       var html = "<table>";
@@ -79,9 +79,9 @@
       var active_view=preferences.getString('active_view');
       var def_details='';
       if (active_view=='archief') {
-	      html+="<tr><th>datum</th><th>voorganger</th><th></th><th>tekst</th></tr>";
+	      html+="<tr><th colspan=2>datum</th><th>voorganger</th><th></th><th>tekst</th></tr>";
       } else {
-	      html+="<tr><th>datum</th><th>voorganger</th><th></th></tr>";
+	      html+="<tr><th colspan=2>datum</th><th>voorganger</th><th></th></tr>";
       }
       def_details='';
       infodiv='';
@@ -100,15 +100,15 @@
         cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
         if (ndag!='' && ndag!=cdag) {
           if (active_view=='volgende' ) { break; };
-          html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr>";
-          html += "<tr><td>&nbsp;</td><td>"+info2+"</td>"+details2+"</tr>";
+          html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
+          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
           info1='';
           details1=def_details;
           info2='';
           details2=def_details;
         }
-        info = "<b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
-        info+= "<i>"+jsondata[i].naam+"</i>";
+        info = "<td align=\"right\"><b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
+        info+= "</td><td>"+jsondata[i].naam+"</td>";
 	details='';
         if (typeof(jsondata[i].link)!='undefined') {
           playinfo = "U luistert naar de dienst van "+cdag+" "+info+"<br/>";
@@ -143,8 +143,8 @@
         }
         ndag=cdag;
       }
-      html += "<tr><td>"+ndag+"</td><td>"+info1+"</td>"+details1+"</tr>";
-      html += "<tr><td>&nbsp;</td><td>"+info2+"</td>"+details2+"</tr>";
+      html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
+      html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
       gadgets.window.adjustHeight();
