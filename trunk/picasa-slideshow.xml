@@ -24,11 +24,11 @@
 <UserPref name="bgColor" display_name="Background Color" default_value="ffffff" datatype="string"/>
 <Content type="html"><![CDATA[
 <style type="text/css">
- html {
+ html,div.content_div {
         font-family:arial,sans-serif;
         font-size: 12px;
         font-style:normal;
-        font-weight:bold;
+        font-weight:normal;
         line-height:15px;
       }
 </style>
