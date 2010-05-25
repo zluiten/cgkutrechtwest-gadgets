@@ -81,8 +81,8 @@
 		var start_min = makeRFCDate(0);
 		var start_max = makeRFCDate(prefs.getString("days-ahead"));
 
-		//var url =  feed_url.replace('/basic','/full')+"?start-min=" + start_min + "&start-max=" + start_max;
-		var url =  feed_url.replace('/basic','/full');
+		var url =  feed_url.replace('/basic','/full')+"?start-min=" + start_min + "&start-max=" + start_max;
+//		var url =  feed_url.replace('/basic','/full');
 		gadgets.io.makeRequest(url, response, params);
 	};
 
