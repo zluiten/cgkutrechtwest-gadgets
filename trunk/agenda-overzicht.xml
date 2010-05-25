@@ -14,12 +14,10 @@
 <style type="text/css">
  html {
         font-family:arial,sans-serif;
-        font-size:0.81em;
-        font-size-adjust:none;
+        font-size: 12px;
         font-style:normal;
-        font-variant:normal;
-        font-weight:normal;
-        line-height:1.5;
+        font-weight:bold;
+        line-height:15px;
       }
 </style>
     <div id="content_div"></div>
