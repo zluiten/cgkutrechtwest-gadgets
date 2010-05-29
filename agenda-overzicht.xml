@@ -12,7 +12,7 @@
 <Content type="html">
   <![CDATA[
 <style type="text/css">
- html,div.content_div {
+ html,div#content_div {
         font-family:arial,sans-serif;
         font-size: 12px;
         font-style:normal;
