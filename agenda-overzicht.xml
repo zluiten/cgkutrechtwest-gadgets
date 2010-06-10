@@ -12,7 +12,7 @@
 <Content type="html">
   <![CDATA[
 <style type="text/css">
- html,div#content_div {
+ html,div#content_div, td.agendaitem {
         font-family:arial,sans-serif;
         font-size: 12px;
         font-style:normal;
@@ -126,8 +126,8 @@
 		}
 		cdate=weekday[cstart.getDay()]+" "+cstart.getDate()+" "+months[ cstart.getMonth() ]+" "+cstart.getFullYear();
 		var cstend=pad(cstart.getHours(),1)+":"+pad(cstart.getMinutes(),2)+" tot "+pad(cend.getHours(),1)+":"+pad(cend.getMinutes(),2);
-		html+= "<tr><td><b>"+cdate+"</b></td><td>"+title+"</td></tr>";
-		html+= "<tr><td>"+cwhere+"</td><td>"+cstend+"</td></tr>";
+		html+= "<tr><td class=\"agendaitem\"><b>"+cdate+"</b></td><td class=\"agendaitem\">"+title+"</td></tr>";
+		html+= "<tr><td class=\"agendaitem\">"+cwhere+"</td><td class=\"agendaitem\">"+cstend+"</td></tr>";
 	}
 
 	html += "</table>";
