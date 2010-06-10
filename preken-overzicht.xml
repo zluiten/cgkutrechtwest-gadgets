@@ -124,7 +124,7 @@
           info2='';
           details2=def_details;
         }
-        info = "<td class=\"preken\" align=\"right\"><b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
+        info = "<td class=\"preken\" align=\"right\">"+start_t.getHours()+":"+padzero(start_t.getMinutes());
         info+= "</td><td class=\"preken\">"+jsondata[i].naam+"</td>";
 	details='';
         if (typeof(jsondata[i].link)!='undefined') {
