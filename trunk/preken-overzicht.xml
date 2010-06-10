@@ -24,7 +24,7 @@
  <Content type="html">
   <![CDATA[
 <style type="text/css">
- html,div#content_div {
+ html,div#content_div,td.preken {
         font-family: Arial,Verdana,sans-serif;
         font-size: 12px;
         font-style:normal;
@@ -76,6 +76,12 @@
       makeJSONRequest();
     }
 
+    function checklive() {
+	// from  "http://www.kerkomroep.nl/kerken/kerkstream.pls?id=10452&a=0"
+	// http://stream47.kerkomroep.nl:8007/K10452
+	// check ?
+    }
+
     function response(obj) { 
       var months=new Array('januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december');
       var weekday=new Array('Zo','Ma','Di','Wo','Do','Vr','Za');
@@ -109,17 +115,17 @@
         cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
         if (ndag!='' && ndag!=cdag) {
           if (active_view=='volgende' ) { break; };
-          html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
+          html += "<tr><td class=\"preken\">"+ndag+"</td>"+info1+""+details1+"</tr>";
 	  if (info2!='') {
-	          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+	          html += "<tr><td class=\"preken\">&nbsp;</td>"+info2+""+details2+"</tr>";
 	  }
           info1='';
           details1=def_details;
           info2='';
           details2=def_details;
         }
-        info = "<td align=\"right\"><b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
-        info+= "</td><td>"+jsondata[i].naam+"</td>";
+        info = "<td class=\"preken\" align=\"right\"><b>"+start_t.getHours()+":"+padzero(start_t.getMinutes())+"</b> ";
+        info+= "</td><td class=\"preken\">"+jsondata[i].naam+"</td>";
 	details='';
         if (typeof(jsondata[i].link)!='undefined') {
           playinfo = "U luistert naar de dienst van "+cdag+" "+info+"<br/>";
@@ -128,21 +134,21 @@
           infodiv+= "Tekst: "+jsondata[i].tekst+"<br/>";
           infodiv+= "Liturgie:<br/><pre>"+jsondata[i].liturgie+"</pre>";
 	  infodiv+= '</div>';
-          details+='<td><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')">';
+          details+='<td class=\"preken\"><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')">';
           details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border="0" alt="afspelen"></a></td>';
         } else {
-          details+='<td></td>'; 
+          details+='<td class=\"preken\"></td>'; 
         }
         if (typeof(jsondata[i].omschrijving)!='undefined') {
-	  details+= '<td>'+jsondata[i].omschrijving+'</td>';
+	  details+= '<td class=\"preken\">'+jsondata[i].omschrijving+'</td>';
 	} else {
-	  details+= '<td></td>';
+	  details+= '<td class=\"preken\"></td>';
 	}
         if (active_view=='archief') {
 	        if (typeof(jsondata[i].tekst)!='undefined') {
-		  details+= '<td>'+jsondata[i].tekst+'</td>';
+		  details+= '<td class=\"preken\">'+jsondata[i].tekst+'</td>';
 		} else {
-		  details+= '<td></td>';
+		  details+= '<td class=\"preken\"></td>';
 		}
         }
         if (ndag!=cdag) {
@@ -154,9 +160,9 @@
         }
         ndag=cdag;
       }
-      html += "<tr><td>"+ndag+"</td>"+info1+""+details1+"</tr>";
+      html += "<tr><td class=\"preken\">"+ndag+"</td>"+info1+""+details1+"</tr>";
       if (info2!='') {
-	          html += "<tr><td>&nbsp;</td>"+info2+""+details2+"</tr>";
+	          html += "<tr><td class=\"preken\">&nbsp;</td>"+info2+""+details2+"</tr>";
       }
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
