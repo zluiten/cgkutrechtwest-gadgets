@@ -93,11 +93,12 @@
       var preferences = new _IG_Prefs();
       var active_view=preferences.getString('active_view');
       var def_details='';
-      if (active_view=='archief') {
-	      html+="<tr><th colspan=2>datum</th><th>voorganger</th><th></th><th>tekst</th></tr>";
+/*      if (active_view=='archief') {
+	      html+="<tr><th colspan=2 align=\"left\">datum</th><th align=\"left\">voorganger</th><th></th><th>tekst</th></tr>";
       } else {
-	      html+="<tr><th colspan=2>datum</th><th>voorganger</th><th></th></tr>";
+	      html+="<tr><th colspan=2 align=\"left\">datum</th><th align=\"left\">voorganger</th><th></th></tr>";
       }
+*/
       def_details='';
       infodiv='';
       
