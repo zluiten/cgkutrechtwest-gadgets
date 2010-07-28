@@ -1,0 +1,5 @@
+span.error-originator
+{
+    display: inline; /* ... hide PHP object */
+    font-weight: bold;
+}

@@ -1,0 +1,31 @@
+/****** Search result ****/
+
+.search-result {
+    width: 570px;
+    font-family: Tahoma, sans-serif;
+    margin: 0px auto;
+    margin-bottom: 25px;
+    border: solid 1px #000000;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.search-title {
+	background-color: #000000;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    border: 3px solid #000000;
+    text-align: left;
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.search-text {
+    margin-left: 5px;
+}
+
+.search-contacts {
+    list-style-type: none;
+    margin-left: 5px;
+}

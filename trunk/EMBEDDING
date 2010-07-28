@@ -1,0 +1,94 @@
+Embedding TABR as contact manager into another application.
+
+TABR can perform the following for another application:
+=======================================================
+
+1. Login/Account management
+2. Contacts management
+3. DB install management
+4. Localization and Transtations
+
+PLANNED:
+-- DB upgrade management
+
+================
+EMBEDDED USE
+================
+
+Step 1: Install TABR embedded
+
+Imagine you write your application called 'yapp' and want to use TAB as login manager.
+Then install TABR in any subdirectory of yapp, for example in "usrmgr" 
+
+yapp/usrmgr/...
+yapp/lib
+yapp/lib/install
+yapp/lib/upgrade
+
+Perform all normal install steps like described in INSTALL now until
+http://localhost/yapp/usrmgr/
+works like a normal TABR application (configure yapp/usrmgr/config.php).
+
+Step 2: HELLO WORLD
+
+Create your first file: yapp/index.php
+<?php
+    ini_set('display_errors',true);
+    error_reporting(E_ALL);
+
+    set_include_path(get_include_path().":usrmgr");
+    require_once('usrmgr/lib/init.php');
+    
+    echo 'Hello World!';
+    $options = new Options(); // make a DB query
+    echo 'I am a TABR embedded installation with version: '$options->getOption('TABversion');
+?>
+
+Step 2: HELLO ADMIN
+
+Create your first file: yapp/index.php
+<?php
+    ini_set('display_errors',true);
+    error_reporting(E_ALL);
+
+    set_include_path(get_include_path().":usrmgr");
+    require_once('usrmgr/lib/init.php');
+    
+    // Is someone logged in?
+    if (!isset($_SESSION['user']) || !$_SESSION['user']->isAtLeast('guest'))
+        require('usrmgr/user/login.php'); // redirect to login!
+    
+    // Is the logged-in user an admin??
+    if (!$_SESSION['user']->isAtLeast('admin'))
+        $errorHandler->standardError('PERMISSION_DENIED',basename($_SERVER['SCRIPT_NAME']));
+
+    echo 'Hello Admin!';
+
+?>
+
+==============================================
+EMBEDDED USE: TABR embedded install management
+==============================================
+
+Create the file: yapp/lib/upgrade/install.php
+This file will be called AUTOMATICALLY from:
+http://localhost/yapp/usrmgr/admin/install.php
+
+==============================================
+EMBEDDED USE: TABR localization management
+==============================================
+This is basically a very simple process:
+
+1. create your translations in files like en.lang.php or de.lang.php 
+in a subdirectory of your application. Array name is $LANG_TRANSLATION.
+Only include your new strings (start with a copy of an existing language file, 
+but empty the array)
+
+2. load the translations in your config:
+Add this to your config file:
+
+require_once('Localizer.class.php');
+$loc = Localizer::getSingleton();
+$loc->mergeLanguage('lib/languages/'); // wherever you put the translations - trailing slash needed 
+
+

@@ -1,0 +1,2053 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class Contact</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class Contact</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+							<a href="#sec-descendents">Descendents</a>
+			|											<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Represents a contact</p>
+<p class="description"><p>Handles all database-communication, in order to retrieve and save contact-data</p></p>
+	<ul class="tags">
+				<li><span class="field">usedby:</span> <a href="../frontEnd/pages/PageSearchList.html#methodcreateTable">PageSearchList::createTable()</a></li>
+				<li><span class="field">usedby:</span> <a href="../frontEnd/pages/PageList.html#methodcreateTable">PageList::createTable()</a></li>
+				<li><span class="field">usedby:</span> <a href="../frontEnd/pages/PageContact.html">PageContact</a></li>
+				<li><span class="field">usedby:</span> <a href="../frontEnd/pages/PageProjectSearchList.html#methodcreateTable">PageProjectSearchList::createTable()</a></li>
+				<li><span class="field">usedby:</span> <a href="../backEnd/ContactList.html">ContactList</a> - used to save the retrieved contacts</li>
+			</ul>
+		<p class="notes">
+			Located in <a class="field" href="_lib---backEnd---Contact.class.php.html">/lib/backEnd/Contact.class.php</a> (line <span class="field">25</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+	<a name="sec-descendents"></a>
+	<div class="info-box">
+		<div class="info-box-title">Direct descendents</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+			<span class="disabled">Descendents</span>
+			|												<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+								|															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<table cellpadding="2" cellspacing="0" class="class-table">
+				<tr>
+					<th class="class-table-header">Class</th>
+					<th class="class-table-header">Description</th>
+				</tr>
+								<tr>
+					<td style="padding-right: 2em"><a href="../backEnd/User.html">User</a></td>
+					<td>
+											Represents a user
+										</td>
+				</tr>
+							</table>
+		</div>
+	</div>
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$contact" title="details" class="var-name">$contact</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">integer</span>
+					<a href="#$user" title="details" class="var-name">$user</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$valueGroups" title="details" class="var-name">$valueGroups</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																		
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#generateMessagingEntry" title="details" class="method-name">generateMessagingEntry</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#generatePhoneEntry" title="details" class="method-name">generatePhoneEntry</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">1</span>])
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">string</span>
+										<a href="#generateWebEntry" title="details" class="method-name">generateWebEntry</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+									</div>
+														
+				<div class="method-definition">
+					static 						<span class="method-result">number</span>
+										<a href="#getContactFromEmail" title="details" class="method-name">getContactFromEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$result</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$excludeId</span> = <span class="var-default">null</span>])
+									</div>
+																																																																																																																																																																																																																																																																		
+				<div class="method-definition">
+											<span class="method-result">Contact</span>
+										<a href="#Contact" title="details" class="method-name">Contact</a>
+											([<span class="var-type">integer|array</span>&nbsp;<span class="var-name">$val</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#additionals" title="details" class="method-name">additionals</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#addresses" title="details" class="method-name">addresses</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#check" title="details" class="method-name">check</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#contactsWithEmail" title="details" class="method-name">contactsWithEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#dates" title="details" class="method-name">dates</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#diff" title="details" class="method-name">diff</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$otherContact</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#emails" title="details" class="method-name">emails</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateAdditionalEntry" title="details" class="method-name">generateAdditionalEntry</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$x</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateEmail" title="details" class="method-name">generateEmail</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#generateFullName" title="details" class="method-name">generateFullName</a>
+											([<span class="var-type">string</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">'html'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$spec</span> = <span class="var-default">null</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array('Hugo</span>
+										<a href="#generateListRowArray" title="details" class="method-name">generateListRowArray</a>
+										()
+									</div>
+																																														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getDate" title="details" class="method-name">getDate</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$labelStartsWith</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getFirstEmail" title="details" class="method-name">getFirstEmail</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getId" title="details" class="method-name">getId</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#getMedia" title="details" class="method-name">getMedia</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$mediaName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$mimeType</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$length</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$length</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getProperty" title="details" class="method-name">getProperty</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$valueGroup</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$labelStartsWith</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">int</span>
+										<a href="#getUserId" title="details" class="method-name">getUserId</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#getValueGroup" title="details" class="method-name">getValueGroup</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">number</span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#groups" title="details" class="method-name">groups</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$list</span> = <span class="var-default">true</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'groupname'</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$asLink</span> = <span class="var-default">true</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">TRUE/FALSE</span>
+										<a href="#hasEmail" title="details" class="method-name">hasEmail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$e</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">TRUE/FALSE</span>
+										<a href="#hasValue" title="details" class="method-name">hasValue</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$valueGroup</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">integer</span>
+										<a href="#isUser" title="details" class="method-name">isUser</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#load" title="details" class="method-name">load</a>
+											(<span class="var-type">$id</span>&nbsp;<span class="var-name">$id</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#messaging" title="details" class="method-name">messaging</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#nameSpecials" title="details" class="method-name">nameSpecials</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$in</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$suppress</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">the</span>
+										<a href="#newContact" title="details" class="method-name">newContact</a>
+											(<span class="var-type">variable</span>&nbsp;<span class="var-name">0</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#notes" title="details" class="method-name">notes</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#ongoingEvents" title="details" class="method-name">ongoingEvents</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#phones" title="details" class="method-name">phones</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#rawEmail" title="details" class="method-name">rawEmail</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#save" title="details" class="method-name">save</a>
+											([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$checkConsistency</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveContactFromArray" title="details" class="method-name">saveContactFromArray</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$post</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveValueGroupsFromArray" title="details" class="method-name">saveValueGroupsFromArray</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#sendEMail" title="details" class="method-name">sendEMail</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$subject</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setMedia" title="details" class="method-name">setMedia</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$mediaName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$binaryData</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#setValueGroup" title="details" class="method-name">setValueGroup</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$valueGroup</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#trash" title="details" class="method-name">trash</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$currentUser</span>, <span class="var-type"><a href="../backEnd/User.html">User</a></span>&nbsp;<span class="var-name">$currentUser</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#webs" title="details" class="method-name">webs</a>
+											([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#_getValueGroup" title="details" class="method-name">_getValueGroup</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$privateOK</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">array</span>
+										<a href="#__sleep" title="details" class="method-name">__sleep</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__wakeup" title="details" class="method-name">__wakeup</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$contact" id="$contact"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$contact</span>
+						(line <span class="line-number">30</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> comes from database, contains 1 row from contact table</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$user" id="$user"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">integer</span>
+			<span class="var-name">$user</span>
+						(line <span class="line-number">40</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> used to cache, if the contact has a user attached (isUser() method)</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$valueGroups" id="$valueGroups"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$valueGroups</span>
+						(line <span class="line-number">35</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> used to cache value groups</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+							<a href="#sec-descendents">Descendents</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodgenerateMessagingEntry" id="generateMessagingEntry"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static generateMessagingEntry</span> (line <span class="line-number">1145</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a messaging link from one entry of the messaging value group.</p>
+<p class="description"><p>Depending on the service it generates remote control URIs (e.g. call/chat for Skype)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			generateMessagingEntry
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgeneratePhoneEntry" id="generatePhoneEntry"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static generatePhoneEntry</span> (line <span class="line-number">1061</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a messaging link from one entry of the messaging value group.</p>
+<p class="description"><p>Depending on the service it generates remote control URIs (e.g. call/chat for Skype)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			generatePhoneEntry
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">1</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$format</span><span class="var-description">: 1= label: value 2=value (label) I hate this!!!</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateWebEntry" id="generateWebEntry"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">static generateWebEntry</span> (line <span class="line-number">1215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a http:// or ftp:// etc. link from one entry of the www value group.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">string</span>
+		<span class="method-name">
+			generateWebEntry
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetContactFromEmail" id="getContactFromEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">static getContactFromEmail</span> (line <span class="line-number">756</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a contact, which has the e-mail $email</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of matches</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used for database connection</li>
+			</ul>
+	
+	<div class="method-signature">
+		static <span class="method-result">number</span>
+		<span class="method-name">
+			getContactFromEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">&$result</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$excludeId</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: the e-mail to search for</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">&$result</span><span class="var-description">: db result (first best contact found) use $db-&gt;next() to get more</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$excludeId</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodContact" id="Contact"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor Contact</span> (line <span class="line-number">50</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor: ONLY TO BE CALLED by Contact::newContact($val) factory method!!</p>
+<p class="description"><p>If $val is an array, it is used as the data array,  if $val isn't defined, a new contact is created  else the class with id $val is loaded from database</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">Contact</span>
+		<span class="method-name">
+			Contact
+		</span>
+					([<span class="var-type">integer|array</span>&nbsp;<span class="var-name">$val</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">integer|array</span>
+				<span class="var-name">$val</span><span class="var-description">: Id of contact, or array with data for contact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodadditionals" id="additionals"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">additionals</span> (line <span class="line-number">1254</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the additional information of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+				<li><span class="field">global:</span> string $CONFIG_CONTACT_OTHER_INFO_ORDER: html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			additionals
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$refid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodaddresses" id="addresses"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">addresses</span> (line <span class="line-number">1419</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the addresses of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+				<li><span class="field">global:</span> <a href="../backEnd/PluginManager.html">PluginManager</a> <a href="../backEnd/_lib---backEnd---PluginManager.class.php.html#global$pluginManager">$pluginManager</a>: used to call hooks</li>
+				<li><span class="field">global:</span> AddressFromatter $addressFormatter: used to format the addresses, depending on the countries they are in</li>
+				<li><span class="field">todo:</span> Add code to output webs and additionals as well, not only phones, chat and email</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			addresses
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcheck" id="check"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">check</span> (line <span class="line-number">127</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Make all checks before writing to DB true on success false on errors (check errorHandler then).</p>
+	<ul class="tags">
+				<li><span class="field">global:</span> array $VALUE_GROUP_TYPES_ARRAY: Value groups to save</li>
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			check
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcontactsWithEmail" id="contactsWithEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">contactsWithEmail</span> (line <span class="line-number">732</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns array of DISTINCT contact ids that have this email (User's registration emails are included) for registration and consitency checks  One cannot tell if the email is a registration or a contact's property email!  If count(returned value) .. 0 -&gt; email not in DB; 1 -&gt; 1 contact or user; 2+ -&gt; multiple users</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of contact ids that have this email</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used for database access</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			contactsWithEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$email</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$email</span><span class="var-description">: e-mail to check</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddates" id="dates"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">dates</span> (line <span class="line-number">1482</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the dates of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			dates
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">488</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Delete the contact (really delete)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true on success</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used for database connection</li>
+				<li><span class="field">global:</span> <a href="../backEnd/PluginManager.html">PluginManager</a> <a href="../backEnd/_lib---backEnd---PluginManager.class.php.html#global$pluginManager">$pluginManager</a>: used to execute hooks</li>
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: used to handle errors</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			delete
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/User.html#methoddelete">User::delete()</a>
+								: deletes the user from database
+							</li>
+					<li>
+				<a href="../backEnd/GuestUser.html#methoddelete">GuestUser::delete()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methoddiff" id="diff"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">diff</span> (line <span class="line-number">523</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return modifications of the contact as nested arrays: $return[''][0] = main data array, $return['email'][0] = value group data array</p>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			diff
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$otherContact</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$otherContact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodemails" id="emails"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">emails</span> (line <span class="line-number">1361</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the e-mails of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			emails
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$refid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateAdditionalEntry" id="generateAdditionalEntry"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateAdditionalEntry</span> (line <span class="line-number">1237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate one entry as html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateAdditionalEntry
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$x</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$x</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateEmail" id="generateEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateEmail</span> (line <span class="line-number">1400</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate a HTML to send email (a full A tag) from one entry of an e-mail value group.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> &lt;a href='Firstname Lastname (label) &lt;email@example.com&gt;'&gt;email@example.com (label)&lt;/a&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateEmail
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateFullName" id="generateFullName"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateFullName</span> (line <span class="line-number">864</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate the full name of the contact as: string/link or inside a div with class='names[-hidden]' (default)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			generateFullName
+		</span>
+					([<span class="var-type">string</span>&nbsp;<span class="var-name">$format</span> = <span class="var-default">'html'</span>], [<span class="var-type">array</span>&nbsp;<span class="var-name">$spec</span> = <span class="var-default">null</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$spec</span><span class="var-description">: order of fieldnames and spacers. If an entry is an array it is an  output group that only displays if it contains fields and at least one is not empty.  Default ($spec==NULL): array(array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),array(' (', 'nickname' ,')'))</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$format</span><span class="var-description">: 'html' [div class='fn'] or 'text' (text format SKIPS any specials #!... in $spec!)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgenerateListRowArray" id="generateListRowArray"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">generateListRowArray</span> (line <span class="line-number">939</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generates a table list entry from this contact according to $CONFIG_LIST_NAME_SPEC, $CONFIG_LIST_ROW_SPEC from config.php  You have to put the data then into a table form e.g. with TableGenerator.</p>
+<p class="description"><p>APPENDS one extra row ['group_n'] for GroupNormalizer</p><p>$CONFIG_LIST_ROW_SPEC =</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> Gloss','email: a@b.com',...);</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array('Hugo</span>
+		<span class="method-name">
+			generateListRowArray
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetDate" id="getDate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getDate</span> (line <span class="line-number">800</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves the first property with the label starting with the case insensitive argument.</p>
+<p class="description"><p>Example: getDate('label') ... matches also &quot;label (private)&quot;</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> array(from,to)</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getDate
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$labelStartsWith</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$labelStartsWith</span><span class="var-description">: the beginning of the label</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetFirstEmail" id="getFirstEmail"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getFirstEmail</span> (line <span class="line-number">1306</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Return first plain email address to send an email to the contact from TAB</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> plain email address to send an email to the contact from TAB</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFirstEmail
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetId" id="getId"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getId</span> (line <span class="line-number">586</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the id of the associated Contact. Warning User::getId() returns the Contact ID</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database record id of Contact or 0 if not found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getId
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodgetMedia" id="getMedia"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getMedia</span> (line <span class="line-number">996</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns any media data of this object. Currently only 'pictureData' available!</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> binary data or null</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getMedia
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$mediaName</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$mimeType</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$length</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$length</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mediaName</span><span class="var-description">: 'pictureData'</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mimeType</span><span class="var-description">: 'image/jpeg'</span>			</li>
+					<li>
+				<span class="var-type">int</span>
+				<span class="var-name">$length</span><span class="var-description">: byte size of binary data</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$mimeType</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$length</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetProperty" id="getProperty"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getProperty</span> (line <span class="line-number">783</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Retrieves the first property with the label starting with the case insensitive argument.</p>
+<p class="description"><p>Example: getProperty('messaging','yim') ... matches also &quot;yim (private)&quot;</p></p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getProperty
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$valueGroup</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$labelStartsWith</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$valueGroup</span><span class="var-description">: value group name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$labelStartsWith</span><span class="var-description">: the beginning of the label</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodgetUserId" id="getUserId"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">getUserId</span> (line <span class="line-number">596</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Get the id of the associated User if it esxists.</p>
+<p class="description"><p>Warning: This method is inherited to User and returns the Contact ID! Use <a href="../backEnd/Contact.html#methodgetUserId">getUserId()</a> for other purposes.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> database record id of an associated User or 0 if not found</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">int</span>
+		<span class="method-name">
+			getUserId
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/User.html#methodgetUserId">User::getUserId()</a>
+								: Get the id of the associated User
+							</li>
+				</ul>
+	</div>
+<a name="methodgetValueGroup" id="getValueGroup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValueGroup</span> (line <span class="line-number">640</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a value group</p>
+<p class="description"><p>A value group is an array, containing associative arrays with column names of  the database.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> value group</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> 0: used for database connection</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			getValueGroup
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">number</span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: which value group to return</span>			</li>
+					<li>
+				<span class="var-type">number</span>
+				<span class="var-name">$refid</span><span class="var-description">: | NULL $refid return address associated items. $refid === null return not associated items. $refid == 0 return all items; Default: 0</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/GuestUser.html#methodgetValueGroup">GuestUser::getValueGroup()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodgroups" id="groups"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">groups</span> (line <span class="line-number">1537</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the groups of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			groups
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$list</span> = <span class="var-default">true</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$field</span> = <span class="var-default">'groupname'</span>], [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$asLink</span> = <span class="var-default">true</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$list</span><span class="var-description">: create HTML UL if true</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$field</span><span class="var-description">: default 'groupname' alternates: acronym, logoURL</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$asLink</span><span class="var-description">: return HTML A search tags linking to the main list, plain strings if false</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasEmail" id="hasEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasEmail</span> (line <span class="line-number">833</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if a contact has this email in his list</p>
+	
+	<div class="method-signature">
+		<span class="method-result">TRUE/FALSE</span>
+		<span class="method-name">
+			hasEmail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$e</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$e</span><span class="var-description">: email</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhasValue" id="hasValue"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">hasValue</span> (line <span class="line-number">817</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks if a contact has this value in a value group</p>
+	
+	<div class="method-signature">
+		<span class="method-result">TRUE/FALSE</span>
+		<span class="method-name">
+			hasValue
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$valueGroup</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$value</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$valueGroup</span><span class="var-description">: value group name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$value</span><span class="var-description">: email, webaddress or some other full value, case INSENSITIVE</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodisUser" id="isUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isUser</span> (line <span class="line-number">611</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Check if there is a user, associated with this contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> user id, if there is no such user: 0</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used for database connection</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">integer</span>
+		<span class="method-name">
+			isUser
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/User.html#methodisUser">User::isUser()</a>
+								: returns user id
+							</li>
+					<li>
+				<a href="../backEnd/GuestUser.html#methodisUser">GuestUser::isUser()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodload" id="load"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">load</span> (line <span class="line-number">104</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Loads the contact with id $id from databse</p>
+	<ul class="tags">
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: used to report errors</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used to connect to the database</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			load
+		</span>
+					(<span class="var-type">$id</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$id</span>
+				<span class="var-name">$id</span><span class="var-description">: Id of contact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodmessaging" id="messaging"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">messaging</span> (line <span class="line-number">1112</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the messaging handles of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			messaging
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$refid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodnameSpecials" id="nameSpecials"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">nameSpecials</span> (line <span class="line-number">839</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			nameSpecials
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$in</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$suppress</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$in</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$suppress</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodnewContact" id="newContact"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">newContact</span> (line <span class="line-number">71</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Contact class factory.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> new class</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">the</span>
+		<span class="method-name">
+			newContact
+		</span>
+					(<span class="var-type">variable</span>&nbsp;<span class="var-name">0</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">variable</span>
+				<span class="var-name">0</span><span class="var-description">: argument list, pass as if it were a normal constructor</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodnotes" id="notes"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">notes</span> (line <span class="line-number">1461</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the notes of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			notes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodongoingEvents" id="ongoingEvents"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">ongoingEvents</span> (line <span class="line-number">1798</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns ongoing events from the dates table.</p>
+<p class="description"><p><pre>            value1 value2
+ day        date   0000-00-00
+ open end   date   null
+ open start null   date
+ range      date1  date2</pre>  COST: 0.04 seconds / 100 contacts (1GHz CPU)</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> of strings of ongoing event labels, or empty array (if nothing found)</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			ongoingEvents
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodphones" id="phones"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">phones</span> (line <span class="line-number">1027</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the phones of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			phones
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$refid</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$refid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodrawEmail" id="rawEmail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">rawEmail</span> (line <span class="line-number">1390</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Generate an email address from one entry of an email value group.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> 'Firstname Lastname (label) &lt;email@example.com&gt;'</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			rawEmail
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$m</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$m</span><span class="var-description">: the entry of the value group to use</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsave" id="save"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">save</span> (line <span class="line-number">237</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves this contact in the database, creates a new contact, if $contact->contact['id'] is not set  Calls check() before saving to verify data consitencyand policies.</p>
+<p class="description"><p>This function uses the mysql command SHOW COLUMNS, and then inserts all  data from $contact->contact, which has keys that are in the columns  of the contact table</p></p>
+	<ul class="tags">
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used to connect to the database</li>
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: used to report errors</li>
+				<li><span class="field">global:</span> <a href="../backEnd/PluginManager.html">PluginManager</a> <a href="../backEnd/_lib---backEnd---PluginManager.class.php.html#global$pluginManager">$pluginManager</a>: used to execute plugin-hooks</li>
+				<li><span class="field">global:</span> integer $CONFIG_ADDED_CHANGED_HYSTERESIS: config: how many days is a contact still marked as added upon change, after addition</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			save
+		</span>
+					([<span class="var-type">boolean</span>&nbsp;<span class="var-name">$checkConsistency</span> = <span class="var-default">true</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$checkConsistency</span><span class="var-description">: whether to check the consistency of the Contact or not USE WITH CAUTION!!!!!!!!</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$adminsave</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/GuestUser.html#methodsave">GuestUser::save()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodsaveContactFromArray" id="saveContactFromArray"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveContactFromArray</span> (line <span class="line-number">1719</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns TRUE on success FALSE on errors (contact NOT saved -&gt; check errorHandler then)  SPECIAL: $post['URLtoMugshot'] is path / URL to mugshot (must be accessible by fopen PHP restrictions!).</p>
+<p class="description"><p>The pic referenced by URLtoMugshot will be uploaded into the DB after resampling (shrinking).</p></p>
+	<ul class="tags">
+				<li><span class="field">global:</span> <a href="../backEnd/Options.html">Options</a> $options: to determite whether to allow Upload or not</li>
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveContactFromArray
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>, [<span class="var-type">boolean</span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$post</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$post</span><span class="var-description">: value groups array</span>			</li>
+					<li>
+				<span class="var-type">boolean</span>
+				<span class="var-name">$adminsave</span><span class="var-description">: true skips setting the whoModifiedFlag and modifiedDate to avoid  being target for INCORRECT notifications and listing on recently changed list.</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$post</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsaveValueGroupsFromArray" id="saveValueGroupsFromArray"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveValueGroupsFromArray</span> (line <span class="line-number">1838</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveValueGroupsFromArray
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$post</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsendEMail" id="sendEMail"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">sendEMail</span> (line <span class="line-number">1322</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">sends a generic e-mail to the Contact's first email</p>
+	<ul class="tags">
+				<li><span class="field">global:</span> CONFIG_PHPMAILER $CONFIG_TAB_ROOT: array used to configure phpmailer</li>
+				<li><span class="field">global:</span> options $CONFIG_PHPMAILER: </li>
+				<li><span class="field">global:</span> errorHandler $options: </li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			sendEMail
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$subject</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$subject</span><span class="var-description">: address to send e-mail to</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: e-mail message</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetMedia" id="setMedia"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setMedia</span> (line <span class="line-number">1009</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Assigns any media data of this object. Currently only 'pictureData' available!</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setMedia
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$mediaName</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mimeType</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$binaryData</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mediaName</span><span class="var-description">: MUST BE 'pictureData'</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mimeType</span><span class="var-description">: curretly unused!</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$binaryData</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodsetValueGroup" id="setValueGroup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setValueGroup</span> (line <span class="line-number">717</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Sets a value group</p>
+<p class="description"><p>Saves the value group in the cache of the contact class. It is written in  the database, when the <a href="../backEnd/Contact.html#methodsave">save()</a> method is called</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true on success</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			setValueGroup
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">array</span>&nbsp;<span class="var-name">$valueGroup</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: which value group to save</span>			</li>
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$valueGroup</span><span class="var-description">: the value group to save</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodtrash" id="trash"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">trash</span> (line <span class="line-number">459</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Trash the contact (mark as deleted)</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true on success</li>
+				<li><span class="field">global:</span> <a href="../backEnd/DB.html">DB</a> <a href="../backEnd/_lib---backEnd---DB.class.php.html#global$db">$db</a>: used for database connection</li>
+				<li><span class="field">global:</span> <a href="../backEnd/PluginManager.html">PluginManager</a> <a href="../backEnd/_lib---backEnd---PluginManager.class.php.html#global$pluginManager">$pluginManager</a>: used to execute hooks</li>
+				<li><span class="field">global:</span> <a href="../backEnd/ErrorHandler.html">ErrorHandler</a> <a href="../backEnd/_lib---backEnd---ErrorHandler.class.php.html#global$errorHandler">$errorHandler</a>: used to handle errors</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			trash
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$currentUser</span>, <span class="var-type"><a href="../backEnd/User.html">User</a></span>&nbsp;<span class="var-name">$currentUser</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../backEnd/User.html">User</a></span>
+				<span class="var-name">$currentUser</span><span class="var-description">: The current user who wants to perform the action (for security checks)</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$currentUser</span>			</li>
+				</ul>
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/GuestUser.html#methodtrash">GuestUser::trash()</a>
+							</li>
+				</ul>
+	</div>
+<a name="methodwebs" id="webs"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">webs</span> (line <span class="line-number">1187</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Output the homepages of the contact in nice html</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			webs
+		</span>
+					([<span class="var-type">array</span>&nbsp;<span class="var-name">$vg_x</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$vg_x</span><span class="var-description">: the value group to use, if not set, the one of the contact is used</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method_getValueGroup" id="_getValueGroup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">_getValueGroup</span> (line <span class="line-number">663</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Gets a value group without security (hasEmail(),hasValue()) to avoid recursion in RightsManager.</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			_getValueGroup
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$privateOK</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$privateOK</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="method__sleep" id="__sleep"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__sleep</span> (line <span class="line-number">1886</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Used by serialize, when serializing class</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> list of variables that should be saved</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">array</span>
+		<span class="method-name">
+			__sleep
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/User.html#method__sleep">User::__sleep()</a>
+								: Used by serialize, when serializing class
+							</li>
+					<li>
+				<a href="../backEnd/GuestUser.html#method__sleep">GuestUser::__sleep()</a>
+							</li>
+				</ul>
+	</div>
+<a name="method__wakeup" id="__wakeup"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__wakeup</span> (line <span class="line-number">1900</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Used by serialize, when deserializing class</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__wakeup
+		</span>
+				()
+			</div>
+	
+		
+			
+			<hr class="separator" />
+		<div class="notes">Redefined in descendants as:</div>
+		<ul class="redefinitions">
+					<li>
+				<a href="../backEnd/User.html#method__wakeup">User::__wakeup()</a>
+								: Used by serialize, when deserializing class
+							</li>
+					<li>
+				<a href="../backEnd/GuestUser.html#method__wakeup">GuestUser::__wakeup()</a>
+							</li>
+				</ul>
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 06 Jan 2008 13:40:36 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.0</a>
+	</p>
+	</div></body>
+</html>

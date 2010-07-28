@@ -1,0 +1,171 @@
+The Address Book Reloaded 3.3 - INSTALL FILE
+
+SEE ALSO: http://tab-2.wiki.sourceforge.net/Installation+Troubleshooting
+
+=============
+Requirements:                               
+=============
+
+PHP
+    Webserver with *MANDATORY* PHP 5 support,
+    SAFE MODE operation possible.
+    register_globals must be off
+    php5-mbstring (UTF-8)
+    php5-gd (Image scaling and thumbnail generation)
+    php5-session
+    Recommended:
+    php5-curl (for Map-O-Rama Maps geocoding interface)
+MySQL
+    MySQL (>=4.1 version ) up and running
+
+Safe Mode:
+    Symbolic link to mysqldump in safemode exec directory if backup download 
+    is desired.
+
+Backup:
+    mysqldump must be accessible through the exec() command.
+    Otherwise please use phpmyadmin or manual backup from the shell.
+
+Support Forums:
+http://sourceforge.net/forum/forum.php?forum_id=590643
+
+=============
+DEFAULT LOGIN
+=============
+
+USER    : admin@example.com
+PASSWORD: admin
+
+Please change this user's email and password after installation to yourself.      
+
+=============
+Installation:                               
+=============
+
+SEE ALSO: http://tab-2.wiki.sourceforge.net/Installation+Troubleshooting
+
+Please read the release notes at the download page at sourceforge NOW!
+http://sourceforge.net/project/showfiles.php?group_id=172286
+Click the notes icon. It may contain up to date info on the release.
+
+Option 0:
+    Use phpMyAdmin to upload extras/tab3.3_blank_db.sql.gz
+
+Option 1:
+1. Copy all files to server
+2. Copy config.php.template to config.php on your server
+   [Optional: change DB user, password, table prefix etc.]
+2a. Plugins will load config.template.php by default. To customize plugins
+    copy config.template.php to config.php and make changes for each plugin 
+    in the plugin directory.
+3. Grant access to the DB user for the database
+	mysqladmin -u root -p create tab3
+	mysql -u root -p -e 'GRANT ALL ON tab3.* TO tab3 IDENTIFIED BY "r3loaded"'
+    DO NOT USE SPACES in passwords, prefixes, database names, tablenames! 
+4. Open http://myserver.com/tab2/install.php in your browser and follow the instructions.
+
+Option 2:
+	This option speeds up future upgrades to a few minutes work if you have SSH 
+    shell access to the server.
+
+Requirements:
+	You have SSH shell access to a server on a UNIX based system where you 
+	want to install the system (See Using SSH authorized keys below).
+	Recommended for Windows to Linux install: Cygwin installed (+ openssl package)	
+	
+Steps (The DB specified in deploy-config (MYSQL_DB_NAME) will be OVERWRITTEN):
+1. cp deploy-config.template to deploy-config
+2. Edit deploy-config (set install paths and hostnames)
+3. Run ./deploy.sh -t (install testserver) or ./deploy.sh -q (install HOT server)
+4. copy install.php to your server
+5. Continue @ Option 1 Step 2
+
+Windows see:
+http://php.net/manual/en/install.windows.extensions.php 
+
+Support Forums:
+http://sourceforge.net/forum/forum.php?forum_id=590643
+
+========
+UPGRADE:
+========
+
+WARNING: 
+    2.0->3.0 EVERY USER WITH DUPLICATE EMAIL WILL BE DELETED! EVEN ADMINS!
+    Fix: Assign a different email to every user before the upgrade!
+
+Please read the release notes at the download page at sourceforge NOW!
+http://sourceforge.net/project/showfiles.php?group_id=172286
+Click the notes icon. It may contain up to date info on the release.
+
+BACKUP FIRST or be sorry:
+	Make a backup of your DB and your old version of TAB !!!!!
+	mysqldump -u root -p TABDATABASENAME >myTABBackup.sql
+    ... or use phpmyadmin.
+
+WARNING: TAB 1.04e upgrades to 3.0 are not possible. They must be first upgraded 
+to 2.0x with the 2.0x codebase 
+(e.g. http://sourceforge.net/project/showfiles.php?group_id=172286&package_id=197021&release_id=454116). 
+
+MAJOR CHANGE:
+    After the upgrade all user accounts are linked to address records.
+    Login names change to the email address of the user.
+
+2.x to 3.x and later UPGRADE:
+    THIS IS A MAJOR UPGRADE! Read carefully! 
+    EVERY USER WITH DUPLICATE EMAIL WILL BE DELETED! EVEN ADMINS!
+    This is because the new login name is the email.
+    Fix: Assign a different email to every user before the upgrade!
+
+    1. Rename your old installation directory.
+    2. Copy the new 3.0 codebase to the server.
+    3. Copy your old mugshots directory to your new installation directory.
+    4. CREATE a new config.php: Copy config.php.template to config.php on your 
+       server and transfer the DB passwords from your old config to the new one 
+       and change any new options you need.
+    5. Run upgrade.php (after having a backup of your DB!!)
+
+FUTURE VERSIONS: 3.0 to any newer or newer use the following
+	1. copy the files to your server
+	   (or use your deploy-config and ./deploy -t OR -q -- see INSTALL)
+	2. Open in your browser: upgrade.php
+	3. compare and edit config.php and config.php.template to check for new 
+       options and 
+
+Support Forums:
+http://sourceforge.net/forum/forum.php?forum_id=590643
+
+======
+HINTS:
+======
+
+Using SSH authorized keys:
+--------------------------
+Generate an ssh paswordless login identity:
+localhost#> ssh-keygen -t rsa
+Do not enter a password if you want a passwordless login.
+Install the identity on the remote host account of user@remote.com:
+localhost#> cat ~/.ssh/id_rsa.pub | ssh user@remote.com 'cat>>.ssh/authorized_keys'
+You can also copy the content of id_rsa.pub manually with an editor to .ssh/authorized_keys
+.ssh/authorized_keys needs to be created
+
+See also:
+http://www.puddingonline.com/~dave/publications/SSH-with-Keys-HOWTO/document/html/SSH-with-Keys-HOWTO-4.html
+
+Hostmonster hosting:
+--------------------
+
+The following issue occurs with hostmonster accounts (Apache 1.37):
+
+Scripts show once or twice the following message. 
+After that they work like normal until changed or uploaded again.
+
+<!-- SHTML Wrapper - 500 Server Error -->
+[an error occurred while processing this directive]
+
+Resolution:
+The custom Apacher server at hostmonster detects wrong file permissions and corrects them (one by one!!!).
+Watch how the file changes permissions from -rw-rw-r-- to -rw-r--r-- after you access the file.
+
+So ... when uploading with ssh make sure you change permission to 644 if you see that error! 
+

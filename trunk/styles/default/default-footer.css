@@ -1,0 +1,36 @@
+/******** PAGE FOOTER **********/
+
+div#footer
+{
+    clear: both;
+    border: 1px solid;
+    border-color: #CCCCCC;
+    text-align: center;
+	background: #EEEEEE;;
+}
+p#f_version
+{
+    margin: 0px;
+}
+p#f_copy
+{
+    margin: 0px;
+}
+p#f_gnu
+{
+    margin: 0px;
+}
+p.f_extra
+{
+    margin: 0px;
+}
+
+#listtable
+{
+    margin-left: 50px; 
+}
+
+#footerspacer
+{
+    height: 20px;
+}
