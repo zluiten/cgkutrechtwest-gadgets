@@ -1,3 +1,0 @@
-This directory is no longer used in standard configurations of TAB, 
-because pictures are uploaded into the DB and no longer stored in 
-the file system.
