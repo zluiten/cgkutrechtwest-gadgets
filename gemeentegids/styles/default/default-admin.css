@@ -1,0 +1,69 @@
+/********** ADMIN OPTIONS **********/
+
+.admin-panel {
+    width: 570px;
+    font-family: Tahoma, sans-serif;
+    margin: 0px auto;
+    margin-bottom: 25px;
+}
+
+/* .admin-title { } see default-main */
+
+.admin-content {
+    clear: both;    
+}
+
+.admin-box {
+    padding:  5px 10px 5px 10px;    
+}
+
+ul.admin-menu {
+    list-style-type: none;
+}
+
+ul.admin-menu li {
+    float: right;
+    margin-left: 5px;
+}
+
+.admin-panel fieldset label {
+    font-weight: bold;
+    display: block;
+    float: left;
+    width: 140px;
+}
+
+.admin-panel fieldset {
+    border: none;
+    margin-bottom: 8px;
+    border-top: solid 1px #000000;
+}
+
+.admin-panel fieldset legend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.admin-panel table tr {
+    font-size: 11px;
+}
+
+.admin-panel table tr.vert {
+    font-weight: bold;
+}
+
+.admin-users {
+    width: 100%;
+}
+
+.admin-plugins {
+    width: 100%;
+}
+
+.options-options div + input[type=submit]  {
+    margin-top: 10px;
+}
+
+div.options-hint {
+    margin-bottom: 10px;
+}

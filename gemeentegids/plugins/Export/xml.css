@@ -1,0 +1,28 @@
+contact { display:block; font-family: sans-serif; color: black; margin: 10px; }
+fullname { display:block; background: #CCF; font-weight: bold; font-size: 26px; margin-bottom: 10px;}
+name { display:none; }
+address-list { display:block; margin-bottom: 10px; }
+    address { display:block; float: left; width: 6cm; margin-bottom: 10px; border: 1px solid; }
+        type { display:block; font-weight: bold; }
+        line { font-weight: bold; }
+        zip { font-weight: bold; }
+        country { display:block; }
+        countrycode { display:none; }
+
+email-list { clear:both; display:block; margin-bottom: 10px; }
+phone-list { clear:both; display:block; margin-bottom: 10px; }
+www-list { display:block; margin-bottom: 10px; }
+other-list { display:block; margin-bottom: 10px; }
+date-list { display:block; margin-bottom: 10px; }
+
+email { display:block; }
+phone { display:block; }
+www { display:block; }
+other { display:block; }
+date { display:block; }
+
+label { display:inline; font-weight: bold; margin-right: 10px; }
+value { display:inline; }
+value1 { display:inline; margin-right: 10px; }
+value2 { display:inline; }
+

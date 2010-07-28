@@ -1,0 +1,244 @@
+/********** ALL LISTS **********/
+
+/* NEW LIST FORMATTING (generated with Contact's functions) SUPPRESS TITLES in lists */
+table.contact-list .phones-title, 
+table.contact-list .emails-title, 
+table.contact-list .messaging-title, 
+table.contact-list .address-title
+{
+    display: none;
+}
+
+table.contact-list .emails, 
+table.contact-list .phones, 
+table.contact-list .messaging
+{
+    margin-bottom: 0px;
+}
+
+div.contact-list {
+    margin: 10px auto;
+    text-align: left;
+    width: 720px;
+}
+
+div.contact-list img.tab-title {
+    margin-bottom: 25px;
+}
+
+div.info-box {
+    text-align: left;
+    float: left;
+    margin-bottom: 10px;
+}
+
+div.list-box { /* contains changed and datelist */
+    float: right;
+    width: 360px;
+    margin-bottom: 5px;
+}
+
+div.upcoming-dates table.changed-list, div.recently-changed table.changed-list {
+    margin: 0px;
+    width: 100%;
+}
+
+div.recently-changed table.changed-list, div.recently-changed table.changed-list caption {
+    margin: 0px;
+    clear: none;
+}
+
+div.recently-changed div.expand {
+    text-align: right;
+}
+
+ul.list-menu {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    clear: both;
+}
+
+ul.list-menu ul {
+    list-style-type: none;
+    position: absolute;
+    margin-left: 0px;
+    padding: 0px;
+    top: 15px;
+    z-index: 1;
+    visibility: hidden;
+}
+
+ul.list-menu li:hover ul {
+   visibility: visible;
+}
+
+ul.list-menu li {
+    margin: 0px 5px 5px 5px;
+    float: left;
+    width: 130px;
+    height: 15px;
+    text-align: center;
+    border: solid 1px #000000;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+ul.list-menu li li {
+    margin-left: -1px;
+}
+
+/* IGNORED BY IE7!!!*/
+* html ul.list-menu li li {
+    margin-left: -66px;
+}
+
+ul.list-menu li a {
+    display: block;
+    height: 100%;
+}
+
+ul.list-menu li a:link, ul.list-menu li a:visited {
+    color: #000000;
+}
+
+ul.list-menu li a:hover {
+    background-color: #0088EE;
+    text-decoration: none;
+}
+
+div.goTo {
+    clear: both;
+    text-align:left;
+    float: left;
+}
+
+div.goTo label {
+    display: block;
+    font-weight: bold;
+}
+
+div.group-selector {
+    float: right;
+    text-align: right;
+}
+
+div.group-selector label {
+    font-weight: bold;
+    display: block;
+}
+
+div.contact-list-navigation {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: -5px; /* works for IE7 and Firefox - no idea where the extra space is from */
+}
+
+div.page-nav {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+}
+
+div.page-nav a {
+    font-weight: normal;
+}
+
+div.page-nav a.curpage {
+    font-weight: bold;
+}
+
+ul.char-nav {
+    float: left;
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: bottom;
+}
+
+ul.char-nav li {
+    float: left;
+    padding-right: 5px;
+}
+
+ul.char-nav li.cur a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+ul.char-nav li.obs a {
+    color: #999999;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+ul.char-nav li.tail a {
+    font-weight: bold;
+}
+
+table.contact-list {
+    margin-top: 0px;
+    padding: 0px 4px 4px 4px;
+}
+
+table.contact-list caption {
+    margin-top: 0px;
+}
+
+table.contact-list caption .group-caption {
+    float:left;
+}
+
+table.contact-list th.contact-list-subheader {
+    text-align: left;
+    font-size: 20px;
+    padding-bottom: 0px;
+    padding: 2px 5px;
+    border-bottom: solid 1px #000000;
+}
+
+table.contact-list td {
+    font-size: 11px;
+    vertical-align: top;
+    padding: 2px 5px;
+    border-bottom: solid 1px #BBBBBB;
+}
+
+table.contact-list tr.me {  /* myself = dark green; priority = 2 */
+    background-color: #88FF88;
+}
+
+table.contact-list tr.editable {  /* myself = light green; priority = 1 */
+    background-color: #BBFFBB;
+}
+
+table.contact-list tr.event {  /* event = light blue; priority = 3 */
+    background-color: #BBBBFF;
+}
+
+table.contact-list tr.special {  /* unused/reserved = light red; priority = 4 */
+    background-color: #FFBBBB;
+}
+
+table.contact-list tr.noentry td {
+    padding-top: 14px;
+    padding-left: 4px;
+    padding-bottom: 8px;
+}
+
+/********** OTHER LIST **********/
+
+table.changed-list {
+    margin: 0px auto;
+    margin-bottom: 20px;
+}
+
+/* table.changed-list caption { } see default-main */
+
+table.changed-list td {
+    font-size: 11px;
+    vertical-align: top;
+    padding: 2px 5px;
+    border-bottom: solid 1px #BBBBBB;
+}
+
