@@ -30,8 +30,8 @@
 // Instructions see INSTALL file or the comment section below!!
 $CONFIG_DB_HOSTNAME = 'localhost';
 $CONFIG_DB_NAME = 'tab3';
-$CONFIG_DB_USER = 'tab3';
-$CONFIG_DB_PASSWORD = 'r3loaded';
+$CONFIG_DB_USER = '';
+$CONFIG_DB_PASSWORD = '';
 $CONFIG_DB_PREFIX = 'tab3_';
 
 // WARNING: neither the hostname, name, username, password or table prefix
