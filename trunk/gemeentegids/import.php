@@ -1,8 +1,8 @@
 <?php
 $dbhost = 'localhost';
 $dbname = 'tab3';
-$dbuser = 'zluiten';
-$dbpass = 'wwursxp83';
+$dbuser = '';
+$dbpass = '';
 
 $db = mysql_connect($dbhost, $dbuser, $dbpass) or die('Can\'t connect to database host');
 mysql_select_db($dbname, $db) or die('Unable to select database');
