@@ -1,0 +1,24 @@
+/**** PAGE REGISTER ****/
+.lostpasswd-container {
+    width: 250px;
+    margin: 10px auto;
+    text-align: left;
+}
+
+.lostpasswd-container label {
+    display: block;
+    font-weight: bold;
+}
+
+.lostpasswd-container input {
+    margin-top: 10px;
+    display: block;
+}
+
+.register-label {
+    display: block;
+}
+
+/* .register-input {
+    display: block;
+} */

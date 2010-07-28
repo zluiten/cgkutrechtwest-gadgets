@@ -1,0 +1,252 @@
+/********** ADDRESS CARD **********/
+
+/* The Business Card - address.php defines the following CSS classes for DIVs
+.emails, .phones, .addresses, .messaging, .other, .urls, .notes
+Each class can have the tail -label or -info mostly used with SPANs.
+All items are delivered as LI with the same CSS class, which can have different formatting.
+
+addresses have special CSS sub-classes for their LIs:
+addresses-line, addresses-phone, addresses-coordinates
+Some originate in AddressFormatter
+Maybe I add the spans addresses-city and addresses-zip later
+*/
+
+.menu-box
+{
+    width: 660px;
+    font-family: Tahoma, sans-serif;
+    margin: 0px auto;
+}
+
+ul.card-menu {
+    list-style-type: none;
+}
+
+ul.card-menu li {
+    float: right;
+    margin-left: 5px;
+}
+
+ul.card-pluginmenu {
+    list-style-type: none;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+ul.card-pluginmenu li {
+    float: left;
+    margin-right: 5px;
+}
+
+/* Main div includes everything except menu*/
+.card {
+    clear: both;
+    width: 660px;
+    font-family: Tahoma, sans-serif;
+    margin: 0px auto;
+    margin-bottom: 25px;
+}
+
+/* div title bar includes names div and groups ul*/
+/* .card-title {} ... standard in default-main */
+
+div.card-title-br { padding: 3px; }
+
+.fn-hidden { background-color: #FFBBBB; }
+
+ul.groups {
+    float: right;
+    list-style-type: none;
+    font-family: Tahoma, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 0px;
+    margin-right: 5px;
+}
+
+ul.groups li {
+    padding: 0px;
+    float: right;
+    margin-left: 5px;
+}
+
+ul.groups li a:link, ul.groups li a:hover, ul.groups li a:visited, ul.groups li a:active {
+    color: #FFFFFF;
+}
+
+/* div includes all info, except title bar*/
+.card-box {
+    font-size: 11px;
+    font-weight: normal;
+    border-top: none;
+    text-align: left;
+    padding:  5px 10px 5px 10px;
+}
+
+/* 1st & 2nd colum on top: picture, mailing address */
+.card-picture {
+    float: left;
+    margin: 4px;
+    border: solid #000000 1px;
+}
+
+/* UL that displays the addesses of a contact */
+.card-addresses {
+    float: left;
+    padding: 4px;
+    margin-top: 0px;
+    margin-left: 20px;
+    width:220px;
+    list-style-type: none;
+}
+
+.card-addresses li {
+    clear: both;
+    margin-bottom: 10px;
+}
+
+.card-addresses li .emails,
+.card-addresses li .phones,
+.card-addresses li .messaging {
+    margin-bottom: 0px;
+}
+
+/* 3rd colum email+phones+messaging */
+.card-emphomess {
+    padding: 4px;
+    width:230px;
+    margin-left: 400px;
+}
+
+/* top 3 column container*/
+.card-top {
+    clear: both;
+}
+
+/* bottom column container*/
+.card-bottom {
+    clear: both;
+}
+
+/* bottom column whole width*/
+.card-other, .card-notes {
+    padding: 4px;
+}
+
+.emails, .phones, .messaging {
+    margin:0px;
+    margin-bottom: 10px;
+    list-style-type: none;
+    display:block;
+    padding:0px;
+    font-size:11px;
+}
+
+.hidden {
+    color: #B00000;
+}
+
+.phones-title, .messaging-title, .emails-title, .address-title {
+    font-size:12px;
+    font-weight: bold;
+}
+
+.phones-label, .messaging-label, .emails-label  {
+    font-size:11px;
+    font-weight: bold;
+}
+
+ul.phones li, ul.emails li, ul.messaging li {
+    font-size:11px;
+    margin-bottom: 0px;
+    margin-left:10px;
+}
+
+.adl /* address-line */
+    {
+        margin-left:10px;
+        margin-bottom: 0px;
+    }
+
+.type { /* hCard address-type */
+    font-size:12px;
+    font-weight: normal;
+}
+
+.locality { /* hCard */
+    font-style: italic;
+}
+
+.postal-code { /* hCard */
+    font-weight: bold;
+}
+
+.address-menu { 
+    margin-bottom: 4px;
+}
+
+ul.address-menu {
+    padding-left: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+ul.address-menu li {
+    float: left;
+    margin: 0px;
+    margin-right: 5px;
+}
+
+/*
+.addresses-state {
+}
+.addresses-coordinates {
+    display: none;
+}
+*/
+
+.urls, .other, .user-info {
+    font-size:11px;
+    margin:0px;
+    padding:0px;
+}
+
+.other-spacer {
+    height: 11px;
+    width: 100%;
+    /* IE7 shows SCROLLBARS! overflow: auto; */
+}
+
+.wide-label, .other-label, .urls-label, .user-info-title {
+    float: left;
+    position: absolute;
+    font-weight: bold;
+    margin-left: 4px;
+    padding: 0px;
+}
+
+.other-info, .user-info-info, .card .url { /* hCard */
+    margin-left: 140px;
+}
+
+.wide-info {
+    margin-left: 200px;
+}
+
+.notes {
+    font-size:12px;
+    font-family: monospace;
+    margin-left: 4px;
+}
+
+.notes-title {
+    font-size:12px;
+    margin-left: 4px;
+    font-weight: bold;
+}
+
+.update {
+    text-align: left;
+}
+

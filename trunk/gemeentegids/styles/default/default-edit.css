@@ -1,0 +1,151 @@
+/********** CONTACT EDIT **********/
+
+.edit-container {
+    width: 660px;
+    font-family: Tahoma, sans-serif;
+    margin: 0px auto;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.edit-property-select { width: 62px; }
+.edit-property-label { width: 80px; }
+.edit-property-value { width: 318px; }
+.edit-property-visibility { width: 48px; }
+.edit-property-refid { width: 48px; }
+
+.edit-date-select { width: 62px; }
+.edit-date-label { width: 120px; }
+.edit-date-value { width: 80px; }
+.edit-date-visibility { width: 48px; }
+
+/* .edit-title { } see default-main */
+
+.edit-box {
+    font-size: 11px;
+    font-weight: normal;
+    color: #000000;
+    border: 1px solid #000000;
+    border-top: none;
+    text-align: left;
+    padding:  5px 10px 5px 10px;    
+}
+
+ul.edit-menu {
+    list-style-type: none;
+}
+
+ul.edit-menu li {
+    float: right;
+    margin-left: 5px;
+}
+
+.edit-container fieldset label {
+    font-weight: bold;
+    display: block;
+}
+
+.edit-container fieldset {
+    border: none;
+    margin-bottom: 8px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-top: solid 1px #000000;
+}
+
+.edit-container textarea {
+    font-size: 12px;
+}
+
+.edit-container fieldset legend {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+fieldset div.edit-line {
+    overflow: hidden;
+    width: 99%;
+}
+
+.edit-container fieldset div.edit-input-radio input, .edit-container fieldset div.edit-input-checkbox input, 
+.edit-container fieldset div.edit-input-checkbox-hide input {
+    float: left;
+}
+
+fieldset div.edit-input-checkbox input, fieldset div.edit-input-checkbox-hide input {
+    margin-left: 0px;
+}
+
+fieldset div.edit-input, fieldset div.edit-input-radio, fieldset div.edit-input-checkbox {
+    float: left;
+    width: 165px;
+}
+
+.edit-input-dropdown
+{
+    width: 63px;
+}
+
+/* limit pull-downs */
+.edit-container fieldset div.edit-input input, .edit-container fieldset div.edit-input select {
+    width: 150px;
+}
+
+/*** wide input fields ***/
+fieldset div.edit-input-wide {
+    float: left;
+    width: 330px;
+}
+
+fieldset div.edit-input-wide input {
+    width: 315px;
+}
+
+/*** xlarge input fields ***/
+fieldset div.edit-input-xlarge {
+    float: left;
+    width: 500px;
+}
+
+fieldset div.edit-input-xlarge input {
+    width: 485px;
+}
+
+/*** other input fields ***/
+fieldset div.edit-input-file {
+    width: 250px;
+    float: left;
+}
+
+.edit-line div.edit-input-checkbox, div.edit-input-radio, .edit-mugshot div.edit-input-checkbox, .edit-input-checkbox-hide {
+    padding-top: 12px;
+}
+
+fieldset.edit-groups div.edit-line div.edit-input-checkbox {
+    padding-top: 0px;
+}
+
+fieldset div.edit-mugshot-text {
+    float: left;
+    width: 500px;
+}
+
+fieldset div.edit-mugshot-text input {
+    width: 100%;
+}
+
+fieldset div.edit-single-address {
+    padding-bottom: 10px;
+}
+
+div.edit-input-link {
+    padding-top: 12px;
+}
+
+fieldset.edit-groups div.edit-line {
+    margin-top: 20px;
+}
+
+
+/* UNUSED: div.edit-propertyset div.edit-additionals */
+

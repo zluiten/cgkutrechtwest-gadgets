@@ -1,0 +1,255 @@
+<?php
+/**************************************************************
+ *
+ *  THE ADDRESS BOOK RELOADED 3.1 - CONFIGURATION TEMPLATE
+ *
+ **************************************************************/
+
+/**************************************************************
+**
+**  You will have to manually edit this file to set up
+**  The Address Book on your server. Please read all the
+**  instructions carefully. If values are missing or
+**  incorrect The Address Book may not function correctly.
+**
+**  HACKING: If you plan to modify TABR see bottom of this
+**           file! ... OR BE SORRY!
+**
+**************************************************************/
+
+/* ============================================================= */
+/* EACH plugin has a configuration in its own plugin directory.  */
+/* ============================================================= */
+
+// error_reporting(E_ALL); // uncomment if you see a blank page!
+
+/* =================================================== */
+/* MANDATORY SETUP - DATABASE                          */
+/* =================================================== */
+
+// Instructions see INSTALL file or the comment section below!!
+$CONFIG_DB_HOSTNAME = 'localhost';
+$CONFIG_DB_NAME = 'tab3';
+$CONFIG_DB_USER = 'tab3';
+$CONFIG_DB_PASSWORD = 'r3loaded';
+$CONFIG_DB_PREFIX = 'tab3_';
+
+// WARNING: neither the hostname, name, username, password or table prefix
+// of the database may contain spaces!!
+
+// AUTOMATIC PATH SETUP and URL generation:
+// Example: installed in: http://yourserver/sub/tabr/ => set TMP_INSTALLDIR to 'tabr/', http://yourserver/foo/ => TMP_INSTALLSUBDIR='/'
+$TMP_INSTALLDIR = '/gemeentegids/'; // UNIQUE part of the URL to the main directory leading to this application (e.g. 'tabr/'). Default / works for http://server/tabr but not for http://server/sub/tabr .
+
+/* ============================================================== */
+/* END MANDATORY SETUP - You can try to run admin/install.php now */
+/* ============================================================== */
+
+/** Generally left blank except for embedded Applications: path for TABR file operations (plugins, xsl): $CONFIG_INSTALL_SUBDIR . 'lib/somefile' */
+$CONFIG_INSTALL_SUBDIR = ''; // LEAVE AS IT IS; (only useful for embedded applications, e.g. 'webapp/usermanager/'). TABR install dir relative to TMP_INSTALLDIR
+
+// IIS on Windows - Request URI Fix by skylarsutton in the TABR forums - Thanks!
+// if (!$_SERVER['REQUEST_URI']) $_SERVER['REQUEST_URI'] = $_SERVER['SCRIPT_NAME'].$_SERVER['PATH_INFO'];
+
+// AUTOMATIC setup - modify only if that does not work - see below for manual setup; Should work automatically for LINUX/Apache/PHP.
+$CONFIG_TAB_SERVER_ROOT = substr($_SERVER['REQUEST_URI'],0,strpos($_SERVER['REQUEST_URI'],$TMP_INSTALLDIR,1)+strlen($TMP_INSTALLDIR)) . $CONFIG_INSTALL_SUBDIR;
+//$CONFIG_TAB_SERVER_ROOT = '/adresboek/';
+$CONFIG_TAB_ROOT = (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off' ? "http://" : "https://") . $_SERVER['HTTP_HOST'] . $CONFIG_TAB_SERVER_ROOT;
+
+// MANUAL SETUP (used as address book):
+// URL and LOCATION of this installation (!TRAILING SLASH NEEDED!)
+// $CONFIG_INSTALL_SUBDIR = '';
+// $CONFIG_TAB_SERVER_ROOT = '/somedir/subdir/';
+// $CONFIG_TAB_ROOT = 'http(s)://www.example.com/somedir/subdir/';
+
+// MANUAL SETUP (used as login manager library):
+// URL and LOCATION of this installation (!TRAILING SLASH NEEDED!)
+// $CONFIG_INSTALL_SUBDIR = 'usermanager/';
+// $CONFIG_TAB_SERVER_ROOT = '/webapp/usermanager/';
+// $CONFIG_TAB_ROOT = 'http(s)://www.example.com/webapp/usermanager/';
+
+// CONFIG_DB_HOSTNAME - MYSQL SERVER HOST NAME
+// This is the name of the host machine that the MySQL server
+// is installed on. In many cases it is the same as the web
+// server so "localhost" will suffice. If this is incorrect you
+// will need to speak with a server administrator to obtain the
+// host name.
+// If you leave the variable empty it will default to "localhost"
+
+// DATABASE NAME (REQUIRED)
+// This is the name of the database that you wish to use, which
+// you may have either already set up in MySQL, or had one
+// assigned to you. The Address Book will be unable to create
+// a database if one does not already exist, so make sure you
+// have one.
+
+// MYSQL USER NAME (REQUIRED)
+// This is the user name that you use to log in to MySQL.
+
+// MYSQL PASSWORD
+// This is the password corresponding to the above username
+// which you use to log in to MySQL.
+// Please change the default PW to something else.
+
+// DATABASE TABLE PREFIX
+// A database can contain a large number of tables, some of
+// which may be used for other applications than the Address
+// Book. If you have only one database to work with you may
+// wish to provide a prefix which would make it easier to find
+// and identify tables related to the Address Book. We suggest
+// using the prefix "address_" but you may also choose not to
+// use a prefix by leaving the variable blank.
+// Do NOT use the - (dash) character, or spaces or / (slash)
+
+/* =================================================== */
+/* LOOK-AND-FEEL: DISPLAY options */
+
+// SEARCH Function in the main list searches 'other information' for specific tags:
+$CONFIG_SEARCH_CUSTOM=array('Occupation','Function','Product','Project');
+
+// How mainlist displays the name of an entry
+$CONFIG_LIST_NAME_SPEC = array('#!expander',' ','#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_DATELIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_CHANGEDLIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_CONTACT_NAME_SPEC = array(array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'), array(' (', 'nickname' ,')'));
+
+// LIST_SPECS are used in Contact::generateListRowArray()
+//$CONFIG_LIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+// same with nickname included:
+// $CONFIG_LIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),array(' (', 'nickname' ,')'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+/* $CONFIG_LIST_ROW_SPECS = array(
+    '' => // default must be set
+        array( 'return $this->generateFullName("html",$namespec) . $events;',
+               'return $this->phones();',
+               'return $this->emails() . $this->messaging();'),
+    'project' =>
+        array( 'return $this->generateFullName("html",$namespec);',
+               'return $this->getProperty("other","Project Country");',
+               'return $this->getProperty("other","Project Category");',
+               'return $this->getProperty("other","Value");'),
+    'opportunity' =>
+        array( 'return $this->generateFullName("html",$namespec);',
+               'return $this->getProperty("other","Project Country");',
+               'return $this->getProperty("other","Value");',
+               'return $this->phones() . $this->emails();')); */
+
+// # will produce a spacer
+$CONFIG_CONTACT_OTHER_INFO_ORDER=array('Academic Title','Occupation','Department','Assistant','Superior','#','Product','Project','Function','Expertise');
+
+// Additional header logo, icon, js or text etc. before the TAB RELOADED BANNER immediately after the <body> tag.
+// $CONFIG_HEADER_HTML = '<script type="text/javascript" src="' . $CONFIG_TAB_SERVER_ROOT . 'lib/js/snowing.js"></script>';
+$CONFIG_HEADER_HTML = '<H1><strong>Digitale gemeentegids CGK-Utrecht West</strong></H1>'; //'<iframe src="/index.php?page=empty" width="99%" height=160 scrolling=no>IFrame not found!</IFRAME>';
+// Banner image for the list page
+//$CONFIG_LIST_BANNER = '<img src="'.$CONFIG_TAB_SERVER_ROOT.'images/banner.png" class="tab-title" alt="The Address Book" />';
+$CONFIG_LIST_BANNER = '';
+
+// Additional footer logo, icon or text etc.
+//$CONFIG_ADD_HEAD = '<title>Digitale gemeentegids CGK-Utrecht West</title>'; // add something between <HEAD> </HEAD>
+//$CONFIG_FOOTER_HTML = '<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=172286&amp;type=4" width="125" height="37" alt="SourceForge.net Logo" /></a>';
+$CONFIG_FOOTER_HTML = '';
+
+//$CONFIG_NOBODY_PICTURE ='lib/icons/nobody.gif'
+
+/* ======================= */
+/* ADMINISTRATION FEATURES */
+
+// the page that displays the main application after login and in case of the many 'return' options
+$CONFIG_MAIN_PAGE = 'contact/list.php';
+// the page that displays after logout.php was called
+$CONFIG_LOGOUT_PAGE = 'user/login.php'; // WARNING this is logIN.php !!
+
+// ALLOW login to persist for 2 days absolute -- WARNING: NOT SECURE IF USERS CONNECT FROM PUBLIC COMPUTERS
+// session_set_cookie_params(2*86400);
+// ALLOW login to persist for 2 days after last login -- WARNING: NOT SECURE IF USERS CONNECT FROM PUBLIC COMPUTERS
+// $tmpsid = 'TheAddressBookSID-'.$CONFIG_DB_NAME;
+// if(isset($_COOKIE[$tmpsid])) setcookie($tmpsid, $_COOKIE[$tmpsid], time()+2*86400, '/');
+
+// MULTI SERVER ENVIRONMENT - session path
+// to run on multi server environments like sourceforge set the session path:
+// on shell login:
+//	   mkdir -p /tmp/persistentdata/sfproject/mysessions
+//	   chmod a+w /tmp/persistentdata/sfproject/mysessions
+// ... then uncomment this line:
+// session_save_path("/tmp/persistentdata/sfproject/mysessions");
+
+// Bugtracker or email link to notify you on errors (embedded configuration)
+//$CONFIG_BUG_TRACK_LINK = '<a href='mailto:support@example.com'>Support</a>';
+
+// How many days after a contact is 'added' it will change to changed for the first time.
+// Users frequently change an added contact multiple times after they create it. This
+// prevents the contact being flagged as changed. If you are running a Certificate Authority
+// where you issue certificates every month a value of 31 holds the 'added' state for at
+// least a month even if your users change the entry. DEFAULT: 31 if not set.
+//$CONFIG_ADDED_CHANGED_HYSTERESIS = 31;
+
+// Do your users connect with SSL Client certificates? Then set to TRUE to log them in with the client
+// certificate's email address without requiring a password. Requires: SSLOptions +StdEnvVars in the Apache configuration.
+$CONFIG_SSL_CLIENT_AUTHENTICATION = false;
+
+// shows links with a prepared email in the admin panel if a user did not login
+$CONFIG_USER_ACCOUNT_EXPIRED_INTERVAL='2 MONTH'; // SQL notation for INTERVAL
+$CONFIG_USER_ACCOUNT_EXPIRED_MAIL='?subject=Address Book User Account Expired&body=You have not logged in for some time. The administrator may revoke your account soon if you do not use your account.%0A%0ARegards,%0AAddress Book Administrator.';
+
+// Only used, if path in DB is of the form /xyz/.../file.jpg (starts with a slash)
+$CONFIG_ABSOLUTE_LOCAL_MUGSHOT_PATH = '/srv/www/htdocs/TAB/mugshots/';
+
+/* ======================== */
+/* SECURITY RECONFIGURATION */
+
+// Example reconfiguration of security: (USE WITH CARE!!! You may make TABR visible to everyone!)
+// A normal user may only view and edit the own contact and not see the list: (anything else is unchanged e.g. edit own options)
+/* $CONFIG_RIGHTS_MANAGER['view'] = 'return $this->currentUser->isAtLeast("admin") || $this->isSelf($target);';
+   $CONFIG_RIGHTS_MANAGER['create'] = 'return $this->currentUser->isAtLeast("manager");';
+   $CONFIG_RIGHTS_MANAGER['edit'] = 'return $this->currentUser->isAtLeast("admin") || $this->isSelf($target);';
+   $CONFIG_RIGHTS_MANAGER['view-list'] = 'return $this->currentUser->isAtLeast("manager");'; */
+
+// PHPMAILER setup if needed
+/*
+$CONFIG_PHPMAILER['Mailer']   = ;        // Method to send mail: ("mail", "sendmail", or "smtp")
+$CONFIG_PHPMAILER['Sendmail'] = ;        // Sets the path of the sendmail program.
+$CONFIG_PHPMAILER['Host']     = ;        // Sets the SMTP hosts.  All hosts must be separated by a semicolon.
+$CONFIG_PHPMAILER['Port']     = 25;      // Sets the default SMTP server port.
+$CONFIG_PHPMAILER['SMTPAuth'] = false;   // Sets SMTP authentication. Utilizes the Username and Password variables.
+$CONFIG_PHPMAILER['Username'] = "";
+$CONFIG_PHPMAILER['Password'] = "";
+*/
+
+/* ============================================================
+ * HACKING: Do you want to modify TABR-code ??? READ THIS:
+ * This section allows you to replace some classes of the
+ * application with your own classes.
+ *
+ * WHY? Because you still want to get upgrades and fixes
+ *      even if you have adapted TABR. Do you agree?
+ *      You want to share your modifications quickly
+ *      without creating a patch? Wouldn't that be efficient?
+ *
+ * HOW? 1. Create a PHP class that extends the existing class
+ *         class MySpiffyPageList extends PageList
+ *      2. Override the methods that you want to replace
+ *      3. Add to posing array: 'PageList' => 'MySpiffyPageList' or 'PageDelegate' => 'MyPageDelegate'
+ *      4. Put your class into lib/frontEnd/custom
+ *         Select sensible names for your class (NOT: MyPageList)
+ *         to be able to share it with others
+ *      To modify page appearance completely replace PageDelegate
+ *
+ * ============================================================ */
+
+$CONFIG_CLASS_POSING_ARRAY = array
+    (
+        // 'oldClass' => 'newClass'
+        'PageDelegate' => 'MyPageDelegate',
+        'PageContactEdit' => 'MyPageContactEdit',
+        'PageContact' => 'MyPageContact'
+        );
+// Replacable classes: PageDelegate, PageContact, PageContactEdit, PageList, PageSearchList,
+//                     PageUpcomingDates, PageRecentlyChanged, PageFeatureList,
+//                     PageUpcomingDates, PageSearchResult, Contact
+// Not Possible: Page (it is a baseclass for others)
+// Please give good reasons in the Developer forums of this project if you need to override other classes.
+
+// Additional include path for your custom classes: (default is lib/backEnd:lib/frontEnd:lib/utilities:lib/custom:)
+//$path = ini_get('include_path') . ':other/path/';
+//ini_set('include_path',$path);
+
+?>

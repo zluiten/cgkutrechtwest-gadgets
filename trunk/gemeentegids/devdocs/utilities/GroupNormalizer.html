@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class GroupNormalizer</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class GroupNormalizer</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Class to normalize charactes for grouping (i.e. convert ö to =&gt; o)</p>
+		<p class="notes">
+			Located in <a class="field" href="_lib---utilities---GroupNormalizer.class.php.html">/lib/utilities/GroupNormalizer.class.php</a> (line <span class="field">12</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																								<div class="var-title">
+					<span class="var-type">array</span>
+					<a href="#$norm" title="details" class="var-name">$norm</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																						
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#normalize" title="details" class="method-name">normalize</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$char</span>)
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$norm" id="$norm"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">array</span>
+			<span class="var-name">$norm</span>
+			 = <span class="var-default">array(<br />        'à' =&gt; 'a',<br />        'á' =&gt; 'a',<br />        'â' =&gt; 'a',<br />        'ã' =&gt; 'a',<br />        'ä' =&gt; 'a',<br />        'å' =&gt; 'a',<br />        'ā' =&gt; 'a',<br />        'ă' =&gt; 'a',<br />        'ą' =&gt; 'a',<br />        'ǎ' =&gt; 'a',<br />        'ǻ' =&gt; 'a',<br />        'ç' =&gt; 'c',<br />        'ć' =&gt; 'c',<br />        'ĉ' =&gt; 'c',<br />        'ċ' =&gt; 'c',<br />        'č' =&gt; 'c',<br />        'ď' =&gt; 'd',<br />        'è' =&gt; 'e',<br />        'é' =&gt; 'e',<br />        'ê' =&gt; 'e',<br />        'ë' =&gt; 'e',<br />        'ē' =&gt; 'e',<br />        'ĕ' =&gt; 'e',<br />        'ė' =&gt; 'e',<br />        'ę' =&gt; 'e',<br />        'ě' =&gt; 'e',<br />        'ĝ' =&gt; 'g',<br />        'ğ' =&gt; 'g',<br />        'ġ' =&gt; 'g',<br />        'ģ' =&gt; 'g',<br />        'ĥ' =&gt; 'h',<br />        'ì' =&gt; 'i',<br />        'í' =&gt; 'i',<br />        'î' =&gt; 'i',<br />        'ï' =&gt; 'i',<br />        'ĩ' =&gt; 'i',<br />        'ī' =&gt; 'i',<br />        'ĭ' =&gt; 'i',<br />        'į' =&gt; 'i',<br />        'ı' =&gt; 'i',<br />        'ǐ' =&gt; 'i',<br />        'ĵ' =&gt; 'j',<br />        'ķ' =&gt; 'k',<br />        'ĺ' =&gt; 'l',<br />        'ļ' =&gt; 'l',<br />        'ľ' =&gt; 'l',<br />        'ñ' =&gt; 'n',<br />        'ń' =&gt; 'n',<br />        'ņ' =&gt; 'n',<br />        'ň' =&gt; 'n',<br />        'ò' =&gt; 'o',<br />        'ó' =&gt; 'o',<br />        'ô' =&gt; 'o',<br />        'õ' =&gt; 'o',<br />        'ö' =&gt; 'o',<br />        'ō' =&gt; 'o',<br />        'ŏ' =&gt; 'o',<br />        'ő' =&gt; 'o',<br />        'ơ' =&gt; 'o',<br />        'ǒ' =&gt; 'o',<br />        'ŕ' =&gt; 'r',<br />        'ŗ' =&gt; 'r',<br />        'ř' =&gt; 'r',<br />        'ś' =&gt; 's',<br />        'ŝ' =&gt; 's',<br />        'ş' =&gt; 's',<br />        'š' =&gt; 's',<br />        'ſ' =&gt; 's',<br />        'ţ' =&gt; 't',<br />        'ť' =&gt; 't',<br />        'ù' =&gt; 'u',<br />        'ú' =&gt; 'u',<br />        'û' =&gt; 'u',<br />        'ü' =&gt; 'u',<br />        'ũ' =&gt; 'u',<br />        'ū' =&gt; 'u',<br />        'ŭ' =&gt; 'u',<br />        'ů' =&gt; 'u',<br />        'ű' =&gt; 'u',<br />        'ų' =&gt; 'u',<br />        'ư' =&gt; 'u',<br />        'ǔ' =&gt; 'u',<br />        'ǖ' =&gt; 'u',<br />        'ǘ' =&gt; 'u',<br />        'ǚ' =&gt; 'u',<br />        'ǜ' =&gt; 'u',<br />        'ŵ' =&gt; 'w',<br />        'ý' =&gt; 'y',<br />        'ÿ' =&gt; 'y',<br />        'ŷ' =&gt; 'y',<br />        'ź' =&gt; 'z',<br />        'ż' =&gt; 'z',<br />        'ž' =&gt; 'z',<br />        'ǽ' =&gt; 'æ',<br />        'ǿ' =&gt; 'ø',<br />        'ά' =&gt; 'α',<br />        'έ' =&gt; 'ε',<br />        'ή' =&gt; 'η',<br />        'ί' =&gt; 'ι',<br />        'ϊ' =&gt; 'ι',<br />        'ό' =&gt; 'ο',<br />        'ΰ' =&gt; 'υ',<br />        'ϋ' =&gt; 'υ',<br />        'ύ' =&gt; 'υ',<br />        'ώ' =&gt; 'ω'<br />    )</span>			(line <span class="line-number">17</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> list of conversions</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodnormalize" id="normalize"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">normalize</span> (line <span class="line-number">130</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">convert character to normalized character, preserving case of char</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> normalized character</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			normalize
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$char</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$char</span><span class="var-description">: character to normalize</span>			</li>
+				</ul>
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 06 Jan 2008 13:40:37 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.0</a>
+	</p>
+	</div></body>
+</html>

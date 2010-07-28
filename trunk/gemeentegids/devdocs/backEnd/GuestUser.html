@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class GuestUser</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class GuestUser</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-vars">Vars</a>
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Dummy class, for guest users which aren't acutally in the database</p>
+<p class="description"><p>All methods return empty or dummy values</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_lib---backEnd---GuestUser.class.php.html">/lib/backEnd/GuestUser.class.php</a> (line <span class="field">17</span>)
+		</p>
+		
+				
+		<pre><a href="../backEnd/Contact.html">Contact</a>
+   |
+   --<a href="../backEnd/User.html">User</a>
+      |
+      --GuestUser</pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-vars">Vars</a>
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																						
+				<div class="method-definition">
+											<span class="method-result">GuestUser</span>
+										<a href="#GuestUser" title="details" class="method-name">GuestUser</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#attachContact" title="details" class="method-name">attachContact</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#confirm" title="details" class="method-name">confirm</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$hash</span> = <span class="var-default">NULL</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#getValueGroup" title="details" class="method-name">getValueGroup</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#isUser" title="details" class="method-name">isUser</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#login" title="details" class="method-name">login</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$pw</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#save" title="details" class="method-name">save</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setPassword" title="details" class="method-name">setPassword</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$pw</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#setType" title="details" class="method-name">setType</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#trash" title="details" class="method-name">trash</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__sleep" title="details" class="method-name">__sleep</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#__wakeup" title="details" class="method-name">__wakeup</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../backEnd/User.html">User</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/User.html#var$id">User::$id</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/User.html#var$loggedIn">User::$loggedIn</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/User.html#var$type">User::$type</a></span><br>
+							</span>
+											</blockquote> 
+									<p>Inherited from <span class="classname"><a href="../backEnd/Contact.html">Contact</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/Contact.html#var$contact">Contact::$contact</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/Contact.html#var$user">Contact::$user</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../backEnd/Contact.html#var$valueGroups">Contact::$valueGroups</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-vars">Vars</a>
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodGuestUser" id="GuestUser"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor GuestUser</span> (line <span class="line-number">19</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">GuestUser</span>
+		<span class="method-name">
+			GuestUser
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodattachContact" id="attachContact"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">attachContact</span> (line <span class="line-number">33</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			attachContact
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodattachContact">User::attachContact()</a></dt>
+						<dd>attaches a contact to the user</dd>
+					</dl>
+			
+	</div>
+<a name="methodconfirm" id="confirm"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">confirm</span> (line <span class="line-number">32</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			confirm
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$hash</span> = <span class="var-default">NULL</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$hash</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodconfirm">User::confirm()</a></dt>
+						<dd>confirm a user</dd>
+					</dl>
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">38</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			delete
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methoddelete">User::delete()</a></dt>
+						<dd>deletes the user from database</dd>
+					</dl>
+			
+	</div>
+<a name="methodgetValueGroup" id="getValueGroup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">getValueGroup</span> (line <span class="line-number">39</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			getValueGroup
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/Contact.html#methodgetValueGroup">Contact::getValueGroup()</a></dt>
+						<dd>Gets a value group</dd>
+					</dl>
+			
+	</div>
+<a name="methodisUser" id="isUser"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">isUser</span> (line <span class="line-number">31</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			isUser
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodisUser">User::isUser()</a></dt>
+						<dd>returns user id</dd>
+					</dl>
+			
+	</div>
+<a name="methodlogin" id="login"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">login</span> (line <span class="line-number">28</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			login
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$pw</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$pw</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodlogin">User::login()</a></dt>
+						<dd>logs user in</dd>
+					</dl>
+			
+	</div>
+<a name="methodsave" id="save"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">save</span> (line <span class="line-number">36</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			save
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/Contact.html#methodsave">Contact::save()</a></dt>
+						<dd>Saves this contact in the database, creates a new contact, if $contact->contact['id'] is not set  Calls check() before saving to verify data consitencyand policies.</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetPassword" id="setPassword"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">setPassword</span> (line <span class="line-number">30</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setPassword
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$pw</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$pw</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodsetPassword">User::setPassword()</a></dt>
+						<dd>sets the password of the user</dd>
+					</dl>
+			
+	</div>
+<a name="methodsetType" id="setType"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">setType</span> (line <span class="line-number">29</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			setType
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$type</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+				</ul>
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#methodsetType">User::setType()</a></dt>
+						<dd>sets the type of the user</dd>
+					</dl>
+			
+	</div>
+<a name="methodtrash" id="trash"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">trash</span> (line <span class="line-number">37</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			trash
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/Contact.html#methodtrash">Contact::trash()</a></dt>
+						<dd>Trash the contact (mark as deleted)</dd>
+					</dl>
+			
+	</div>
+<a name="method__sleep" id="__sleep"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">__sleep</span> (line <span class="line-number">34</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__sleep
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#method__sleep">User::__sleep()</a></dt>
+						<dd>Used by serialize, when serializing class</dd>
+					</dl>
+			
+	</div>
+<a name="method__wakeup" id="__wakeup"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">__wakeup</span> (line <span class="line-number">35</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			__wakeup
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../backEnd/User.html#method__wakeup">User::__wakeup()</a></dt>
+						<dd>Used by serialize, when deserializing class</dd>
+					</dl>
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../backEnd/User.html">User</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../backEnd/User.html#methodUser">User::User()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodattachContact">User::attachContact()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodconfirm">User::confirm()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methoddelete">User::delete()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodgetType">User::getType()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodgetUserFromEmail">User::getUserFromEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodgetUserId">User::getUserId()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodisAtLeast">User::isAtLeast()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodisConfirmed">User::isConfirmed()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodisLoggedIn">User::isLoggedIn()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodisUser">User::isUser()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodlogin">User::login()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodsendConfirmationEMail">User::sendConfirmationEMail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodsetEmail">User::setEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodsetPassword">User::setPassword()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodsetType">User::setType()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#methodsslCertificateLogin">User::sslCertificateLogin()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#method__sleep">User::__sleep()</a></span><br>
+													<span class="method-name"><a href="../backEnd/User.html#method__wakeup">User::__wakeup()</a></span><br>
+											</blockquote>
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../backEnd/Contact.html">Contact</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodContact">Contact::Contact()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodadditionals">Contact::additionals()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodaddresses">Contact::addresses()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodcheck">Contact::check()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodcontactsWithEmail">Contact::contactsWithEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methoddates">Contact::dates()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methoddelete">Contact::delete()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methoddiff">Contact::diff()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodemails">Contact::emails()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateAdditionalEntry">Contact::generateAdditionalEntry()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateEmail">Contact::generateEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateFullName">Contact::generateFullName()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateListRowArray">Contact::generateListRowArray()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateMessagingEntry">Contact::generateMessagingEntry()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgeneratePhoneEntry">Contact::generatePhoneEntry()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgenerateWebEntry">Contact::generateWebEntry()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetContactFromEmail">Contact::getContactFromEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetDate">Contact::getDate()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetFirstEmail">Contact::getFirstEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetId">Contact::getId()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetMedia">Contact::getMedia()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetProperty">Contact::getProperty()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetUserId">Contact::getUserId()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgetValueGroup">Contact::getValueGroup()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodgroups">Contact::groups()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodhasEmail">Contact::hasEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodhasValue">Contact::hasValue()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodisUser">Contact::isUser()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodload">Contact::load()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodmessaging">Contact::messaging()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodnameSpecials">Contact::nameSpecials()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodnewContact">Contact::newContact()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodnotes">Contact::notes()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodongoingEvents">Contact::ongoingEvents()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodphones">Contact::phones()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodrawEmail">Contact::rawEmail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsave">Contact::save()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsaveContactFromArray">Contact::saveContactFromArray()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsaveValueGroupsFromArray">Contact::saveValueGroupsFromArray()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsendEMail">Contact::sendEMail()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsetMedia">Contact::setMedia()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodsetValueGroup">Contact::setValueGroup()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodtrash">Contact::trash()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#methodwebs">Contact::webs()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#method_getValueGroup">Contact::_getValueGroup()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#method__sleep">Contact::__sleep()</a></span><br>
+													<span class="method-name"><a href="../backEnd/Contact.html#method__wakeup">Contact::__wakeup()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 06 Jan 2008 13:40:37 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.0</a>
+	</p>
+	</div></body>
+</html>

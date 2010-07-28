@@ -1,0 +1,39 @@
+/* autocompletegoto in list.php */
+div#autocompletegoto-hint {
+      position:absolute;
+      z-index: 100;
+      width:250px;
+      background-color:white;
+      border:1px solid #888;
+      margin:0px;
+      padding:0px;
+      overflow: hidden;
+}
+
+ul.autocompletegoto-contacts  {
+      list-style-type: none;
+      margin:0px;
+      padding:0px;
+}
+
+ul.autocompletegoto-contacts li.selected {
+    background-color: #ffb;
+}
+
+li.autocompletegoto-contact {
+      list-style-type: none;
+      display:block;
+      margin:0;
+      padding:2px;
+}
+
+li.autocompletegoto-contact div.autocompletegoto-name {
+      font-weight:bold;
+      font-size:10px;
+}
+
+li.autocompletegoto-contact div.autocompletegoto-other {
+    font-size:9px;
+    color:#555;
+}
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="expertise.xpr">
+        <file name="expertise-edit.xsl"/>
+        <file name="expertise.xml"/>
+        <file name="expertise.xsl"/>
+        <file name="opportunity-edit.xsl"/>
+        <file name="opportunity.xsl"/>
+        <file name="project-edit.xsl"/>
+        <file name="project.xml"/>
+        <file name="project.xsl"/>
+    </projectTree>
+</project>
