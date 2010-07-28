@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class inTouch</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+						<script src="../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../media/images/plus.png";
+				imgMinus.src = "../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class inTouch</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+															<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">inTouch Plugin</p>
+		<p class="notes">
+			Located in <a class="field" href="_plugins---inTouch---inTouch.plugin.php.html">/plugins/inTouch/inTouch.plugin.php</a> (line <span class="field">21</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+												<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#changedContactRecord" title="details" class="method-name">changedContactRecord</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mode</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#contactOutput" title="details" class="method-name">contactOutput</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$location</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createConditionsPart" title="details" class="method-name">createConditionsPart</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$cid</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createTouchesPart" title="details" class="method-name">createTouchesPart</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$cid</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#editContactInterface" title="details" class="method-name">editContactInterface</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$location</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#help" title="details" class="method-name">help</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#installPlugin" title="details" class="method-name">installPlugin</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">boolean</span>
+										<a href="#isType" title="details" class="method-name">isType</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$t</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#uninstallPlugin" title="details" class="method-name">uninstallPlugin</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#version" title="details" class="method-name">version</a>
+										()
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodchangedContactRecord" id="changedContactRecord"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">changedContactRecord</span> (line <span class="line-number">69</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Saves touches and conditions</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			changedContactRecord
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$mode</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>
+				<span class="var-name">$contact</span><span class="var-description">: Contact which is changed</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$mode</span><span class="var-description">: what happened exactly</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$contact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcontactOutput" id="contactOutput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">contactOutput</span> (line <span class="line-number">59</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs content in contactCard</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html to display</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			contactOutput
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$location</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>
+				<span class="var-name">$contact</span><span class="var-description">: Contact which is displayed</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$location</span><span class="var-description">: String defining location in card</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$contact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateConditionsPart" id="createConditionsPart"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createConditionsPart</span> (line <span class="line-number">194</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the part of the fieldset for touch conditions</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html for part</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createConditionsPart
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$cid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$cid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateTouchesPart" id="createTouchesPart"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createTouchesPart</span> (line <span class="line-number">149</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates the part of the fieldset containing touches</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html for part</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createTouchesPart
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$cid</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$cid</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodeditContactInterface" id="editContactInterface"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">editContactInterface</span> (line <span class="line-number">117</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs content in edit mode of contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html to display</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			editContactInterface
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$location</span>, <span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>&nbsp;<span class="var-name">$contact</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"><a href="../backEnd/Contact.html">Contact</a></span>
+				<span class="var-name">$contact</span><span class="var-description">: Contact which is displayed</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$location</span><span class="var-description">: String defining location in form</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$contact</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodhelp" id="help"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">help</span> (line <span class="line-number">37</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Outputs help</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html of help</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			help
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodinstallPlugin" id="installPlugin"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">installPlugin</span> (line <span class="line-number">236</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Installs plugin</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			installPlugin
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodisType" id="isType"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">isType</span> (line <span class="line-number">28</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Checks whether a plugin is of a specific type</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> is of type $t</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">boolean</span>
+		<span class="method-name">
+			isType
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$t</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$t</span><span class="var-description">: type to check for</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoduninstallPlugin" id="uninstallPlugin"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">uninstallPlugin</span> (line <span class="line-number">266</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Uninstalls plugin</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			uninstallPlugin
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodversion" id="version"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">version</span> (line <span class="line-number">279</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">returns version of the plugin</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> version</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			version
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 06 Jan 2008 13:40:38 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.0</a>
+	</p>
+	</div></body>
+</html>

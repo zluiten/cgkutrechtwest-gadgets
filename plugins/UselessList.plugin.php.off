@@ -1,0 +1,44 @@
+<?php
+/*************************************************************
+ *  SAMPLE PLUGIN for THE ADDRESS BOOK
+ *************************************************************/
+ 
+ // This plugin adds a login button on the top of the list.php
+ 
+class UselessList {
+	
+	// CONSTRUCTOR FUNCTION - not needed
+	//function AdminInstantDelete() { }
+
+	/* There are 2 classes of plugins: #1 with and #2 without user interface
+	 * #1 Plugins with UI can place a menu at an appropriate location.
+	 * #2 Plugins will be triggered by an event.
+	 *
+	 * UI Plugins have a makeMenuLink() function:
+	 *		contactMenu: top menu of address.php makeMenuLink($contact_id)
+	 *		addressMenu: (below an address in address.php makeMenuLink($contact_id,$address_id)
+	 *		listMenu makeMenuLink($listOfIds)
+	 *
+	 * Event Plugins have a changedRecord() function:
+	 *		changedContactRecord: triggered after a contact was changed/added/deleted changedRecord($contact_id,$mode)
+	 *		changedUserRecord: triggered after a user was changed/added/deleted changedRecord($user_id,$mode)
+	 */
+	function isType($t) { return $t=='listMenu'; }
+	
+	/* There is not much to do here except to generate a link that will perform the actual work
+	 *
+	 *Useful globals:
+	 *		$_SESSION['usertype'] (admin,manager,user)
+	 *		$_SESSION['username']
+	 */
+	function makeMenuLink(&$contactList,&$nav)
+	{
+        $nav->addEntry('plugin.UselessList','login','index.php?mode=login');
+	}
+    
+    function version() {
+        return '1.0';
+    }
+	
+}
+?>

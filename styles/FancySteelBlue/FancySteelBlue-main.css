@@ -1,0 +1,107 @@
+/* Images from: http://www.neuroticweb.com/recursos/css-rounded-box/ */
+/* BASIC STANDARD DEFINITIONS - they catch about 80% of everything 
+ * If you start a new style copy this section to a new file and change colors ...
+ */
+
+/*******************************************
+ *** COLORS
+ *******************************************/
+ 
+/* RECOLOR EVERYTHING FOR STYLE */
+body { color: #CCC; background-color: #2b5073; }
+table, form, fieldset, .card { color: Black;  background-color: White; }
+
+/* LINKS */
+a { color: AntiqueWhite; }
+a:hover { color: OrangeRed; }
+table a, .card a { color: Navy; }
+
+/* Do not touch footer */
+#footer { color: Black; }
+#footer a { color: Navy; }
+
+@media print 
+{ 
+    body { color: Black; background-color: White; } 
+    a { color: Black; }
+    table a { color: Black; }
+    table { color: Black; }
+    
+    /* HIDE MENU */
+    .card-menu li a, .card-pluginmenu li a { display: none; }
+}
+
+/*** COLOR ADJUSTMENTS (special items) ***/
+.contact-list form, .login-form form  { color: Gold; background-color: transparent; }
+/* groups menu */
+ul.groups li a:link, ul.groups li a:hover, ul.groups li a:visited, ul.groups li a:active
+{ color: Navy; font-weight: bold; }
+/* Can't see links in the edit interface otherwise */
+.edit-content a, .admin-content a { color: Navy; }
+
+/* RECOLOR the basic black and white title bars */
+.card-title, .edit-title, .admin-title, .options-title, .wide-title, 
+table.contact-list caption, table.changed-list caption 
+{
+    color: Black;
+    background-color: #D2DFDF;
+    font-weight: normal;
+    text-align: left;
+    padding: 3px;
+    clear: both;
+    font-size: 20px;
+}
+
+/* color of the solid border */
+.card-box, .edit-box, .options-box, .admin-box, .wide-box, table.contact-list, table.changed-list
+{
+   border: solid 1px #D2DFDF;
+   background-color: White;
+}
+
+/*******************************************
+ *** MARGINS & PADDING
+ *******************************************/
+
+/* UNDO default padding! pad innermost div only #card-title-br see below */
+.card-title { padding: 0px; }
+
+table.changed-list caption { font-size: 12px; }
+
+/* font */
+.card-box, .options-box, .admin-box
+{
+    font-size: 11px;
+    font-weight: normal;
+    text-align: left;
+}
+
+table.contact-list, table.changed-list
+{
+    clear: both;
+    width: 100%;
+}
+
+/* card was modified text */
+.update { text-align: center; }
+
+/*******************************************
+ *** BORDERS
+ *******************************************/
+
+.edit-content-l , .options-content-l , .admin-content-l , .changed-list-l , .contact-list-l , .card-l  { background-image: url(l.gif); background-repeat: repeat-y; background-position: top left; }
+.edit-content-r , .options-content-r , .admin-content-r , .changed-list-r , .contact-list-r , .card-r  { background-image: url(r.gif); background-repeat: repeat-y; background-position: top right; }
+.edit-content-tc, .options-content-tc, .admin-content-tc, .changed-list-tc, .contact-list-tc, .card-tc { background-image: url(tc.gif); background-repeat: repeat-x; background-position: top left; }
+.edit-content-bc, .options-content-bc, .admin-content-bc, .changed-list-bc, .contact-list-bc, .card-bc { background-image: url(bc.gif); background-repeat: repeat-x; background-position: bottom left; }
+.edit-content-tl, .options-content-tl, .admin-content-tl, .changed-list-tl, .contact-list-tl, .card-tl { background-image: url(tl.gif); background-repeat: no-repeat; background-position: top left; }
+.edit-content-tr, .options-content-tr, .admin-content-tr, .changed-list-tr, .contact-list-tr, .card-tr { background-image: url(tr.gif); background-repeat: no-repeat; background-position: top right; }
+.edit-content-bl, .options-content-bl, .admin-content-bl, .changed-list-bl, .contact-list-bl, .card-bl { background-image: url(bl.gif); background-repeat: no-repeat; background-position: bottom left; }
+.edit-content-br, .options-content-br, .admin-content-br, .changed-list-br, .contact-list-br, .card-br { background-image: url(br.gif); background-repeat: no-repeat; background-position: bottom right; padding: 14px 16px 18px 16px; }
+  
+/* .card-box { background-color: #EEE; } */
+.card-title-br { padding: 5px; } /* pad innermost div only */
+
+/* For the piece of *CRAP* called "Internet Explorer 7" */
+.edit-content-tc, .options-content-tc, .admin-content-tc { background-color: White; }
+
+

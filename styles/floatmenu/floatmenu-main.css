@@ -1,0 +1,9 @@
+/* very simple demo style of a fixed menu on the left 
+  Submenus need to be fixed because they display behind ...
+*/
+
+.list-menu {
+    position: fixed;
+    left: 10px;
+    width: 160px;
+}

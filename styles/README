@@ -1,0 +1,16 @@
+Precompiled styles:
+
+You may delete precompiled syle files style/style.pre.css for debugging reasons.
+This will slow down TABR considerably when called the first time.
+To run precompilation use php5 csscompile.php in this direcory or call it from a browser.
+
+HOWTO CREATE YOUR OWN STYLE
+
+1. make a directory <stylename> in the styles directory and
+2. create a file copy default.css to <stylename>.css in this directory
+3. create stylefiles in <stylename> and relink them from <stylename>.css
+
+WARNING: DO NOT *NEVER EVER* make a copy of the whole default style folder and start modifying it.
+PLEASE override (relink) only those files that you need to modify! 
+
+4. set $CONFIG_STYLE to <stylename>

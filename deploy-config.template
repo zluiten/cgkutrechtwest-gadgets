@@ -1,0 +1,44 @@
+# This is the deploy/install mechanism if you have SSH/SCP access to your server
+# Edit this file and save it as deploy-config
+# It will be used by deploy.sh
+# use deploy.sh -h for help
+# On Windows you need cygwin and openssl installed to use this
+
+#### BASIC CONFIG ####
+
+# UNIX user to log-in with ssh: ssh root@webserver.example.com (TEST & HOT)
+# FTP user for ncftpput if FTP=1 !!! 300 times slower than ssh transfer !!!
+USER="root"
+FTP=0
+
+# 3 secs needed to avoid file not found errors on Sourceforge when installing. 
+SLEEP_SECS=0
+
+# Primary install 'HOT SERVER' :
+HOT_SERVER="webserver.example.com"
+INSTALL_PATH_HOT  = "/srv/www/tab2"
+
+# OPTIONAL TEST-SERVER:
+TEST_SERVER="192.168.10.58"
+INSTALL_PATH_TEST = "/srv/www/tab2"
+
+# OPTIONAL DEMO-SERVER:
+DEMO_USER="foo"
+DEMO_SERVER="shell.sourceforge.net"
+INSTALL_PATH_DEMO="/home/groups/x/xx/xxx/htdocs"
+
+# OPTIONAL:
+INSTALL_PATH_LOCAL="/srv/www/tab2"
+
+# exclude files to copy to the main server
+EXCLUDE=""
+# if you have added a new title, and want to avoid uploading support-directory image:
+# EXCLUDE="--exclude=title.gif --exclude=my_directory" 
+
+# deploy.sh -t and -q (server install) Commands executed afterwards at the server
+# POST_EXEC_SERVER="chown -R wwwrun.www $INSTALL_PATH"
+POST_EXEC_SERVER=""
+
+# deploy.sh -l (local copy)
+#POST_EXEC_LOCAL="chown -R wwwrun.www $INSTALL_PATH"
+POST_EXEC_LOCAL=""

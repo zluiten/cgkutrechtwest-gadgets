@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title></title>
+			<link rel="stylesheet" href="media/stylesheet.css" />
+						<script src="media/lib/classTree.js"></script>
+									<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+									<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "media/images/plus.png";
+				imgMinus.src = "media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+						<h3 class="package-title">backEnd</h3>
+<div class="tree">
+<script language="Javascript">
+if (document.getElementById) {
+			var tree = new WebFXTree('<span class="package">backEnd</span>');
+		tree.setBehavior('classic');
+	
+					var todos = new WebFXTreeItem('To-do List', 'todolist.html');
+			tree.add(todos);
+		
+		var class_trees = new WebFXTreeItem('Class trees', 'classtrees_backEnd.html');
+		tree.add(class_trees);
+
+		var elements = new WebFXTreeItem('Index of elements', 'elementindex_backEnd.html');		
+		tree.add(elements);
+
+		var parent_node;
+
+			
+				    		    			var tree_classe = new WebFXTreeItem('Class(es)', '');
+    			
+    			    			            				var classe = new WebFXTreeItem('ChangedContactList', 'backEnd/ChangedContactList.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Contact', 'backEnd/Contact.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('ContactImportExport', 'backEnd/ContactImportExport.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('ContactList', 'backEnd/ContactList.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('DateContactList', 'backEnd/DateContactList.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('DB', 'backEnd/DB.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('ErrorHandler', 'backEnd/ErrorHandler.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('GroupContactList', 'backEnd/GroupContactList.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('GuestUser', 'backEnd/GuestUser.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('Options', 'backEnd/Options.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('PluginManager', 'backEnd/PluginManager.html');
+        				tree_classe.add(classe);
+        			    			    			            				var classe = new WebFXTreeItem('User', 'backEnd/User.html');
+        				tree_classe.add(classe);
+        			    			    	
+    			tree.add(tree_classe);
+    				
+			
+					var tree_file = new WebFXTreeItem('File(s)', '');
+	
+							var file = new WebFXTreeItem('ChangedContactList.class.php', 'backEnd/_lib---backEnd---ChangedContactList.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('Contact.class.php', 'backEnd/_lib---backEnd---Contact.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('ContactImportExport.class.php', 'backEnd/_lib---backEnd---ContactImportExport.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('ContactList.class.php', 'backEnd/_lib---backEnd---ContactList.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('DateContactList.class.php', 'backEnd/_lib---backEnd---DateContactList.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('DB.class.php', 'backEnd/_lib---backEnd---DB.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('ErrorHandler.class.php', 'backEnd/_lib---backEnd---ErrorHandler.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('GroupContactList.class.php', 'backEnd/_lib---backEnd---GroupContactList.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('GuestUser.class.php', 'backEnd/_lib---backEnd---GuestUser.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('Options.class.php', 'backEnd/_lib---backEnd---Options.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('PluginManager.class.php', 'backEnd/_lib---backEnd---PluginManager.class.php.html');
+				tree_file.add(file);
+							var file = new WebFXTreeItem('User.class.php', 'backEnd/_lib---backEnd---User.class.php.html');
+				tree_file.add(file);
+				
+			tree.add(tree_file);
+		
+	
+document.write(tree);
+}
+</script>
+</div>
+<p class="notes">
+	Generated by 
+	<a href="http://www.phpdoc.org" target="_blank">phpDocumentor <span class="field">1.4.0</span></a>
+</p>
+</body>
+</html>

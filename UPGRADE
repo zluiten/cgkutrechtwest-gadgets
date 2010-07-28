@@ -1,0 +1,74 @@
+========
+UPGRADE:
+========
+
+WARNING: 
+    2.0->3.0 EVERY USER WITH DUPLICATE EMAIL WILL BE DELETED! EVEN ADMINS!
+    Fix: Assign a different email to every user before the upgrade!
+
+Please read the release notes at the download page at sourceforge NOW!
+http://sourceforge.net/project/showfiles.php?group_id=172286
+Click the notes icon. It may contain up to date info on the release.
+
+BACKUP FIRST or be sorry:
+	Make a backup of your DB and your old version of TAB !!!!!
+	mysqldump -u root -p TABDATABASENAME >myTABBackup.sql
+    ... or use phpmyadmin.
+
+Support Forums:
+    http://sourceforge.net/forum/forum.php?forum_id=590643
+
+3.1 RELEASE (upgrade from 3.0.5)
+===========
+
+A major reconfiguration of the file structure took place.
+The following config changes are mandatory:
+
+IMPORTANT CHANGES in config.php:
+    $db_* renamed to $CONFIG_DB_*;
+    
+IMPORTANT UPDATE from config.template.php:
+    $TMP_INSTALLDIR, $CONFIG_TAB_SERVER_ROOT, $CONFIG_TAB_ROOT, $CONFIG_MAIN_PAGE, $CONFIG_LOGOUT_PAGE.
+    Minor additions to DB.
+
+Sorry for the inconvenience, but this needed to be done to make TABR an 
+embeddable account manager for use in other web applications.
+
+Precompilable js and css files are now possible (you have to do that manually).
+Use php5 -f csscompile.php (in lib/js/) and ./precompile.sh (in styles/)
+Warning: Hostmonster includes single precompiled stylesheets and embeds them automatically. 
+This interferes with images in styles.
+
+3.0.5 RELEASE and prior
+=======================
+
+WARNING: TAB 1.04e upgrades to 3.0 are not possible. They must be first upgraded 
+to 2.0x with the 2.0x codebase 
+(e.g. http://sourceforge.net/project/showfiles.php?group_id=172286&package_id=197021&release_id=454116). 
+
+MAJOR CHANGE:
+    After the upgrade all user accounts are linked to address records.
+    Login names change to the email address of the user.
+
+2.x to 3.x and later UPGRADE:
+    THIS IS A MAJOR UPGRADE! Read carefully! 
+    EVERY USER WITH DUPLICATE EMAIL WILL BE DELETED! EVEN ADMINS!
+    This is because the new login name is the email.
+    Fix: Assign a different email to every user before the upgrade!
+
+    1. Rename your old installation directory.
+    2. Copy the new 3.0 codebase to the server.
+    3. Copy your old mugshots directory to your new installation directory.
+    4. CREATE a new config.php: Copy config.php.template to config.php on your 
+       server and transfer the DB passwords from your old config to the new one 
+       and change any new options you need.
+    5. Run upgrade.php (after having a backup of your DB!!)
+
+FUTURE VERSIONS: 3.0 to any newer or newer use the following
+	1. copy the files to your server
+	   (or use your deploy-config and ./deploy -t OR -q -- see INSTALL)
+	2. Open in your browser: upgrade.php
+	3. compare and edit config.php and config.php.template to check for new 
+       options and 
+
+

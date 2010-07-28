@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos  -->
+			<title>Docs For Class PageProjectContactEdit</title>
+			<link rel="stylesheet" href="../../media/stylesheet.css" />
+						<script src="../../media/lib/classTree.js"></script>
+												<script language="javascript" type="text/javascript">
+				var imgPlus = new Image();
+				var imgMinus = new Image();
+				imgPlus.src = "../../media/images/plus.png";
+				imgMinus.src = "../../media/images/minus.png";
+				
+				function showNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgMinus.src;
+					oTable.style.display = "block";
+				}
+				
+				function hideNode(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+							var oImg = document.layers["img" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+							var oImg = document.all["img" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+							var oImg = document.getElementById("img" + Node);
+									break;
+							}
+					oImg.src = imgPlus.src;
+					oTable.style.display = "none";
+				}
+				
+				function nodeIsVisible(Node){
+							switch(navigator.family){
+								case 'nn4':
+									// Nav 4.x code fork...
+							var oTable = document.layers["span" + Node];
+									break;
+								case 'ie4':
+									// IE 4/5 code fork...
+							var oTable = document.all["span" + Node];
+									break;
+								case 'gecko':
+									// Standards Compliant code fork...
+							var oTable = document.getElementById("span" + Node);
+									break;
+							}
+					return (oTable && oTable.style.display == "block");
+				}
+				
+				function toggleNodeVisibility(Node){
+					if (nodeIsVisible(Node)){
+						hideNode(Node);
+					}else{
+						showNode(Node);
+					}
+				}
+			</script>
+					</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class PageProjectContactEdit</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">DEPRECATED EXAMPLE CLASS. REPLACED BY XSLT PAGES.</p>
+<p class="description"><p>the contact edit page allows users to  add, edit and remove contact entries</p></p>
+		<p class="notes">
+			Located in <a class="field" href="_lib---custom---PageProjectContactEdit.class.php.html">/lib/custom/PageProjectContactEdit.class.php</a> (line <span class="field">27</span>)
+		</p>
+		
+				
+		<pre><a href="../../frontEnd/Page.html">Page</a>
+   |
+   --PageProjectContactEdit</pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																																<div class="var-title">
+					<span class="var-type">boolean</span>
+					<a href="#$add" title="details" class="var-name">$add</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../backEnd/Contact.html">Contact</a></span>
+					<a href="#$contact" title="details" class="var-name">$contact</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$counters" title="details" class="var-name">$counters</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">int</span>
+					<a href="#$htmlId" title="details" class="var-name">$htmlId</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type"><a href="../../frontEnd/Navigation.html">Navigation</a></span>
+					<a href="#$menu" title="details" class="var-name">$menu</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">A</span>
+					<a href="#$valueGroups" title="details" class="var-name">$valueGroups</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																														
+				<div class="method-definition">
+											<span class="method-result">PageProjectContactEdit</span>
+										<a href="#PageProjectContactEdit" title="details" class="method-name">PageProjectContactEdit</a>
+											(<span class="var-type">$idOrContact</span>&nbsp;<span class="var-name">$idOrContact</span>, [<span class="var-type">$add</span>&nbsp;<span class="var-name">$add</span> = <span class="var-default">false</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createAddressFieldset" title="details" class="method-name">createAddressFieldset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createDates" title="details" class="method-name">createDates</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$size1</span> = <span class="var-default">6</span>], [<span class="var-type">integer|array</span>&nbsp;<span class="var-name">$size2</span> = <span class="var-default">39</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createFixedPropertyInput" title="details" class="method-name">createFixedPropertyInput</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$label</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$visibility</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createGroupsFieldset" title="details" class="method-name">createGroupsFieldset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createMugshotFieldset" title="details" class="method-name">createMugshotFieldset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createNameFieldset" title="details" class="method-name">createNameFieldset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createNormalProperties" title="details" class="method-name">createNormalProperties</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$size1</span>, <span class="var-type">integer|array</span>&nbsp;<span class="var-name">$size2</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createNormalPropertyInput" title="details" class="method-name">createNormalPropertyInput</a>
+											(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$label</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$visibility</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createNotesFieldset" title="details" class="method-name">createNotesFieldset</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#createValueGroupTextarea" title="details" class="method-name">createValueGroupTextarea</a>
+											(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$cols</span>)
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#editHint" title="details" class="method-name">editHint</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">''</span>])
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">string</span>
+										<a href="#innerCreate" title="details" class="method-name">innerCreate</a>
+										()
+									</div>
+														
+				<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#saveContactFromPost" title="details" class="method-name">saveContactFromPost</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$pictureFile</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>])
+									</div>
+											</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			
+<a name="var$add" id="$add"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">boolean</span>
+			<span class="var-name">$add</span>
+						(line <span class="line-number">47</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> whether the contact is to be added or to be changed</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$contact" id="$contact"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../backEnd/Contact.html">Contact</a></span>
+			<span class="var-name">$contact</span>
+						(line <span class="line-number">32</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> the contact that is to be modified</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$counters" id="$counters"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$counters</span>
+						(line <span class="line-number">54</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$htmlId" id="$htmlId"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">int</span>
+			<span class="var-name">$htmlId</span>
+						(line <span class="line-number">52</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> counter to create html ids for for scriptaculous</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$menu" id="$menu"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type"><a href="../../frontEnd/Navigation.html">Navigation</a></span>
+			<span class="var-name">$menu</span>
+						(line <span class="line-number">42</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> the menu to be shown</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+<a name="var$valueGroups" id="$valueGroups"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">A</span>
+			<span class="var-name">$valueGroups</span>
+						(line <span class="line-number">37</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	<ul class="tags">
+				<li><span class="field">var:</span> contact's valueGroups are cached for output processing. see createFixedPropertyInput()</li>
+			</ul>
+	
+	
+		
+		
+
+</div>
+							<h4>Inherited Variables</h4>
+				<A NAME='inherited_vars'><!-- --></A>
+									<p>Inherited from <span class="classname"><a href="../../frontEnd/Page.html">Page</a></span></p>
+					<blockquote>
+													<span class="var-title">
+								<span class="var-name"><a href="../../frontEnd/Page.html#var$bodyAttributes">Page::$bodyAttributes</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../frontEnd/Page.html#var$delegate">Page::$delegate</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../frontEnd/Page.html#var$postHeaderSections">Page::$postHeaderSections</a></span><br>
+							</span>
+													<span class="var-title">
+								<span class="var-name"><a href="../../frontEnd/Page.html#var$preHeaderSections">Page::$preHeaderSections</a></span><br>
+							</span>
+											</blockquote> 
+										
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+<a name="methodPageProjectContactEdit" id="PageProjectContactEdit"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor PageProjectContactEdit</span> (line <span class="line-number">63</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Constructor: ONLY TO BE CALLED like this: Page::newPage(classname,$id,$add) factory method!!</p>
+	<ul class="tags">
+				<li><span class="field">global:</span> <a href="../../backEnd/Options.html">Options</a> $options: admin options</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">PageProjectContactEdit</span>
+		<span class="method-name">
+			PageProjectContactEdit
+		</span>
+					(<span class="var-type">$idOrContact</span>&nbsp;<span class="var-name">$idOrContact</span>, [<span class="var-type">$add</span>&nbsp;<span class="var-name">$add</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">$idOrContact</span>
+				<span class="var-name">$idOrContact</span><span class="var-description">: integer|Contact the id of the contact, or the contact that is to be edited</span>			</li>
+					<li>
+				<span class="var-type">$add</span>
+				<span class="var-name">$add</span><span class="var-description">: boolean whether the contact is to be added or not (cannot be detected through $id, because a contact can be passed if an error occurs to preserve already inserted information)</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateAddressFieldset" id="createAddressFieldset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createAddressFieldset</span> (line <span class="line-number">512</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the fieldset that allows user to the addresses of the contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">global:</span> array $country: list of country names and acronyms</li>
+				<li><span class="field">global:</span> <a href="../../backEnd/Options.html">Options</a> $options: used to determine the country default</li>
+				<li><span class="field">usedby:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodinnerCreate">PageProjectContactEdit::innerCreate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createAddressFieldset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateDates" id="createDates"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createDates</span> (line <span class="line-number">327</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the fieldset that allows user to edit communication and other information.</p>
+<p class="description"><p>Users can make each property private or public, admins can attach properties only  visible to users and them.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createDates
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$size1</span> = <span class="var-default">6</span>], [<span class="var-type">integer|array</span>&nbsp;<span class="var-name">$size2</span> = <span class="var-default">39</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: selections showed in dropdown</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of the entry (not necessarily shown in dropdown)</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$size1</span><span class="var-description">: size of first text-field</span>			</li>
+					<li>
+				<span class="var-type">integer|array</span>
+				<span class="var-name">$size2</span><span class="var-description">: size of second text-field or an array of sizes for several fields</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateFixedPropertyInput" id="createFixedPropertyInput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createFixedPropertyInput</span> (line <span class="line-number">291</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a fixed, normal (not a date range) property input line. This is used for mandatory/suggested properties.</p>
+<p class="description"><p>The property is removed from $this-&gt;valueGroups so it does not show again in createNormalProperties()  field1 and field2 are readonly inputs, although one could manipulate the post, so there is no strong protection.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createFixedPropertyInput
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$label</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$visibility</span>, [<span class="var-type">integer</span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type">integer</span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>], <span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: selections shown in dropdown</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of the entry (not necessarily shown in dropdown)</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$visibility</span><span class="var-description">: css width of input field2 (input field 1 class='edit-input-dropdown')</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$w2</span><span class="var-description">: css width of input field3</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$w3</span><span class="var-description">: css width of input field4</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$label</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w4</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateGroupsFieldset" id="createGroupsFieldset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createGroupsFieldset</span> (line <span class="line-number">393</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the fieldset that allows user to select the groups of the contact, and whether the contact is hidden or not</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">global:</span> <a href="../../backEnd/DB.html">DB</a> $db: used to query database for groups</li>
+				<li><span class="field">usedby:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodinnerCreate">PageProjectContactEdit::innerCreate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createGroupsFieldset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateMugshotFieldset" id="createMugshotFieldset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createMugshotFieldset</span> (line <span class="line-number">455</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the fieldset that allows user to edit and eventually upload the mugshot of the contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">global:</span> <a href="../../backEnd/Options.html">Options</a> $options: used to determine whether mugshot may be uploaded or not</li>
+				<li><span class="field">usedby:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodinnerCreate">PageProjectContactEdit::innerCreate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createMugshotFieldset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateNameFieldset" id="createNameFieldset"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNameFieldset</span> (line <span class="line-number">485</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the fieldset that allows user to the names of the contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">usedby:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodinnerCreate">PageProjectContactEdit::innerCreate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createNameFieldset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateNormalProperties" id="createNormalProperties"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNormalProperties</span> (line <span class="line-number">230</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Create the fieldset that allows a user to edit communication and other information.</p>
+<p class="description"><p>Users can make each property private or public, admins can attach admin-hidden properties only  visible to users and them.</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createNormalProperties
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>], <span class="var-type">integer</span>&nbsp;<span class="var-name">$size1</span>, <span class="var-type">integer|array</span>&nbsp;<span class="var-name">$size2</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: selections showed in dropdown</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of the entry (not necessarily shown in dropdown)</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$size1</span><span class="var-description">: size of first text-field</span>			</li>
+					<li>
+				<span class="var-type">integer|array</span>
+				<span class="var-name">$size2</span><span class="var-description">: size of second text-field or an array of sizes for several fields</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w2</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w3</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w4</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateNormalPropertyInput" id="createNormalPropertyInput"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNormalPropertyInput</span> (line <span class="line-number">264</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Creates a normal (not a date range) property input line.</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createNormalPropertyInput
+		</span>
+					(<span class="var-type">array</span>&nbsp;<span class="var-name">$options</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$label</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$value</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$visibility</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$w2</span> = <span class="var-default">80</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w3</span> = <span class="var-default">320</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$w4</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">array</span>
+				<span class="var-name">$options</span><span class="var-description">: selections shown in dropdown</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: type of the entry (not necessarily shown in dropdown)</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$label</span><span class="var-description">: css width of input field2 (input field 1 class='edit-input-dropdown')</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$value</span><span class="var-description">: css width of input field3</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$visibility</span><span class="var-description">: css width of input field4</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w2</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w3</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$w4</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreateNotesFieldset" id="createNotesFieldset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">createNotesFieldset</span> (line <span class="line-number">433</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the fieldset that allows user to edit the notes of the contact</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">usedby:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodinnerCreate">PageProjectContactEdit::innerCreate()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createNotesFieldset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodcreateValueGroupTextarea" id="createValueGroupTextarea"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">createValueGroupTextarea</span> (line <span class="line-number">581</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create a textarea for an arbitrary value group</p>
+<p class="description"><p>the values of the group are separated by |'s</p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			createValueGroupTextarea
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span>, <span class="var-type">integer</span>&nbsp;<span class="var-name">$cols</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: which value group of the contact is to be shown</span>			</li>
+					<li>
+				<span class="var-type">integer</span>
+				<span class="var-name">$cols</span><span class="var-description">: how many columns should the textarea have</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodeditHint" id="editHint"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">editHint</span> (line <span class="line-number">596</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			editHint
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$type</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodinnerCreate" id="innerCreate"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">innerCreate</span> (line <span class="line-number">118</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">create the content of admin panel</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> html-content</li>
+				<li><span class="field">global:</span> <a href="../../backEnd/ErrorHandler.html">ErrorHandler</a> $errorHandler: used for error handling</li>
+				<li><span class="field">global:</span> <a href="../../backEnd/PluginManager.html">PluginManager</a> $pluginManager: used for plugin handling (i.e. additional editable fields)</li>
+				<li><span class="field">uses:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodcreateNotesFieldset">PageProjectContactEdit::createNotesFieldset()</a></li>
+				<li><span class="field">uses:</span> createProperties()</li>
+				<li><span class="field">uses:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodcreateNameFieldset">PageProjectContactEdit::createNameFieldset()</a></li>
+				<li><span class="field">uses:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodcreateMugshotFieldset">PageProjectContactEdit::createMugshotFieldset()</a></li>
+				<li><span class="field">uses:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodcreateGroupsFieldset">PageProjectContactEdit::createGroupsFieldset()</a></li>
+				<li><span class="field">uses:</span> <a href="../../frontEnd/pages/PageProjectContactEdit.html#methodcreateAddressFieldset">PageProjectContactEdit::createAddressFieldset()</a></li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			innerCreate
+		</span>
+				()
+			</div>
+	
+		
+			<hr class="separator" />
+		<div class="notes">Redefinition of:</div>
+		<dl>
+			<dt><a href="../../frontEnd/Page.html#methodinnerCreate">Page::innerCreate()</a></dt>
+						<dd>this function returns the actual content of a page</dd>
+					</dl>
+			
+	</div>
+<a name="methodsaveContactFromPost" id="saveContactFromPost"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">saveContactFromPost</span> (line <span class="line-number">614</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">Returns true on success false on errors (contact NOT saved -&gt; check errorHandler then)</p>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			saveContactFromPost
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$contact</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$post</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$pictureFile</span> = <span class="var-default">null</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$adminsave</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$contact</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$post</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$pictureFile</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$adminsave</span>			</li>
+				</ul>
+		
+			
+	</div>
+							<h4>Inherited Methods</h4>
+				<a name='inherited_methods'><!-- --></a>	
+									<!-- =========== Summary =========== -->
+					<p>Inherited From <span class="classname"><a href="../../frontEnd/Page.html">Page</a></span></p>
+					<blockquote>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodPage">Page::Page()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodaddBodyAttributes">Page::addBodyAttributes()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodaddHeaderSection">Page::addHeaderSection()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodcontextHelp">Page::contextHelp()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodcreate">Page::create()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodfooterCreate">Page::footerCreate()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodgetBodyAttributes">Page::getBodyAttributes()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodgetHeaderSections">Page::getHeaderSections()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodheaderCreate">Page::headerCreate()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodinnerCreate">Page::innerCreate()</a></span><br>
+													<span class="method-name"><a href="../../frontEnd/Page.html#methodnewPage">Page::newPage()</a></span><br>
+											</blockquote>
+										
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Sun, 06 Jan 2008 13:40:39 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.0</a>
+	</p>
+	</div></body>
+</html>
