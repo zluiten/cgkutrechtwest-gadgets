@@ -7,7 +7,7 @@ function decodeText($sText)
 	return str_replace(array('"',',',':',';',"\\",'<br />','<br>'), array('""','\,','":"','\;','\\','\n','\n'), $sText);
 }
 
-function extend_dateinfo($varname,$input) 
+function extend_dateinfo($varname,$input)
 {
 	$date=$input[$varname];
 	$input[$varname.'_Y']=substr($date,0,4);
@@ -53,13 +53,13 @@ $sIcsFile = "cgk-utrechtwest.ics";
 $sJsonFile = "cgk-utrechtwest.json";
 
 $query="SELECT a.id as UID,
-	 FORMAT_DATE('%Y%m%d%H%M%S',a.moment) as start, 
-	 FORMAT_DATE('%Y%M%d%H%U%S',a.moment+s.duur*60000) as einde, 
-	 s.omschrijving as omschrijving, 
-	 'Hendrika van Tussenbroekplantsoen 1, Utrecht 3533 Utrecht, Utrecht, Netherlands' as location, 
-	 'CGK Utrecht-West' as organiser, 
-	 0 as prio 
-	FROM activiteiten as a 
+	 FORMAT_DATE('%Y%m%d%H%M%S',a.moment) as start,
+	 FORMAT_DATE('%Y%M%d%H%U%S',a.moment+s.duur*60000) as einde,
+	 s.omschrijving as omschrijving,
+	 'Hendrika van Tussenbroekplantsoen 1, Utrecht 3533 Utrecht, Utrecht, Netherlands' as location,
+	 'CGK Utrecht-West' as organiser,
+	 0 as prio
+	FROM activiteiten as a
 	left join soorten as s on a.soortid=s.id";
 
 $query="SELECT a.id as UID,
@@ -79,7 +79,7 @@ $query="SELECT a.id as UID,
         LEFT JOIN soorten as s on a.soortid=s.id
 	where DATE_SUB(CURDATE(),INTERVAL 3 MONTH)<a.moment
 	   AND a.moment<DATE_ADD(CURDATE(),INTERVAL 3 MONTH)
-	ORDER BY start,einde
+	ORDER BY start DESC,einde
 	";
 
 $r=mysql_query($query,$db);
@@ -112,10 +112,10 @@ if ($r) {
 $lastapid=0;
 	}
 	if (count($j_arr)>0) {
-		$fh=fopen($sJsonFile,'w');	
+		$fh=fopen($sJsonFile,'w');
 		fwrite($fh, json_encode($j_arr));
 		fclose($fh);
-	} 
+	}
 
 	if ($debug) { echo "Found: ". mysql_num_rows($r) ." rows.<br />\n"; }
 	$oCal->writeCalendar($sIcsFile);
