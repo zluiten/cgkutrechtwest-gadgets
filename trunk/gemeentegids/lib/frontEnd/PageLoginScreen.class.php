@@ -67,6 +67,8 @@ function innerCreate() {
         </form>
         <br/>
 EOC;
+		if($options->getOption('defaultloginaddress') != '')
+			$cont .= '<script>document.getElementById(\'user_email\').value = "'.$options->getOption('defaultloginaddress').'";document.getElementById(\'user_password\').focus();</script>';
         $redirect = !empty($this->redirect) ? '&redirect='.$this->redirect : '';
 
         if ($options->getOption('lostpassword') != 0)
