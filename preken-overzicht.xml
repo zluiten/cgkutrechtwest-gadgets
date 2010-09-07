@@ -166,9 +166,9 @@
         }
         ndag=cdag;
       }
-      html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\'#FFFFFF\';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
+      html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2) ? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
       if (info2!='') {
-	          html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\'#FFFFFF\';"><td class="preken">&nbsp;</td>'+info2+""+details2+"</tr>";
+	          html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">&nbsp;</td>'+info2+""+details2+"</tr>";
       }
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
