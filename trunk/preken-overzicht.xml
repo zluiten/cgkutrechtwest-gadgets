@@ -87,7 +87,7 @@
       var months=new Array('januari','februari','maart','april','mei','juni','juli','augustus','september','oktober','november','december');
       var weekday=new Array('Zo','Ma','Di','Wo','Do','Vr','Za');
       var jsondata = obj.data;
-      var html = "<table>";
+      var html = "<table style=\"border-collapse:collapse;\">";
       var ndag='';
       var info1='';
       var info2='';
@@ -102,6 +102,9 @@
 */
       def_details='';
       infodiv='';
+      dagen=0;
+      evenrowbg='#FFFFFF';
+      oddrowbg='#F0F0F0';
       
       var details1=def_details;
       var details2=def_details;
@@ -117,9 +120,9 @@
         cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
         if (ndag!='' && ndag!=cdag) {
           if (active_view=='volgende' ) { break; };
-          html += "<tr><td class=\"preken\">"+ndag+"</td>"+info1+""+details1+"</tr>";
+          html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2) ? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
 	  if (info2!='') {
-	          html += "<tr><td class=\"preken\">&nbsp;</td>"+info2+""+details2+"</tr>";
+	          html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">&nbsp;</td>'+info2+""+details2+"</tr>";
 	  }
           info1='';
           details1=def_details;
@@ -156,15 +159,16 @@
         if (ndag!=cdag) {
            info1=info;
            details1=details;
+	   dagen=dagen+1;
         } else {
            info2=info;
            details2=details;
         }
         ndag=cdag;
       }
-      html += "<tr><td class=\"preken\">"+ndag+"</td>"+info1+""+details1+"</tr>";
+      html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\'#FFFFFF\';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
       if (info2!='') {
-	          html += "<tr><td class=\"preken\">&nbsp;</td>"+info2+""+details2+"</tr>";
+	          html += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\'#FFFFFF\';"><td class="preken">&nbsp;</td>'+info2+""+details2+"</tr>";
       }
       document.getElementById('content_div').innerHTML = html;
       document.getElementById('info_divs').innerHTML = infodiv;
