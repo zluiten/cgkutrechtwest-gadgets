@@ -103,8 +103,8 @@
       def_details='';
       infodiv='';
       dagen=0;
-      evenrowbg='#FFFFFF';
-      oddrowbg='#F0F0F0';
+      oddrowbg='#FFFFFF';
+      evenrowbg='#F0F0F0';
       
       var details1=def_details;
       var details2=def_details;
