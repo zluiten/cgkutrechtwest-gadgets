@@ -136,7 +136,7 @@
           infodiv+= "Liturgie:<br/><pre>"+jsondata[i].liturgie+"</pre>";
 	  infodiv+= '</div>';
           details+='<td class=\"preken\"><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')">';
-          details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border="0" alt="afspelen"></a></td>';
+          details+='<img src="http://www.kerkomroep.nl/images/icoplay.jpg" border="0" alt="afspelen"></a>&nbsp;<a href="'+jsondata[i].link+'">download</a></td>';
         } else {
           details+='<td class=\"preken\"></td>'; 
         }
