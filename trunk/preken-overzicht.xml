@@ -30,6 +30,7 @@
         font-style:normal;
         font-weight:normal;
         line-height:15px;
+	vertical-align:top;
  }
 </style>
     <div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
@@ -147,7 +148,7 @@
 	}
         if (active_view=='archief') {
 	        if (typeof(jsondata[i].tekst)!='undefined') {
-		  details+= '<td class=\"preken\">'+jsondata[i].tekst+'</td>';
+		  details+= '<td class=\"preken\">'+jsondata[i].tekst.replace(/[\n\r][\n\r]*/g, '<br />')+'</td>';
 		} else {
 		  details+= '<td class=\"preken\"></td>';
 		}
