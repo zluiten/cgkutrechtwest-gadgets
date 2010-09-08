@@ -92,6 +92,7 @@
         // Start building HTML string that will be displayed in <div>.           
         // Set the style for the <div>.        
         var html = "<table>";
+        var html_rows = "";
         // obj.data contains a Document DOM element corresponding to the
         // page that was requested
         var domdata = obj.data;
@@ -126,11 +127,12 @@
 		}
 		cdate=weekday[cstart.getDay()]+" "+cstart.getDate()+" "+months[ cstart.getMonth() ]+" "+cstart.getFullYear();
 		var cstend=pad(cstart.getHours(),1)+":"+pad(cstart.getMinutes(),2)+" tot "+pad(cend.getHours(),1)+":"+pad(cend.getMinutes(),2);
-		html+= "<tr><td class=\"agendaitem\"><b>"+cdate+"</b></td><td class=\"agendaitem\">"+title+"</td></tr>";
-		html+= "<tr><td class=\"agendaitem\">"+cwhere+"</td><td class=\"agendaitem\">"+cstend+"</td></tr>";
+		html_entry= "<tr><td class=\"agendaitem\"><b>"+cdate+"</b></td><td class=\"agendaitem\">"+title+"</td></tr>";
+		html_entry+= "<tr><td class=\"agendaitem\">"+cwhere+"</td><td class=\"agendaitem\">"+cstend+"</td></tr>";
+		html_rows=html_entry+html_rows;
 	}
 
-	html += "</table>";
+	html += html_rows + "</table>";
 	document.getElementById('content_div').innerHTML = html;
     }
     gadgets.util.registerOnLoadHandler(makeDOMRequest);
