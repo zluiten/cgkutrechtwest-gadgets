@@ -104,7 +104,7 @@
       infodiv='';
       dagen=0;
       oddrowbg='#FFFFFF';
-      evenrowbg='#F0F0F0';
+      evenrowbg='#FFDF97';
       html_rows='';
       
       var details1=def_details;
