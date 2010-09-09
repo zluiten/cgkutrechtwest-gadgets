@@ -10,6 +10,7 @@
 </ModulePrefs>
 <UserPref name="feed" display_name="Calendar XML Feed" default_value="http://www.google.com/calendar/feeds/cgk-utrechtwest.nl_cl113v8kbb328q7b3c61n4gth4%40group.calendar.google.com/public/basic" datatype="string" required="true"/>
 <UserPref name="days-ahead" display_name="Days ahead" default_value="30" datatype="string" required="true"/>
+<UserPref name="max-items" display_name="Maximum number of items" default_value="5" datatype="string" required="true"/>
 <Content type="html">
   <![CDATA[
 <style type="text/css">
@@ -105,8 +106,9 @@
 	}
 
 	// Get all entries in the agenda...
+	var max_items = prefs.getString("max-items");
         var itemList = domdata.getElementsByTagName("entry");
-        for (var i = 0; i < itemList.length ; i++) { 
+        for (var i = 0; i < itemList.length  && i < max_items; i++) { 
         	var nodeList = itemList.item(i).childNodes;
         	// Loop through child nodes. Extract data from the text nodes that are
 	        // the children of the associated name, price, and calories element nodes.
