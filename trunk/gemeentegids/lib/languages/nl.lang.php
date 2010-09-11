@@ -9,7 +9,7 @@ $LANG_TRANSLATION = array
 'Not saved. An input value is missing:'=>'Niet bewaard. Een veld is niet ingevuld:',
 'Administrative Lock Active'=>'Administratieve blokkering',
 'This application is currently locked by an administrator because of database maintainance. You may not edit or delete any entries. Please retry later.'=>'Deze applicatie is momenteel geblokkeerd wegens werkzaamheden aan de database. Probeer het a.u.b. later nog eens.',
-'Image is too wide or high. Please reduce its dimensions and try again.'=>'Afbeelding is te breed of hoog. Probeer de afmetingen te reduceren.', 
+'Image is too wide or high. Please reduce its dimensions and try again.'=>'Afbeelding is te breed of hoog. Probeer de afmetingen te reduceren.',
 
 // login.php
 'Login Screen'=>'Aanmeldscherm',
@@ -83,15 +83,15 @@ $LANG_TRANSLATION = array
 'No Entries.'=>'Geen items.',
 'Go'=>'Ga', //ist noch ein <input type="submit" => Ändern in <button>Go</button>
 
-// adminPanel.php 
+// adminPanel.php
 'Admin Panel'=>'Administratiepaneel',
 'Administration Options'=>'Administratie opties',
 'User list'=>'Gebruikerslijst',
 ' Send email to: '=>' Stuur e-mail naar: ',
-'administrators'=>'administratoren', 
-'managers'=>'managers', 
-'users'=>'gebruikers', 
-'users and managers'=>'gebruikers en managers', 
+'administrators'=>'administratoren',
+'managers'=>'managers',
+'users'=>'gebruikers',
+'users and managers'=>'gebruikers en managers',
 'all'=>'alle', // wird nicht Übersetzt
 'Help'=>'Help',
 'deactivated'=>'gedeactiveerd',
@@ -100,9 +100,9 @@ $LANG_TRANSLATION = array
 'not installed'=>'niet geinstalleerd',
 'install'=>'installeren',
 'uninstall'=>'deinstalleren',
-//'Export'=>'Exportieren', Plugin Name 
-//'Import'=>'Importieren', Plugin Name 
-//'Mailto'=>'E-Mail an', Plugin Name 
+//'Export'=>'Exportieren', Plugin Name
+//'Import'=>'Importieren', Plugin Name
+//'Mailto'=>'E-Mail an', Plugin Name
 'help'=>'help',
 'Backup Database'=>'Backup van database maken',
 'This creates a backup of the whole database (not only the part TAB is using) of TAB. This needs safe mode to be turned off or a link to the mysqldump binary placed in the safe_mode_exec_dir (currently not set on this server).'=>'Hiermee maakt u een backup van de complete database waarvan TAB gebruik van maakt. Hiervoor moet safe mode van PHP uitgeschakeld worden, of er moet een link naar de mysqldump applicatie geplaatst worden in de safe_mode_exec_dir (momenteel niet ingesteld op deze server).',
@@ -136,7 +136,7 @@ $LANG_TRANSLATION = array
 'ADMIN: lock modifications (edit and delete)'=>'Admin: Applicatie blokkeren (bewerken en verwijderen)',
 'Users can send email with a web interface from the server (feature will be dropped if not in demand - post to discussion forums if you need this)'=>'Gebruikers mogen e-mail versturen via de web interface (dit feature kan komen te vervallen als er geen vraag naar is - stuur een bericht op het discussie forum als u het wenst)',
 'Change Group Names'=>'Groepnaam wijzigen',
-'Change the group names and press save on the bottom. A group starting with #h# is hidden from the main list selector, but the individual contacts of a hidden group are listed in the list and can be reached by direct links (unless the contacts themselves are hidden).'=>'Ãndern Sie den Gruppennamen und drÃ¼cken Sie speichern am Ende der Seite. Eine Gruppe, die mit #h# beginnt wird in der Hauptliste versteckt, aber die einzelnen Kontakte dieser Gruppe werden in der Hauptliste angezeigt und kÃ¶nnen Ã¼ber Direktlinks erreicht werden (solange die Kontakte selber versteckt sind).',
+'Change the group names and press save on the bottom. A group starting with #h# is hidden from the main list selector, but the individual contacts of a hidden group are listed in the list and can be reached by direct links (unless the contacts themselves are hidden).'=>'Ã?ndern Sie den Gruppennamen und drÃ¼cken Sie speichern am Ende der Seite. Eine Gruppe, die mit #h# beginnt wird in der Hauptliste versteckt, aber die einzelnen Kontakte dieser Gruppe werden in der Hauptliste angezeigt und kÃ¶nnen Ã¼ber Direktlinks erreicht werden (solange die Kontakte selber versteckt sind).',
 'Group Name'=>'Groepnaam',
 'Acronym'=>'Acroniem',
 'Logo URL (future use)'=>'URL voor het logo (toekomstig gebruik)',
@@ -182,7 +182,7 @@ $LANG_TRANSLATION = array
 'First name'=>'Voorletters',
 'Other name(s)'=>'Tussenvoegsel',
 'Prefixes'=>'Titel',
-'Suffixes'=>'Achtervoegsel',
+'Suffixes'=>'Gezinshoofd', //was 'achtervoegsel'
 'Other (nickname, company)'=>'Roepnaam',
 'Sex'=>'Geslacht',
 'N/A'=>'N.v.t.',
