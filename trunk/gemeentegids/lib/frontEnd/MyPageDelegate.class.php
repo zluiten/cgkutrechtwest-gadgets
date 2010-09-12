@@ -31,15 +31,6 @@ function footerCreate()
         $cont .= "        <p class='f_extra'>Page creation time: $time seconds.</p>\n";
         $cont .= "        <p class='f_extra'>" . $CONFIG_FOOTER_HTML . "</p>\n";
 
-        $cont .= '<script type="text/javascript">';
-		$cont .= 'function onLoad() {';
-		$cont .= 'var height = Math.max( document.body.offsetHeight, document.body.scrollHeight );';
-		$cont .= 'parent.resizeFrame();';
-		$cont .= '}';
-
-		$cont .= 'window.onload = onLoad;';
-        
-        $cont .= '</script>';
 */
 
         $cont .= '</div></body></html>';
