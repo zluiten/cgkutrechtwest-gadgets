@@ -91,7 +91,7 @@
 
 		// http://code.google.com/intl/nl/apis/calendar/data/2.0/reference.html
 		// enhanced the query for more correct retrieval of interesing events.
-		var url =  feed_url.replace('/basic','/full')+"?start-min=" + start_min + "&start-max=" + start_max + "&orderby=starttime&singleevents=true";
+		var url =  feed_url.replace('/basic','/full')+"?start-min=" + start_min + "&start-max=" + start_max + "&orderby=starttime&singleevents=true&sortorder=ascending";
 //		var url =  feed_url.replace('/basic','/full');
 		gadgets.io.makeRequest(url, response, params);
 	};
@@ -140,7 +140,7 @@
 		var cstend=pad(cstart.getHours(),1)+":"+pad(cstart.getMinutes(),2)+" tot "+pad(cend.getHours(),1)+":"+pad(cend.getMinutes(),2);
 		html_entry= "<tr><td class=\"agendaitem\"><b>"+cdate+"</b></td><td class=\"agendaitem\">"+title+"</td></tr>";
 		html_entry+= "<tr><td class=\"agendaitem\">"+cwhere+"</td><td class=\"agendaitem\">"+cstend+"</td></tr>";
-		html_rows=html_entry+html_rows;
+		html_rows+=html_entry;
 	}
 
 	html += html_rows + "</table>";
