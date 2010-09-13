@@ -73,7 +73,13 @@
 		if (mon.toString().length == 1) mon = "0" + mon;
 		day = d.getDate();
 		if (day.toString().length == 1) day = "0" + day;
-		return d.getFullYear()+"-"+mon+"-"+day;
+		hour = d.getHours();
+		if (hour.toString().length == 1) hour = "0" + hour;
+		min = d.getMinutes();
+		if (min.toString().length == 1) min = "0" + min;
+		sec = d.getSeconds();
+		if (sec.toString().length == 1) sec = "0" + sec;
+		return d.getFullYear()+"-"+mon+"-"+day+"T"+hour+":"+min+":"+sec;
 	}
 
 	function makeDOMRequest() {
