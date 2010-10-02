@@ -97,7 +97,7 @@
 	};
 
       function response(obj) {
-      	var months=new Array('Jan','Feb','Mrt','Apr','Mei','Jun','Jul','Aug','Sep','Okt','Nov','Dec');
+      	var months=new Array('jan','feb','mrt','apr','mei','jun','jul','aug','sep','okt','nov','dec');
 	var weekday=new Array('Zo','Ma','Di','Wo','Do','Vr','Za');
         // Start building HTML string that will be displayed in <div>.           
         // Set the style for the <div>.        
