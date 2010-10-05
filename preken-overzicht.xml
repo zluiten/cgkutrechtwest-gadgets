@@ -141,10 +141,11 @@
         if (typeof(jsondata[i].link)!='undefined') {
           playinfo = "U luistert naar de dienst van "+cdag+" "+start_t.getHours()+":"+padzero(start_t.getMinutes())+"<br/>";
 	  infodiv+= '<div id="infodiv_'+jsondata[i].start_ts+'" style="display:none">';
-          infodiv+= "Thema: "+jsondata[i].omschrijving+" "+jsondata[i].thema+"<br/>";
-          infodiv+= "Tekst: "+jsondata[i].tekst+"<br/>";
+          infodiv+= "Thema: "+jsondata[i].kerntekst+"<br/>";
+          infodiv+= "Onderwerp: "+jsondata[i].omschrijving+"<br/>";
+          infodiv+= "Bijbelgedeelte: "+jsondata[i].bijbelgedeelte+"<br/>";
           infodiv+= "Voorganger: "+jsondata[i].naam+"<br/>";
-          infodiv+= "Liturgie:<br/><pre>"+jsondata[i].liturgie+"</pre>";
+          infodiv+= "Liturgie:<br/><div style=\"margin-left:15px\">"+jsondata[i].liturgie+"</div>";
 	  infodiv+= '</div>';
           details+='<td class=\"preken\"><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek direct te beluisteren">';
           details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a>&nbsp;<a href="'+jsondata[i].link+'" target="_blank" title="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"><img src="http://info.cgk-utrechtwest.nl/download-for-cd.gif" border="0" alt="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"></a></td>';
