@@ -141,10 +141,10 @@
         if (typeof(jsondata[i].link)!='undefined') {
           playinfo = "U luistert naar de dienst van "+cdag+" "+start_t.getHours()+":"+padzero(start_t.getMinutes())+"<br/>";
 	  infodiv+= '<div id="infodiv_'+jsondata[i].start_ts+'" style="display:none">';
-          infodiv+= "Thema: "+jsondata[i].kerntekst+"<br/>";
           infodiv+= "Onderwerp: "+jsondata[i].omschrijving+"<br/>";
-          infodiv+= "Bijbelgedeelte: "+jsondata[i].bijbelgedeelte+"<br/>";
+          infodiv+= "Kerntekst: "+jsondata[i].kerntekst+"<br/>";
           infodiv+= "Voorganger: "+jsondata[i].naam+"<br/>";
+          infodiv+= "Bijbelgedeelte: "+jsondata[i].bijbelgedeelte+"<br/>";
           infodiv+= "Liturgie:<br/><div style=\"margin-left:15px\">"+jsondata[i].liturgie+"</div>";
 	  infodiv+= '</div>';
           details+='<td class=\"preken\"><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek direct te beluisteren">';
