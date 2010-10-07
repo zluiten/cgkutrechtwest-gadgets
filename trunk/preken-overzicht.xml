@@ -77,10 +77,28 @@
       makeJSONRequest();
     }
 
+    // called when the check if there is a service is done and contains some data
+    // now update the 'live' field with right data.
+    function checkliveresponse(obj) {
+	//obj.text contains the text of the page that was requested  
+	var str = obj.text;
+	if (str=="1") {
+		// show the button, if live is available
+       		document.getElementById('livebutton').style.display='';
+	} else {
+       		document.getElementById('livebutton').style.display='';
+	}
+      	gadgets.window.adjustHeight();
+    }
+
     function checklive() {
 	// from  "http://www.kerkomroep.nl/kerken/kerkstream.pls?id=10452&a=0"
 	// http://stream47.kerkomroep.nl:8007/K10452
 	// check ?
+	url='http://www.kerkomroep.nl/pages/checkuitzenden.php?mp=10452';
+	params={};
+	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
+	gadgets.io.makeRequest(url, checkliveresponse, params);
     }
 
     function response(obj) { 
@@ -94,19 +112,13 @@
       var preferences = new _IG_Prefs();
       var active_view=preferences.getString('active_view');
       var def_details='';
-/*      if (active_view=='archief') {
-	      html+="<tr><th colspan=2 align=\"left\">datum</th><th align=\"left\">voorganger</th><th></th><th>tekst</th></tr>";
-      } else {
-	      html+="<tr><th colspan=2 align=\"left\">datum</th><th align=\"left\">voorganger</th><th></th></tr>";
-      }
-*/
       def_details='';
       infodiv='';
       dagen=0;
+      live_once=0;
       oddrowbg='#FFFFFF';
       evenrowbg='#FFDF97';
       html_rows='';
-      
       var details1=def_details;
       var details2=def_details;
       // Process returned JS object as an associative array
@@ -138,7 +150,7 @@
         info = "<td class=\"preken\" align=\"right\">"+start_t.getHours()+":"+padzero(start_t.getMinutes());
         info+= "</td><td class=\"preken\">"+jsondata[i].naam+"</td>";
 	details='';
-        if (typeof(jsondata[i].link)!='undefined') {
+        if ((typeof(jsondata[i].liturgie)!='undefined') && (jsondata[i].liturgie!='')) {
           playinfo = "U luistert naar de dienst van "+cdag+" "+start_t.getHours()+":"+padzero(start_t.getMinutes())+"<br/>";
 	  infodiv+= '<div id="infodiv_'+jsondata[i].start_ts+'" style="display:none">';
           infodiv+= "Onderwerp: "+jsondata[i].omschrijving+"<br/>";
@@ -147,10 +159,26 @@
           infodiv+= "Bijbelgedeelte: "+jsondata[i].bijbelgedeelte+"<br/>";
           infodiv+= "Liturgie:<br/><div style=\"margin-left:15px\">"+jsondata[i].liturgie+"</div>";
 	  infodiv+= '</div>';
-          details+='<td class=\"preken\"><a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek direct te beluisteren">';
-          details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a>&nbsp;<a href="'+jsondata[i].link+'" target="_blank" title="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"><img src="http://info.cgk-utrechtwest.nl/download-for-cd.gif" border="0" alt="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"></a></td>';
-        } else {
-          details+='<td class=\"preken\"></td>'; 
+          details+='<td class=\"preken\">'; 
+	  if (typeof(jsondata[i].link)!='undefined') {
+             details+='<a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek direct te beluisteren">';
+             details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a>';
+	     details+='&nbsp;<a href="'+jsondata[i].link+'" target="_blank" title="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"><img src="http://info.cgk-utrechtwest.nl/download-for-cd.gif" border="0" alt="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"></a>';
+          } else {
+	    
+	     if (((start_t - (1000 * 60 * 15)) < currentday ) && (currentday < einde_t ) && live_once==0) {
+		 // check if this item is potentially active (or not...)
+		details+='<span id="livebutton" style="display:none"><a href="javascript:play(\''+escape('http://stream47.kerkomroep.nl:8007/K10452')+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek live te beluisteren">';
+		details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a></span>';
+		checklive();
+		live_once=1; // allow live button to be added only once (otherwise the id is not unique, and that makes the check fail
+	     } else {
+		details+='';
+	     }
+	  }
+	  details+='</td>';
+	} else {
+	  details+= '<td class=\"preken\"></td>';
         }
         if (typeof(jsondata[i].omschrijving)!='undefined') {
 	  details+= '<td class=\"preken\">'+jsondata[i].omschrijving+'</td>';
