@@ -173,7 +173,7 @@
 		live_once=1; // allow live button to be added only once (otherwise the id is not unique, and that makes the check fail
 	     } else {
 		// niet actief: alleen liturgie link
-		details+='<a href="javascript:play(\'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek liturgie te bekijken">';
+		details+='<a href="javascript:play(\'\',\'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de liturgie te bekijken">';
 		details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="bekijken"></a>';
 		details+='';
 	     }
