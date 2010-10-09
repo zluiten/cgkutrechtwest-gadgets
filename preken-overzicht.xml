@@ -135,10 +135,10 @@
           if (active_view=='volgende' ) { break; };
           html_entry = '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2) ? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
 	  if (info2!='') {
-	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+dag_info2+'</td>'+info2+""+details2+"</tr>";
+	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken" style="text-align:right">'+dag_info2+'</td>'+info2+""+details2+"</tr>";
 	  }
 	  if (info3!='') {
-	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+dag_info3+'</td>'+info3+""+details3+"</tr>";
+	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken" style="text-align:right">'+dag_info3+'</td>'+info3+""+details3+"</tr>";
 	  }
           if (active_view=='archief') {
 	 	 html_rows = html_entry + html_rows;
@@ -202,9 +202,9 @@
 		}
         }
 	if (jsondata[i].type=='ICF dienst') {
-		dag_info='ICF dienst';
+		dag_info='<I>ICF dienst</I>';
 	} else {
-		dag_info='test';
+		dag_info='&nbsp;';
 	}
         if (ndag!=cdag) {
            info1=info;
@@ -213,20 +213,20 @@
         } else if (details2==def_details) {
            info2=info;
            details2=details;
-           dat_info2=dag_info;
+           dag_info2=dag_info;
         } else {
            info3=info;
            details3=details;
-           dat_info3=dag_info;
+           dag_info3=dag_info;
         }
         ndag=cdag;
       }
       html_entry = '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2) ? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+ndag+"</td>"+info1+""+details1+"</tr>";
       if (info2!='') {
-	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+dag_info2+'</td>'+info2+""+details2+"</tr>";
+	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken" style="text-align:right">'+dag_info2+'</td>'+info2+""+details2+"</tr>";
       }
       if (info3!='') {
-	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken">'+dag_info3+'</td>'+info3+""+details3+"</tr>";
+	          html_entry += '<tr onMouseOver="this.bgColor=\'#FFAC64\';" onMouseOut="this.bgColor=\''+((dagen%2==0 )? evenrowbg : oddrowbg )+'\';" style="background-color:'+((dagen%2==0) ? evenrowbg : oddrowbg )+';"><td class="preken" style="text-align:right">'+dag_info3+'</td>'+info3+""+details3+"</tr>";
       }
       if (active_view=='archief') {
 	 html_rows = html_entry + html_rows;
