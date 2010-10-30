@@ -169,19 +169,19 @@
           details+='<td class=\"preken\">'; 
 	  if (typeof(jsondata[i].link)!='undefined') {
              details+='<a href="javascript:play(\''+escape(jsondata[i].link)+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek direct te beluisteren">';
-             details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a>';
-	     details+='&nbsp;<a href="'+jsondata[i].link+'" target="_blank" title="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"><img src="http://info.cgk-utrechtwest.nl/download-for-cd.gif" border="0" alt="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"></a>';
+             details+='<img src="http://www.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a>';
+	     details+='&nbsp;<a href="'+jsondata[i].link+'" target="_blank" title="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"><img src="http://www.cgk-utrechtwest.nl/download-for-cd.gif" border="0" alt="Gebruik de rechter muisknop om met deze link de preek te kunnen opslaan op uw systeem, om daarna bijvoorbeeld naar CD te kunnen kopieren"></a>';
           } else {
 	     if (((start_t - (1000 * 60 * 15)) < currentday ) && (currentday < einde_t ) && live_once==0) {
 		 // check if this item is potentially active (or not...)
 		details+='<span id="livebutton" style="display:none"><a href="javascript:play(\''+escape('http://stream47.kerkomroep.nl:8007/K10452')+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek live te beluisteren">';
-		details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a></span>';
+		details+='<img src="http://www.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a></span>';
 		checklive();
 		live_once=1; // allow live button to be added only once (otherwise the id is not unique, and that makes the check fail
 	     } else {
 		// niet actief: alleen liturgie link
 		details+='<a href="javascript:play(\'\',\'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de liturgie te bekijken">';
-		details+='<img src="http://info.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="bekijken"></a>';
+		details+='<img src="http://www.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="bekijken"></a>';
 		details+='';
 	     }
 	  }
