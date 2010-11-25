@@ -128,8 +128,8 @@
         if ((active_view=='volgende') && (d<currentday)) { continue; };
         if ((active_view=='archief') && (currentday < d)) { continue; };
         if ((active_view=='toekomst') && (d < currentday )) { continue; };
-        start_t=new Date(jsondata[i].start_ts*1000 + d.getTimezoneOffset()*1000*60);
-        einde_t=new Date(jsondata[i].einde_ts*1000 + d.getTimezoneOffset()*1000*60); 
+        start_t=new Date(jsondata[i].start_ts*1000 );
+        einde_t=new Date(jsondata[i].einde_ts*1000 ); 
         cdag=weekday[start_t.getDay()]+" "+start_t.getDate()+" "+months[ start_t.getMonth() ]+" "+start_t.getFullYear();
         if (ndag!='' && ndag!=cdag) {
           if (active_view=='volgende' ) { break; };
