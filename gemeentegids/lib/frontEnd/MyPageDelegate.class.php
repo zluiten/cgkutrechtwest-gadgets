@@ -33,6 +33,19 @@ function footerCreate()
 
 */
 
+		$cont .= '<script type="text/javascript">';
+
+  		$cont .= 'var _gaq = _gaq || [];';
+  		$cont .= '_gaq.push([\'_setAccount\', \'UA-XXXXX-X\']);';
+  		$cont .= '_gaq.push([\'_trackPageview\']);';
+
+  		$cont .= '(function() {';
+    	$cont .= 'var ga = document.createElement(\'script\'); ga.type = \'text/javascript\'; ga.async = true;';
+    	$cont .= 'ga.src = (\'https:\' == document.location.protocol ? \'https://ssl\' : \'http://www\') + \'.google-analytics.com/ga.js\';';
+    	$cont .= 'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(ga, s);';
+  		$cont .= '})();';
+
+		$cont .= '</script>';
         $cont .= '</div></body></html>';
         return $cont;
     }
