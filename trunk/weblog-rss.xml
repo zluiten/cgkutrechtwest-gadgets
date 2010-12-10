@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs title="RSS | Feed Name" directory_title="RSS_Feed" description="A RSS gadget fetch from RSS source." author="Eric Z." author_email="qzhou8@googlemail.com" author_location="US" screenshot="" thumbnail="http://qzhou8.googlepages.com/tab_rss_thumb.png" title_url="titleurl" height="200" width="370" scrolling="true" singleton="false">
+  <Require feature="dynamic-height"/>
+  <Require feature="setprefs"/>
+  <Require feature="minimessage"/>
+</ModulePrefs>
+<UserPref name="titleurl" display_name="RSS Site URL" default_value="http://www.google.com"/>
+<UserPref name="rssname" display_name="RSS name" default_value="Google Feed"/>
+<UserPref name="rssurl" display_name="RSS URL" datatype="string" default_value="http://rss.news.yahoo.com/rss/topstories"/>
+<UserPref name="entries" display_name="# of Entries" datatype="enum" default_value="6">
+  <EnumValue value="1"/>
+  <EnumValue value="2"/>
+  <EnumValue value="3"/>
+  <EnumValue value="4"/>
+  <EnumValue value="5"/>
+  <EnumValue value="6"/>
+  <EnumValue value="7"/>
+  <EnumValue value="8"/>
+  <EnumValue value="9"/>
+  <EnumValue value="10"/>
+  <EnumValue value="11"/>
+  <EnumValue value="12"/>
+  <EnumValue value="13"/>
+  <EnumValue value="14"/>
+  <EnumValue value="15"/>
+</UserPref>
+<UserPref name="summaries" display_name="Summaries" datatype="enum" default_value="100">
+  <EnumValue value="0" display_value="None"/>
+  <EnumValue value="100" display_value="Short"/>
+  <EnumValue value="300" display_value="Long"/>
+</UserPref>
+<Content type="html"><![CDATA[
+  <style type="text/css">
+   .feedList {
+    font-size:10pt;
+    margin:5px 0px 0px 0px;
+    padding:0px 3px 5px 3px;
+    border-bottom: 1px solid #aaaaaa;
+  }
+  .feedList li {
+    margin-top:5px;
+    padding:0px;
+  }
+  .feedList li a {
+    color: #E25500;
+  }
+  .feedList div.entrySummary {
+    font-size:10pt;
+  }
+  .feedlist div.entryTimestamp {
+    font-size:8pt;
+    font-style:italic;
+    color:#676767;
+  }
+  </style>
+
+  <script>
+  // Global variables
+  var prefs = new _IG_Prefs(__MODULE_ID__);
+  var msg = new _IG_MiniMessage(__MODULE_ID__);
+
+
+  function init() {
+    var feedUrl = _trim(prefs.getString("rssurl"));
+    var summaries = prefs.getInt("summaries");
+    var entries = prefs.getInt("entries");
+    var container = _gel('content_div');
+
+    // Display loading message before fetching feed.
+    container.innerHTML = '<div class="statusLabel">Loading...</div>';
+
+    // Fetch feed and return it as a JSON object.
+    // Callback function is defined within local scope.
+    _IG_FetchFeedAsJSON(
+      feedUrl,
+      function(feed) {
+        if (typeof feed == "undefined" || typeof feed.Entry == "undefined") {
+          container.innerHTML = '<div class="feedList">Invalid feed URL:<br>' + feedUrl + '</div>';
+        } else {
+          // Fetch feed successful.  Generate HTML content from returned JSON object.
+          var html = new Array();
+
+
+          // Iterate through each feed entry and generate list of content.
+          html.push('<ul class="feedList">');
+          for (var n = 0; n < feed.Entry.length; n++) {
+            var entry = feed.Entry[n];
+            var summ=entry.Summary;
+            var summary=summ.replace(/<V?[^>]+>/gi,"");
+
+            var title = _hesc(entry.Title);
+
+            html.push('<li>');
+            html.push('<a target="_top" title="' + _hesc(summary) + '" href="' + entry.Link + '" onclick="itemRead();">' + title + '</a>');
+
+            if (typeof entry.Summary != "undefined" && entry.Summary != "" && summaries > 0) {
+              if (entry.Summary.length > summaries) {
+                html.push('<div class="entrySummary">' + _hesc(summary.substr(0, summaries)) + ' ...</div>');
+              } else {
+                html.push('<div class="entrySummary">' + _hesc(summary) + '</div>');
+              }
+            }
+            if (!isNaN(entry.Date)) {
+              html.push('<div class="entryTimestamp">' + new Date(entry.Date * 1000).toLocaleString() + '</div>');
+            }
+            html.push('</li>');
+          }
+          html.push('</ul>');
+          container.innerHTML = html.join("");
+        }
+
+        // Resize iframe height to fit content.
+        _IG_AdjustIFrameHeight();
+      },
+      entries,
+      1
+    );
+  }
+
+
+  // Set onload event handler to call init()
+  _IG_RegisterOnloadHandler(init);
+  </script>
+  <div id="content_div"></div>
+]]>
+</Content>
+</Module>
