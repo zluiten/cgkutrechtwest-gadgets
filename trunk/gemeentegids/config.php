@@ -108,10 +108,14 @@ $CONFIG_TAB_ROOT = (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] == 'off' ? "ht
 $CONFIG_SEARCH_CUSTOM=array('Occupation','Function','Product','Project');
 
 // How mainlist displays the name of an entry
-$CONFIG_LIST_NAME_SPEC = array('#!expander',' ','#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
-$CONFIG_DATELIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
-$CONFIG_CHANGEDLIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
-$CONFIG_CONTACT_NAME_SPEC = array(array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'), array(' (', 'nickname' ,')'));
+//$CONFIG_LIST_NAME_SPEC = array('#!expander',' ','#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_LIST_NAME_SPEC = array('#!expander',' ','#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname','#!linkEnd',array('<br>','#!groupAcronyms'));
+//$CONFIG_DATELIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_DATELIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname','#!linkEnd',array('<br>','#!groupAcronyms'));
+//$CONFIG_CHANGEDLIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
+$CONFIG_CHANGEDLIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname','#!linkEnd',array('<br>','#!groupAcronyms'));
+//$CONFIG_CONTACT_NAME_SPEC = array(array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'), array(' (', 'nickname' ,')'));
+$CONFIG_CONTACT_NAME_SPEC = array(array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(' (', 'nickname' ,')'));
 
 // LIST_SPECS are used in Contact::generateListRowArray()
 //$CONFIG_LIST_NAME_SPEC = array('#!linkStart',array('namePrefix',' '),array('firstname', ' '),array('middlename', ' '), 'lastname', array(', ', 'nameSuffix'),'#!linkEnd',array('<br>','#!groupAcronyms'));
