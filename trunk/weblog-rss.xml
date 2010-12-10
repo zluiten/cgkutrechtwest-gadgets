@@ -96,7 +96,7 @@
 
             if (typeof entry.Summary != "undefined" && entry.Summary != "" && summaries > 0) {
               if (entry.Summary.length > summaries) {
-                html.push('<div class="entrySummary">' + _hesc(summary.substr(0, summaries)) + ' ...</div>');
+                html.push('<div class="entrySummary">' + _hesc(summary.substr(0, summaries)) + ' ... <a target="_top" href="' + entry.Link + '" onclick="itemRead();">Lees meer</a></div>');
               } else {
                 html.push('<div class="entrySummary">' + _hesc(summary) + '</div>');
               }
