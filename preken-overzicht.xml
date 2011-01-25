@@ -92,7 +92,7 @@
 	// from  "http://www.kerkomroep.nl/kerken/kerkstream.pls?id=10452&a=0"
 	// http://stream47.kerkomroep.nl:8007/K10452
 	// check ?
-	url='http://www.kerkomroep.nl/pages/checkuitzenden.php?mp=10452';
+	url='http://www.kerkomroep.nl/pages/checkuitzenden.php?mp=10452&nocache=1';
 	params={};
 	params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;  
 	gadgets.io.makeRequest(url, checkliveresponse, params);
@@ -174,9 +174,9 @@
           } else {
 	     if (((start_t - (1000 * 60 * 15)) < currentday ) && (currentday < einde_t ) && live_once==0) {
 		 // check if this item is potentially active (or not...)
-		details+='<span id="livebutton" style="display:none"><a href="javascript:play(\''+escape('http://stream47.kerkomroep.nl:8007/K10452')+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek live te beluisteren">';
+		details+='<span id="livebutton" style="display"><a href="javascript:play(\''+escape('http://stream47.kerkomroep.nl:8007/K10452')+'\',\''+escape(playinfo)+'\',\''+escape('infodiv_'+jsondata[i].start_ts)+'\')" title="Klik hier om de preek live te beluisteren">';
 		details+='<img src="http://www.cgk-utrechtwest.nl/play-direct.gif" border="0" alt="afspelen"></a></span>';
-		checklive();
+//		checklive();
 		live_once=1; // allow live button to be added only once (otherwise the id is not unique, and that makes the check fail
 	     } else {
 		// niet actief: alleen liturgie link
