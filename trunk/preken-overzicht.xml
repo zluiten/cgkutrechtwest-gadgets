@@ -157,7 +157,7 @@
         info = "<td class=\"preken\" align=\"right\">"+start_t.getHours()+":"+padzero(start_t.getMinutes());
         info+= "</td><td class=\"preken\">"+jsondata[i].naam+"</td>";
 	details='';
-        if ((typeof(jsondata[i].liturgie)!='undefined') && (jsondata[i].liturgie!='')) {
+        if (((typeof(jsondata[i].liturgie)!='undefined') && (jsondata[i].liturgie!='')) || ((typeof(jsondata[i].link)!='undefined') && jsondata[i].link!='')) {
           playinfo = "U luistert naar de dienst van "+cdag+" "+start_t.getHours()+":"+padzero(start_t.getMinutes())+"<br/>";
 	  infodiv+= '<div id="infodiv_'+jsondata[i].start_ts+'" style="display:none">';
           infodiv+= "Onderwerp: "+jsondata[i].omschrijving+"<br/>";
