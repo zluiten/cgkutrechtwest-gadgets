@@ -53,7 +53,7 @@
       
     function play(myurl,info,infodivid) {
        document.getElementById(infodivid).style.display='';
-       document.getElementById('announcement').style.display='block';
+       document.getElementById('announcement').style.display='';
 	// use Google Reader based flash
        html = info;
        if (myurl!='') {
