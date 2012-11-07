@@ -33,7 +33,7 @@
 	vertical-align:top;
  }
 </style>
-    <div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
+    <div id="announcement">Hoort u niets? Probeer het dan <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">hier</a>.</div><div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
     <script type="text/javascript">
     function makeJSONRequest() {    
       var params = {};
