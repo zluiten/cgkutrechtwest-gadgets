@@ -54,7 +54,7 @@
       
     function play(myurl,info,infodivid) {
        document.getElementById(infodivid).style.display='';
-       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
+       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
 	// use Google Reader based flash
        html = '';
        if (myurl!='') {
