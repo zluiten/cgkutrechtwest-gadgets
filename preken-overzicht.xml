@@ -37,7 +37,7 @@
         font-style: italic;
  }
 </style>
-    <div id="announcement_div">Hoort u niets? Probeer het dan <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">hier</a>.</div><div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
+    <div id="announcement_div"></div><div id="info_divs"></div><div id="player_div" ></div><div id="content_div"></div>
     <script type="text/javascript">
     function makeJSONRequest() {    
       var params = {};
@@ -54,7 +54,7 @@
       
     function play(myurl,info,infodivid) {
        document.getElementById(infodivid).style.display='';
-       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
+       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
 	// use Google Reader based flash
        html = '';
        if (myurl!='') {
