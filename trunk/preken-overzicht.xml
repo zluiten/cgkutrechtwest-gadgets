@@ -54,10 +54,10 @@
       
     function play(myurl,info,infodivid) {
        document.getElementById(infodivid).style.display='';
-       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
 	// use Google Reader based flash
        html = '';
        if (myurl!='') {
+         document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te besluiten<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
 	       myurl+='&autoPlay=true';
 	       html+= '<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
 	       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+myurl+'">';
