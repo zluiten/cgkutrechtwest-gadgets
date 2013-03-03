@@ -60,7 +60,9 @@
 	  if (myurl != '') {
       document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te beluisteren<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
      
-	    myurl = gadgets.util.escapeString(myurl);
+      console.log(myurl);
+	    //myurl = gadgets.util.escapeString(myurl);
+      console.log(myurl);
 		html = gadgets.flash.embedFlash(
 		    'https://prac-gadget.googlecode.com/svn/branches/google-audio.swf?audioUrl=' + myurl,
 			'player_div',
