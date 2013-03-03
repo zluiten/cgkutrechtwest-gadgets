@@ -5,9 +5,11 @@
       description="Overzicht van de diensten in de Christelijke Gereformeerde Kerk te Utrecht-West."
       author="R.Brouwer" 
       author_email="r-gg-cgk@corine-robert.nl">
-   <Require feature="dynamic-height"/>
-   <Require feature="setprefs"/>
-   <Require feature="skins"/>
+   <Require feature="dynamic-height" />
+   <Require feature="setprefs" />
+   <Require feature="skins" />
+   <Require feature="flash" />
+   <Require feature="analytics" />
   </ModulePrefs>
   <UserPref name="jsondatalink" datatype="hidden" 
       required="true"
@@ -22,7 +24,7 @@
   </UserPref>  
   
  <Content type="html">
-  <![CDATA[
+<![CDATA[
 <style type="text/css">
  html,div#content_div,td.preken {
         font-family: Arial,Verdana,sans-serif;
@@ -54,21 +56,22 @@
       
     function play(myurl,info,infodivid) {
        document.getElementById(infodivid).style.display='';
-	// use Google Reader based flash
-       html = '';
-       if (myurl!='') {
-         document.getElementById('announcement_div').innerHTML = info + '<br />Hoort u niets? Probeer dan de stream rechtstreeks te beluisteren<br />door <a href="'+myurl+'" target="_blank">hier</a> te klikken, of kijk op de kerkpagina op <a href="http://www.kerkomroep.nl/#kerk.php?mp=10452" target="_blank">kerkomroep.nl</a>.';
-	       myurl+='&autoPlay=true';
-	       html+= '<br/><object codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" height="27" width="400" align="middle" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000">';
-	       html+= '<param name="Movie" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+myurl+'">';
-	       html+= '<param name="Src" value="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+myurl+'">';
-	       html+= '<param name="AllowScriptAccess" value="false">';
-	       html+= '<embed type="application/x-shockwave-flash" src="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='+myurl+'" allowscriptaccess="never" quality="best" bgcolor="#ffffff" wmode="window" flashvars="playerMode=embedded" pluginspage="http://www.macromedia.com/go/getflashplayer" height="27" width="400">';
-	       html+= '</object>';
-      }
 
-      document.getElementById('player_div').innerHTML = html;
-  
+	  if (myurl != '') {
+	    myurl = gadgets.util.escapeString(myurl);
+		html = gadgets.flash.embedFlash(
+		    'https://prac-gadget.googlecode.com/svn/branches/google-audio.swf?audioUrl=myurl',
+			'player_div',
+			9,
+			{
+			  wmode: 'transparant',
+			  flashvars: 'autoPlay=true',
+			  width: 220,
+			  height: 27
+			}
+	    );
+	  }
+	
       html = '<a href="javascript:showdefault()">terug</a>';
       document.getElementById('content_div').innerHTML = html;
       gadgets.window.adjustHeight();
