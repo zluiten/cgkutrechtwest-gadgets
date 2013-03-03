@@ -60,7 +60,7 @@
 	  if (myurl != '') {
 	    myurl = gadgets.util.escapeString(myurl);
 		html = gadgets.flash.embedFlash(
-		    'https://prac-gadget.googlecode.com/svn/branches/google-audio.swf?audioUrl=myurl',
+		    'https://prac-gadget.googlecode.com/svn/branches/google-audio.swf?audioUrl=' + myurl,
 			'player_div',
 			9,
 			{
