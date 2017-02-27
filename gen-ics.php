@@ -82,7 +82,7 @@ $query="SELECT a.id as UID,
 	ORDER BY start DESC,einde
 	";
 
-$r=mysqli_query($query,$db);
+$r=mysqli_query($db, $query);
 $alarm_on=false;
 $debug=false;
 
