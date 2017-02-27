@@ -9,7 +9,9 @@
    <Require feature="setprefs" />
    <Require feature="skins" />
    <Require feature="flash" />
+<!--
    <Require feature="analytics" />
+-->
   </ModulePrefs>
   <UserPref name="jsondatalink" datatype="hidden" 
       required="true"
