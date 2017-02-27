@@ -42,11 +42,11 @@ $mysql_pwd  = "password";
 $mysql_db   = "thedatabase";
 
 //Connect to the server and log on
-$db = mysql_connect($mysql_host, $mysql_user, $mysql_pwd);
-mysql_select_db($mysql_db, $db);
+$db = mysqli_connect($mysql_host, $mysql_user, $mysql_pwd);
+mysqli_select_db($db, $mysql_db);
 if (!$db) {
 	echo "Activation of $mysql_db failed";
-	mysql_error($db);
+	mysqli_error($db);
 }
 
 $sIcsFile = "cgk-utrechtwest.ics";
@@ -82,7 +82,7 @@ $query="SELECT a.id as UID,
 	ORDER BY start DESC,einde
 	";
 
-$r=mysql_query($query,$db);
+$r=mysqli_query($query,$db);
 $alarm_on=false;
 $debug=false;
 
@@ -97,7 +97,7 @@ if ($r) {
 	require('magpierss-0.72/rss_fetch.inc');
 	$rss = fetch_rss($url);
 
-	while ($r && $info=mysql_fetch_assoc($r)) {
+	while ($r && $info=mysqli_fetch_assoc($r)) {
 
 		if($alarm_on) {
 			$oCal->setAlarm($aText["alarm"]);
@@ -117,14 +117,14 @@ $lastapid=0;
 		fclose($fh);
 	}
 
-	if ($debug) { echo "Found: ". mysql_num_rows($r) ." rows.<br />\n"; }
+	if ($debug) { echo "Found: ". mysqli_num_rows($r) ." rows.<br />\n"; }
 	$oCal->writeCalendar($sIcsFile);
 //	chmod($sIcsFile,0777);
 	if ($debug) { echo "ICS file '".$sIcsFile."' has been created.<br />\n"; }
 } else {
 	echo "Retrieval of data failed<br/>\n";
 	echo "qry: $query<br>\n";
-	echo mysql_error($db);
+	echo mysqli_error($db);
 }
 
 ?>
